@@ -103,7 +103,7 @@ export const ChristmasEveJourney = ({
       story={`You hope Elfward doesn't know the true nature of the advent calendar...`}
     />,
     <Story story={`But you fear the worst.`} />,
-    <Title title="> Goodwill Toward Men." />,
+    <Title title="> GoodWill Toward Men." />,
     <Story story={`Stupid, stupid, STUPID!`} />,
     <Story
       story={`You should have expected Elfward would turn on you eventually.`}
