@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/christmas/static/css/main.9b39a449.css",
-    "main.js": "/christmas/static/js/main.5a2fbc9b.js",
+    "main.js": "/christmas/static/js/main.4ff1dfd4.js",
     "static/media/jazz.mp3": "/christmas/static/media/jazz.41bf468961746e168fa9.mp3",
     "static/media/Krampus.mp3": "/christmas/static/media/Krampus.7a568a878a0e53346ba8.mp3",
     "index.html": "/christmas/index.html",
     "main.9b39a449.css.map": "/christmas/static/css/main.9b39a449.css.map",
-    "main.5a2fbc9b.js.map": "/christmas/static/js/main.5a2fbc9b.js.map"
+    "main.4ff1dfd4.js.map": "/christmas/static/js/main.4ff1dfd4.js.map"
   },
   "entrypoints": [
     "static/css/main.9b39a449.css",
-    "static/js/main.5a2fbc9b.js"
+    "static/js/main.4ff1dfd4.js"
   ]
 }
