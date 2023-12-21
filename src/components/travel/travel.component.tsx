@@ -2,6 +2,10 @@ import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import styles from "./travel.module.css";
 import Krampus from "../../assets/music/Krampus.mp3";
 import Jazz from "../../assets/music/jazz.mp3";
+import Rockin from "../../assets/music/rockinaroundthechristmastree.mp3";
+import SantaBaby from "../../assets/music/santababy.mp3";
+import WhiteChristmas from "../../assets/music/whitechristmas.mp3";
+import Angels from "../../assets/music/angelswehaveheardonhigh.mp3";
 
 interface TravelProps {
   showTree: boolean;
@@ -15,6 +19,10 @@ interface TravelProps {
 
 const jazz = new Audio(Jazz);
 const krampus = new Audio(Krampus);
+const rockin = new Audio(Rockin);
+const santaBaby = new Audio(SantaBaby);
+const whiteChristmas = new Audio(WhiteChristmas);
+const angels = new Audio(Angels);
 
 export const Travel = ({
   storyArray,
@@ -82,7 +90,15 @@ export const Travel = ({
           )}
           <div className="journey">
             {JourneyComponent && (
-              <JourneyComponent index={index} handleEnd={handleEnd} />
+              <JourneyComponent
+                index={index}
+                handleEnd={handleEnd}
+                krampus={krampus}
+                rockin={rockin}
+                santaBaby={santaBaby}
+                whiteChristmas={whiteChristmas}
+                angels={angels}
+              />
             )}
           </div>
         </div>

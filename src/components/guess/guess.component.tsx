@@ -4,6 +4,9 @@ import { FC, useEffect, useState } from "react";
 interface GuessProps {
   setShowElement: (showList: boolean) => void;
   answer: string[];
+  songHandling?: any;
+  song1?: any;
+  song2?: any;
 }
 
 const style = {
@@ -56,7 +59,13 @@ const style = {
   input: { color: "white" },
 };
 
-const Guess: FC<GuessProps> = ({ setShowElement, answer }) => {
+const Guess: FC<GuessProps> = ({
+  setShowElement,
+  answer,
+  songHandling,
+  song1,
+  song2,
+}) => {
   const [theGuess, setTheGuess] = useState("");
   const [error, setError] = useState(false);
 
@@ -68,8 +77,13 @@ const Guess: FC<GuessProps> = ({ setShowElement, answer }) => {
     );
   };
 
+  const handleEnd = (song1: any, song2: any) => {
+    song1 && song2 && songHandling(song1, song2);
+    setShowElement(true);
+  };
+
   const handleGuess = () => {
-    compareValues() ? setShowElement(true) : setError(true);
+    compareValues() ? handleEnd(song1, song2) : setError(true);
   };
 
   useEffect(() => {

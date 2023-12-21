@@ -5,9 +5,19 @@ interface RiddleProps {
   setShowElement: (showList: boolean) => void;
   answer: string[];
   question: any;
+  songHandling?: any;
+  song1?: any;
+  song2?: any;
 }
 
-const Riddle: FC<RiddleProps> = ({ setShowElement, answer, question }) => {
+const Riddle: FC<RiddleProps> = ({
+  setShowElement,
+  answer,
+  question,
+  songHandling,
+  song1,
+  song2,
+}) => {
   return (
     <>
       <div className="riddle">
@@ -15,7 +25,17 @@ const Riddle: FC<RiddleProps> = ({ setShowElement, answer, question }) => {
           <p>{question}</p>
         </span>
 
-        <p>{<Guess setShowElement={setShowElement} answer={answer} />}</p>
+        <p>
+          {
+            <Guess
+              setShowElement={setShowElement}
+              answer={answer}
+              songHandling={songHandling}
+              song1={song1}
+              song2={song2}
+            />
+          }
+        </p>
       </div>
     </>
   );
