@@ -83,14 +83,8 @@ const Guess: FC<GuessProps> = ({
   };
 
   const handleGuess = () => {
-    compareValues() ? handleEnd(song1, song2) : setError(true);
+    compareValues() === true ? handleEnd(song1, song2) : setError(true);
   };
-
-  useEffect(() => {
-    window.addEventListener("keydown", (e) => {
-      e.code === "Enter" ? handleGuess() : setError(false);
-    });
-  });
 
   return (
     <>
@@ -110,7 +104,6 @@ const Guess: FC<GuessProps> = ({
       }
       {
         <Button
-          type="submit"
           variant="contained"
           style={{
             backgroundColor: "inherit",
