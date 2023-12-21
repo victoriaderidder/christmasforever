@@ -4,19 +4,13 @@ import { ThanksgivingJourney } from "./components/journey/thanksgiving-journey.c
 import { ChristmasEveJourney } from "./components/journey/christmas-eve-journey.component";
 import { ChristmasJourney } from "./components/journey/christmas-journey.component";
 import { Travel } from "./components/travel/travel.component";
-import useGlobalState from "./hooks/global-state";
+import { useState } from "react";
 
 function App() {
-  const {
-    showThanksgiving,
-    showChristmas,
-    showChristmasEve,
-    showTree,
-    setShowChristmas,
-    setShowChristmasEve,
-    setShowThanksgiving,
-    setShowTree,
-  } = useGlobalState();
+  const [showTree, setShowTree] = useState(true);
+  const [showThanksgiving, setShowThanksgiving] = useState(false);
+  const [showChristmasEve, setShowChristmasEve] = useState(false);
+  const [showChristmas, setShowChristmas] = useState(false);
 
   return (
     <main className="main">
