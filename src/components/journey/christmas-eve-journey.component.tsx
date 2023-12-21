@@ -189,27 +189,27 @@ export const ChristmasEveJourney = ({
     // <Story
     //   story={`The panel in front of you is playing a Christmas tune...`}
     // />,
-    // <Story story={`It sounds familiar.`} />,
-    // <>
-    //   <div onClick={() => handleRiddle(1)}>
-    //     <Story story={`It's driving you crazy! What could it be?`} />
-    //   </div>
-    // </>,
-    // <Story story={`"Rockin' Around the Christmas Tree!" you exclaim.`} />,
-    // <Story story={`The wall in front of you rumbles.`} />,
-    // <Story
-    //   story={`It splits open to reveal a large room filled with mysterious items.`}
-    // />,
-    // <Story story={`You step inside and start exploring.`} />,
-    // <Story story={`You're surrounded by puzzles: 24 of them, to be exact!`} />,
-    // <Story story={`(You guess you've already done #25.)`} />,
-    // <Story story={`You touch one of the puzzles.`} />,
-    // <Story story={`It pulses, then disappears!`} />,
-    // <Title title="> GoodWill Toward Men." />,
-    // <Story
-    //   story={`You are literally just minding your own business when --`}
-    // />,
-    // <Story story={`Suddenly, the wall in front of you starts to glow.`} />,
+    <Story story={`It sounds familiar.`} />,
+    <>
+      <div onClick={() => handleRiddle(1)}>
+        <Story story={`It's driving you crazy! What could it be?`} />
+      </div>
+    </>,
+    <Story story={`"Rockin' Around the Christmas Tree!" you exclaim.`} />,
+    <Story story={`The wall in front of you rumbles.`} />,
+    <Story
+      story={`It splits open to reveal a large room filled with mysterious items.`}
+    />,
+    <Story story={`You step inside and start exploring.`} />,
+    <Story story={`You're surrounded by puzzles: 24 of them, to be exact!`} />,
+    <Story story={`(You guess you've already done #25.)`} />,
+    <Story story={`You touch one of the puzzles.`} />,
+    <Story story={`It pulses, then disappears!`} />,
+    <Title title="> GoodWill Toward Men." />,
+    <Story
+      story={`You are literally just minding your own business when --`}
+    />,
+    <Story story={`Suddenly, the wall in front of you starts to glow.`} />,
     <Story
       story={`This is the first thing to happen to you in at least a month.`}
     />,
