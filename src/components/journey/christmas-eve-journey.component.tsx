@@ -10,6 +10,7 @@ interface ChristmasEveJourneyProps {
   whiteChristmas: any;
   santaBaby: any;
   angels: any;
+  playSong: any;
 }
 
 export const ChristmasEveJourney = ({
@@ -19,6 +20,7 @@ export const ChristmasEveJourney = ({
   whiteChristmas,
   angels,
   santaBaby,
+  playSong,
 }: ChristmasEveJourneyProps) => {
   const [showStory, setShowStory] = useState(true);
   const [riddle, setRiddle] = useState(<></>);
@@ -26,13 +28,6 @@ export const ChristmasEveJourney = ({
 
   const increment = () => {
     index === storyArray?.length - 1 ? handleEnd() : setIndex(index + 1);
-  };
-
-  const playSong = (song: any, previousSong?: any) => {
-    previousSong.pause();
-    previousSong.currentTime = 0;
-    song.play();
-    song.loop = true;
   };
 
   const handleRiddle = (riddle: number) => {

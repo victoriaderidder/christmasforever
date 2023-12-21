@@ -98,6 +98,7 @@ export const Travel = ({
                 santaBaby={santaBaby}
                 whiteChristmas={whiteChristmas}
                 angels={angels}
+                playSong={playSong}
               />
             )}
           </div>
