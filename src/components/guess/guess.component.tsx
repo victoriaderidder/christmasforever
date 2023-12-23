@@ -86,6 +86,17 @@ const Guess: FC<GuessProps> = ({
     compareValues() === true ? handleEnd(song1, song2) : setError(true);
   };
 
+  const onKeyDown = (event: any) => {
+    event.code === "Enter" && handleGuess();
+  };
+
+  useEffect(() => {
+    window.addEventListener("keydown", onKeyDown);
+    return () => {
+      window.removeEventListener("keydown", onKeyDown);
+    };
+  });
+
   return (
     <>
       {
