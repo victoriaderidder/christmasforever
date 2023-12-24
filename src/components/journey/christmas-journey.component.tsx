@@ -1,6 +1,7 @@
 import Story from "../story/story.component";
 import Title from "../title/title.component";
 import Riddle from "../riddle/riddle.component";
+import squarePuzzle from "../../assets/img/squares.png";
 import { useState } from "react";
 
 interface ChristmasJourneyProps {
@@ -153,7 +154,134 @@ export const ChristmasJourney = ({ handleEnd }: ChristmasJourneyProps) => {
           />
         );
         break;
-
+      case 10:
+        setRiddle(
+          <Riddle
+            question={
+              <>
+                <img src={squarePuzzle} />
+                <br />
+                How many squares do you see?
+              </>
+            }
+            answer={["40", "forty"]}
+            setShowElement={setShowStory}
+          />
+        );
+        break;
+      case 11:
+        setRiddle(
+          <Riddle
+            question={"Who is the Christmas king?"}
+            answer={["stocking"]}
+            setShowElement={setShowStory}
+          />
+        );
+        break;
+      case 12:
+        setRiddle(
+          <Riddle
+            question={
+              <>
+                In our house, all four walls face south.
+                <br />
+                What color is the bear who walks past?
+              </>
+            }
+            answer={["white"]}
+            setShowElement={setShowStory}
+          />
+        );
+        break;
+      case 13:
+        setRiddle(
+          <Riddle
+            question={
+              <>
+                Black as night, white as snow
+                <br />
+                Shrouded in cloaks from head to toe
+                <br />
+                We fly from south, to east, west, north
+                <br />
+                Two of a kind at opposite sides of the earth.
+              </>
+            }
+            answer={["rook", "a rook", "rooks"]}
+            setShowElement={setShowStory}
+          />
+        );
+        break;
+      case 14:
+        setRiddle(
+          <Riddle
+            question={
+              <>
+                Walk on the living, they don't even mumble. <br />
+                Walk on the dead, they mutter and grumble. <br />
+                What are they?
+              </>
+            }
+            answer={["leaves", "leaf"]}
+            setShowElement={setShowStory}
+          />
+        );
+        break;
+      case 15:
+        setRiddle(
+          <Riddle
+            question={"Too much heat may cause me to freeze. What am I?"}
+            answer={[
+              "computer",
+              "a computer",
+              "engine",
+              "an engine",
+              "criminal",
+              "a criminal",
+              "electronics",
+            ]}
+            setShowElement={setShowStory}
+          />
+        );
+        break;
+      case 16:
+        setRiddle(
+          <Riddle
+            question={
+              <>
+                I don't know what I am, but I know what I'm not.
+                <br />
+                I am not a person who likes this season a lot.
+                <br />
+                I am not anyone who brings gifts and cheer.
+                <br />
+                I am not someone that nobody fears.
+                <br />
+                Who am I not?
+              </>
+            }
+            answer={["santa", "santa claus"]}
+            setShowElement={setShowStory}
+          />
+        );
+        break;
+      case 17:
+        setRiddle(
+          <Riddle
+            question={
+              <>
+                To avoid the calf, I veered sharply to the left.
+                <br />
+                Meeting friends after work helps executives network effectively.
+                <br />
+                My parents told me to never cross the road without looking.
+              </>
+            }
+            answer={["521", "5 2 1"]}
+            setShowElement={setShowStory}
+          />
+        );
+        break;
       default:
         return null;
     }
@@ -403,6 +531,120 @@ export const ChristmasJourney = ({ handleEnd }: ChristmasJourneyProps) => {
       story={`You spin GoodWill Toward Men in a circle until he's dizzy.`}
     />,
     <Story story={`When he faces east, you all head that way.`} />,
+    <Title title="> Elfward." />,
+    <Story story={`The next riddle you touch doesn't move.`} />,
+    <Story
+      story={`You've learned from experience that this is for you to solve.`}
+    />,
+    <Story story={`You can see the mysterious teddy bear scribbling again.`} />,
+    <Story story={`You figure you'll give him a taste of his own medicine.`} />,
+    <Story story={`You offer your riddle to him...`} />,
+    <Title title="> Mysterious Teddy Bear." />,
+    <Story story={`Your VERY OWN RIDDLE?!?!`} />,
+    <Story
+      story={`You are so overcome with emotion you don't even know what to do.`}
+    />,
+    <Story
+      story={`If you could cry, there would be tears in your little button eyes.`}
+    />,
+    <>
+      <div onClick={() => handleRiddle(9)}>
+        <Story story={`You gently reach out for the riddle...`} />
+      </div>
+    </>,
+    <Story story={`You are so happy. You are so proud.`} />,
+    <Story
+      story={`Though you have lived here for many years, you never thought about solving the riddles.`}
+    />,
+    <Story story={`(After all, your brain is full of fluff.)`} />,
+    <Story
+      story={`But now that you have a taste for riddles, you want to solve them all!!!`}
+    />,
+    <Title title="> Santa Squad." />,
+    <Story
+      story={`You have been walking down the passage for some time now.`}
+    />,
+    <>
+      <div onClick={() => handleRiddle(10)}>
+        <Story story={`You reach a door with a mysterious pattern on it...`} />
+      </div>
+    </>,
+    <Story story={`The door opens, revealing...`} />,
+    <Story story={`Many more doors.`} />,
+    <Story
+      story={`A room containing a large number of square doors, in fact.`}
+    />,
+    <Story story={`All adorned with backwards numbers.`} />,
+    <Story story={`Time to get excited:`} />,
+    <Story story={`This must be the front of the advent calendar!`} />,
+    <Story
+      story={`Some of the doors are already open, but they lead to nothing.`}
+    />,
+    <Story story={`You all count to find there are still 9 doors closed.`} />,
+    <Story story={`One of the doors begins shaking.`} />,
+    <>
+      <div onClick={() => handleRiddle(11)}>
+        <Story story={`It opens to reveal a riddle inside:`} />
+      </div>
+    </>,
+    <Title title="> Elfward." />,
+    <Story story={`This whole thing has been such a bust.`} />,
+    <Story story={`You're almost out of riddles and for what?`} />,
+    <Story
+      story={`You don't think your friends understood the point at all.`}
+    />,
+    <Story story={`Now you might have ruined Christmas for nothing.`} />,
+    <Story
+      story={`You wanted to leave the North Pole, but not in disgrace...`}
+    />,
+    <Story story={`The teddy bear seems to sense your distress.`} />,
+    <Story story={`He places his paw gently on your shoulder.`} />,
+    <Story
+      story={`You look at the teddy bear -- really look at him -- for the first time.`}
+    />,
+    <Story story={`Something about him seems familiar...`} />,
+    <Story story={`You just can't think of what it might be.`} />,
+    <Title title="> Mysterious Teddy Bear." />,
+    <Story story={`You pity this little elf.`} />,
+    <Story story={`You know just what will make him feel better.`} />,
+    <>
+      <div onClick={() => handleRiddle(12)}>
+        <Story story={`Another handmade riddle!!!`} />
+      </div>
+    </>,
+    <Title title="> Elfward." />,
+    <Story story={`At least his riddles are getting a little better.`} />,
+    <Story story={`The next riddle you touch doesn't go anywhere either.`} />,
+    <>
+      <div onClick={() => handleRiddle(13)}>
+        <Story story={`This calendar must really want you to solve it...`} />
+      </div>
+    </>,
+
+    <Story story={`The advent calendar begins to rumble and shake.`} />,
+    <Story story={`It feels like it's coming down around you!`} />,
+    <Story story={`The door reading 24 flies open.`} />,
+    <Story story={`You can see the North Pole through the door.`} />,
+    <Story story={`You all leap through the door...`} />,
+    <Story story={`...and suddenly, you're all back!`} />,
+    <Title title="> La Befellena." />,
+    <Story story={`Something is wrong.`} />,
+    <Story story={`The advent calendar is still shaking on the floor.`} />,
+    <Story
+      story={`It's shaking violently, like something is trying to come through...`}
+    />,
+    <Story story={`You try to close the door!`} />,
+    <Story story={`But it's too late.`} />,
+    <Story story={`A small, mysterious teddy bear tumbles out.`} />,
+    <Story story={`And the advent calendar is silent.`} />,
+    <Title title="> Elfward." />,
+    <Story story={`You are still inside the advent calendar.`} />,
+    <Story story={`Everything has gone quiet.`} />,
+    <Story story={`The room you're in is now completely empty.`} />,
+    <Story story={`And there's no way out.`} />,
+    <Story story={`This is not the retirement you'd hoped for...`} />,
+    <Title title="> Mysterious Teddy Bear." />,
+    <Story story={`You are not quite yourself anymore.`} />,
 
     <>
       <span onClick={() => handleEnd()}>
