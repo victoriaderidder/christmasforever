@@ -264,7 +264,7 @@ export const ChristmasEveJourney = ({
     <Story story={`How will you choose which path to take?`} />,
     <Story story={`It's probably better to just stay where you are.`} />,
     <Title title="> Elfward." />,
-    <Story story={`That's 5 riddles down and 20 to go.`} />,
+    <Story story={`That's 5 riddles down and 19 to go.`} />,
     <Story
       story={`You're not sure what happens when you solve the last one.`}
     />,

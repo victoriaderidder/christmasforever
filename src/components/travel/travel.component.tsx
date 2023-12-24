@@ -56,13 +56,13 @@ export const Travel = ({
       krampus.currentTime = 0;
       jazz.play();
       jazz.loop = true;
-    } else if (journeyName === "Christmas Eve") {
+    } else if (journeyName === "Christmas Eve" || journeyName === "Christmas") {
       jazz.pause();
       jazz.currentTime = 0;
       krampus.play();
       krampus.loop = true;
     }
-  }, []);
+  }, [journeyName]);
 
   const handleEnd = () => {
     if (journeyName === "Thanksgiving") {
