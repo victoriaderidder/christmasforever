@@ -1,12 +1,12 @@
 import { Dispatch, SetStateAction, useEffect } from "react";
 import styles from "./travel.module.css";
-import Krampus from "../../assets/music/Krampus.mp3";
+import Krampus from "../../assets/music/krampus.mp3";
 import Jazz from "../../assets/music/jazz.mp3";
 import Rockin from "../../assets/music/rockinaroundthechristmastree.mp3";
 import SantaBaby from "../../assets/music/santababy.mp3";
 import WhiteChristmas from "../../assets/music/whitechristmas.mp3";
 import Angels from "../../assets/music/angelswehaveheardonhigh.mp3";
-import Finale from "../../assets/music/DeckTheHalls.mp3";
+import Finale from "../../assets/music/deckthehalls.mp3";
 
 interface TravelProps {
   showTree: boolean;
