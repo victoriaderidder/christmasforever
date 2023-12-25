@@ -6,9 +6,17 @@ import { useState } from "react";
 
 interface ChristmasJourneyProps {
   handleEnd: any;
+  playSong: any;
+  finale: any;
+  krampus: any;
 }
 
-export const ChristmasJourney = ({ handleEnd }: ChristmasJourneyProps) => {
+export const ChristmasJourney = ({
+  handleEnd,
+  playSong,
+  finale,
+  krampus,
+}: ChristmasJourneyProps) => {
   const [showStory, setShowStory] = useState(true);
   const [riddle, setRiddle] = useState(<></>);
   const [index, setIndex] = useState(Number);
@@ -159,7 +167,7 @@ export const ChristmasJourney = ({ handleEnd }: ChristmasJourneyProps) => {
           <Riddle
             question={
               <>
-                <img src={squarePuzzle} />
+                <img src={squarePuzzle} alt="square puzzle" />
                 <br />
                 How many squares do you see?
               </>
@@ -763,6 +771,7 @@ export const ChristmasJourney = ({ handleEnd }: ChristmasJourneyProps) => {
     <Story story={`Gifts are given to children who don't deserve them.`} />,
     <Story story={`And children are no longer punished as they should be.`} />,
     <Story story={`This must be made right.`} />,
+    <Story story={`It's time to take the North Pole back.`} />,
     <Title title="> Santa Lizzy." />,
     <Story story={`You recognize this mysterious teddy bear.`} />,
     <Story
@@ -779,6 +788,7 @@ export const ChristmasJourney = ({ handleEnd }: ChristmasJourneyProps) => {
     <Story story={`Your heart aches for him.`} />,
     <Story story={`A teddy bear is meant for the love of a child.`} />,
     <Story story={`And this one must have been so lonely.`} />,
+
     <Title title="> GoodWill Toward Men." />,
     <Story story={`Suddenly, Elfward tumbles out of the advent calendar!`} />,
     <Story story={`You rush to arrest him.`} />,
@@ -788,13 +798,47 @@ export const ChristmasJourney = ({ handleEnd }: ChristmasJourneyProps) => {
     <Story story={`You settle for tackling him to the ground.`} />,
     <Title title="> Elfward." />,
     <Story story={`You suppose you deserve this.`} />,
-
-    <Title title="> Santa Lizzy." />,
-    <Story story={`You remember that this teddy bear is battery powered.`} />,
+    <Story
+      story={`Santa Lizzy reminds you that you were the one who made the teddy bear.`}
+    />,
+    <Story
+      story={`And every toy made by an elf at the North Pole has one thing in common.`}
+    />,
+    <Story story={`They have a secret reset code.`} />,
+    <Story story={`(Just in case of rogue sentient robots and such.)`} />,
+    <>
+      <div onClick={() => handleRiddle(19)}>
+        <Story story={`It's always a 3 digit numeric code...`} />
+      </div>
+    </>,
+    <Story story={`"521!" you shout.`} />,
+    <>
+      <div onClick={() => playSong(finale, krampus)}>
+        <Story story={`The teddy bear slumps to the ground.`} />{" "}
+      </div>
+    </>,
 
     <Title title="> La Befellena." />,
-    <Story story={`It takes some time, but you're able to `} />,
-
+    <Story
+      story={`You're able to work your magic to banish Krampus forever.`}
+    />,
+    <Story story={`As for the advent calendar, it's harmless now.`} />,
+    <Story story={`But you destroy it just to be extra sure.`} />,
+    <Story
+      story={`Plus you're kinda mad about the whole trapped for a month thing.`}
+    />,
+    <Title title="> No Longer Mysterious Teddy Bear." />,
+    <Story story={`You don't remember anything that's happened here.`} />,
+    <Story story={`As far as you're concerned, you were born today.`} />,
+    <Story
+      story={`It's Christmas Eve, and you're so excited to go out on the sleigh!`}
+    />,
+    <Story story={`You'd love to be a beloved toy.`} />,
+    <Story
+      story={`Occasionally you think you might feel something...strange inside you.`}
+    />,
+    <Story story={`But surely not.`} />,
+    <Story story={`You're just a teddy bear, after all.`} />,
     <Title title="> Elfward." />,
     <Story
       story={`You spend quite a bit of time thinking about improving your communication skills.`}
@@ -803,14 +847,36 @@ export const ChristmasJourney = ({ handleEnd }: ChristmasJourneyProps) => {
     <Story story={`You apologize profusely.`} />,
     <Story story={`They suggest you retire to Banff or Juneau.`} />,
     <Story story={`You quite like those suggestions...`} />,
+    <Story story={`But you find yourself thinking about the teddy bear.`} />,
     <Story
-      story={`Santa Lizzy reminds you that you were the one who made the mysterious teddy bear.`}
+      story={`You're the only one who could have remembered that override code...`}
     />,
-    <Story story={`When the teddy bear is revived, you go to see him.`} />,
-
+    <Story story={`You suppose they might just need you here after all.`} />,
+    <Story story={`Maybe you'll even try for head elf again!`} />,
+    <Title title="> GoodWill Toward Men." />,
+    <Story story={`You advocate to have Elfward put to death.`} />,
+    <Story story={`But despite the OBVIOUS SECURITY RISK!!!`} />,
+    <Story story={`Everybody else insists that is "too extreme."`} />,
+    <Story story={`You are furious at this lack of consequences.`} />,
+    <Story story={`You'll be watching Elfward very closely from now on...`} />,
+    <Title title="> Santa Lizzy." />,
+    <Story story={`You're just happy to be back in time for Christmas.`} />,
+    <Story story={`You're happy Elfward has come to his senses.`} />,
+    <Story
+      story={`And you're happy the teddy bear has been freed from the calendar.`}
+    />,
+    <Story story={`You can't stand to think of a toy in pain.`} />,
+    <Story story={`You have just the right child in mind for him.`} />,
+    <Story story={`You can't wait to bring joy to both child and bear!`} />,
+    <Story story={`Your sleigh is packed to the brim.`} />,
+    <Story story={`You and La Befellena rise into the air.`} />,
+    <Story story={`The elves cheer you from below.`} />,
+    <Story story={`The teddy bear rides happily in the back.`} />,
     <>
       <span onClick={() => handleEnd()}>
-        <Story story={`temp end`} />
+        <Story
+          story={`You just know it's going to be a very merry Christmas!!!`}
+        />
       </span>
     </>,
   ];

@@ -6,6 +6,7 @@ import Rockin from "../../assets/music/rockinaroundthechristmastree.mp3";
 import SantaBaby from "../../assets/music/santababy.mp3";
 import WhiteChristmas from "../../assets/music/whitechristmas.mp3";
 import Angels from "../../assets/music/angelswehaveheardonhigh.mp3";
+import Finale from "../../assets/music/DeckTheHalls.mp3";
 
 interface TravelProps {
   showTree: boolean;
@@ -23,6 +24,7 @@ const rockin = new Audio(Rockin);
 const santaBaby = new Audio(SantaBaby);
 const whiteChristmas = new Audio(WhiteChristmas);
 const angels = new Audio(Angels);
+const finale = new Audio(Finale);
 
 export const Travel = ({
   storyArray,
@@ -46,6 +48,7 @@ export const Travel = ({
 
   const playSong = (song: any, previousSong?: any) => {
     previousSong.pause();
+    previousSong.currentTime = 0;
     song.play();
     song.loop = true;
   };
@@ -53,11 +56,15 @@ export const Travel = ({
   useEffect(() => {
     if (journeyName === "Thanksgiving") {
       krampus.pause();
+      finale.pause();
       krampus.currentTime = 0;
+      finale.currentTime = 0;
       jazz.play();
       jazz.loop = true;
     } else if (journeyName === "Christmas Eve" || journeyName === "Christmas") {
       jazz.pause();
+      finale.pause();
+      finale.currentTime = 0;
       jazz.currentTime = 0;
       krampus.play();
       krampus.loop = true;
@@ -68,9 +75,6 @@ export const Travel = ({
     if (journeyName === "Thanksgiving") {
       playSong(krampus, jazz);
     }
-    // } else if (journeyName === "Christmas Eve") {
-    //   playSong(jazz, krampus);
-    // }
     setShowTree(true);
     setShowJourney(false);
   };
@@ -98,6 +102,7 @@ export const Travel = ({
                 santaBaby={santaBaby}
                 whiteChristmas={whiteChristmas}
                 angels={angels}
+                finale={finale}
                 playSong={playSong}
               />
             )}

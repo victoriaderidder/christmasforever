@@ -30,14 +30,14 @@
 .present2 {
   position: absolute;
   margin-left: 50px;
-  animation-name: grow;
-  animation-duration: 3s;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
-  z-index: 3;
 }
 
 .present3 {
   position: absolute;
   margin-left: 200px;
+  animation-name: grow;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  z-index: 3;
 }
