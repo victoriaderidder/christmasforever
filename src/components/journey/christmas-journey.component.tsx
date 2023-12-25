@@ -218,8 +218,7 @@ export const ChristmasJourney = ({ handleEnd }: ChristmasJourneyProps) => {
             question={
               <>
                 Walk on the living, they don't even mumble. <br />
-                Walk on the dead, they mutter and grumble. <br />
-                What are they?
+                Walk on the dead, they mutter and grumble.
               </>
             }
             answer={["leaves", "leaf"]}
@@ -251,7 +250,7 @@ export const ChristmasJourney = ({ handleEnd }: ChristmasJourneyProps) => {
               <>
                 I don't know what I am, but I know what I'm not.
                 <br />
-                I am not a person who likes this season a lot.
+                I am not somebody who likes this season a lot.
                 <br />
                 I am not anyone who brings gifts and cheer.
                 <br />
@@ -266,6 +265,44 @@ export const ChristmasJourney = ({ handleEnd }: ChristmasJourneyProps) => {
         );
         break;
       case 17:
+        setRiddle(
+          <Riddle
+            question={
+              <>
+                If you're good, you needn't fear me.
+                <br />
+                If you're bad, you will be seeing me.
+                <br />
+                On Christmas Eve only I will smile.
+                <br />
+                Spare the rod and spoil the child.
+              </>
+            }
+            answer={["krampus"]}
+            setShowElement={setShowStory}
+          />
+        );
+        break;
+      case 18:
+        setRiddle(
+          <Riddle
+            question={
+              <>
+                If you throw me out the window,
+                <br />
+                I'll leave a grieving wife.
+                <br />
+                But bring me back through the door,
+                <br />
+                And you'll see someone giving life.
+              </>
+            }
+            answer={["n", "the letter n"]}
+            setShowElement={setShowStory}
+          />
+        );
+        break;
+      case 19:
         setRiddle(
           <Riddle
             question={
@@ -620,7 +657,72 @@ export const ChristmasJourney = ({ handleEnd }: ChristmasJourneyProps) => {
         <Story story={`This calendar must really want you to solve it...`} />
       </div>
     </>,
-
+    <Story story={`The riddles are humming excitedly.`} />,
+    <Story story={`As if they're excited to be solved.`} />,
+    <Story story={`Several fly away without even being touched...`} />,
+    <Title title="> Santa Squad." />,
+    <Story story={`Three doors fly open at once.`} />,
+    <Story story={`You split up to handle the riddles.`} />,
+    <Title title="> GoodWill Toward Men." />,
+    <>
+      <div onClick={() => handleRiddle(14)}>
+        <Story
+          story={`You are confident in your ability to solve any riddle.`}
+        />
+      </div>
+    </>,
+    <Title title="> Santa Lizzy." />,
+    <>
+      <div onClick={() => handleRiddle(15)}>
+        <Story story={`You just want to go home...`} />
+      </div>
+    </>,
+    <Title title="> La Befellena." />,
+    <Story story={`You approach your riddle with trepidation.`} />,
+    <>
+      <div onClick={() => handleRiddle(16)}>
+        <Story story={`Something just seems a little off about this...`} />
+      </div>
+    </>,
+    <Story story={`You feel very uneasy about your answer.`} />,
+    <Story
+      story={`It's as if whatever lives in this advent calendar was talking to you.`}
+    />,
+    <Story story={`As if it wants you to be afraid.`} />,
+    <Story story={`You are quite sure you know what this entity is now.`} />,
+    <Story story={`But you wouldn't dare to speak it aloud.`} />,
+    <Title title="> Elfward." />,
+    <Story story={`This next riddle is for you.`} />,
+    <>
+      <div onClick={() => handleRiddle(17)}>
+        <Story story={`It seems quite different from the rest...`} />
+      </div>
+    </>,
+    <Story story={`You know the answer, but how could you say it?`} />,
+    <Story story={`Suddenly you're filled with dread.`} />,
+    <Story story={`How could he be behind this advent calendar?`} />,
+    <Story story={`How could you have helped him?`} />,
+    <Story story={`The riddle rumbles in your hands.`} />,
+    <Story story={`It demands an answer.`} />,
+    <Title title="> Mysterious Teddy Bear." />,
+    <Story story={`The elf stares grimly at the riddle.`} />,
+    <Story story={`You don't know much, but you know something is wrong.`} />,
+    <Story story={`Maybe he doesn't know the answer.`} />,
+    <Story story={`You look over his shoulder.`} />,
+    <Story
+      story={`After some consideration, it occurs to you that you know the answer!`}
+    />,
+    <Story story={`It takes you some effort, but you manage to say it...`} />,
+    <Story story={`And then everything goes black.`} />,
+    <Title title="> Elfward." />,
+    <Story
+      story={`When the teddy bear speaks, a dark energy explodes out of the riddle.`}
+    />,
+    <Story story={`It enters the teddy bear through his mouth.`} />,
+    <Story story={`And then suddenly everything is gone --`} />,
+    <Story story={` -- the teddy bear, the puzzles --`} />,
+    <Story story={`And you're alone.`} />,
+    <Title title="> Santa Squad." />,
     <Story story={`The advent calendar begins to rumble and shake.`} />,
     <Story story={`It feels like it's coming down around you!`} />,
     <Story story={`The door reading 24 flies open.`} />,
@@ -642,9 +744,69 @@ export const ChristmasJourney = ({ handleEnd }: ChristmasJourneyProps) => {
     <Story story={`Everything has gone quiet.`} />,
     <Story story={`The room you're in is now completely empty.`} />,
     <Story story={`And there's no way out.`} />,
-    <Story story={`This is not the retirement you'd hoped for...`} />,
+    <Story story={`This is not the retirement you'd hoped for.`} />,
+    <Story story={`You scour the pitch black room for something, anything.`} />,
+    <>
+      <div onClick={() => handleRiddle(18)}>
+        <Story story={`Something glows faintly in the corner...`} />
+      </div>
+    </>,
+    <Story story={`The floor opens up!`} />,
+    <Story story={`You tumble down, and down, and down...`} />,
     <Title title="> Mysterious Teddy Bear." />,
     <Story story={`You are not quite yourself anymore.`} />,
+    <Story
+      story={`There are many conflicting thoughts in your little bear head.`}
+    />,
+    <Story story={`But one thing is very clear:`} />,
+    <Story story={`Christmas is a travesty.`} />,
+    <Story story={`Gifts are given to children who don't deserve them.`} />,
+    <Story story={`And children are no longer punished as they should be.`} />,
+    <Story story={`This must be made right.`} />,
+    <Title title="> Santa Lizzy." />,
+    <Story story={`You recognize this mysterious teddy bear.`} />,
+    <Story
+      story={`You remember every toy ever made at the North Pole, after all.`}
+    />,
+    <Story story={`This teddy bear was made here hundreds of years ago.`} />,
+    <Story story={`He had been meant for a little girl long gone.`} />,
+    <Story
+      story={`How could he have wound up in this ancient advent calendar?`}
+    />,
+    <Story story={`You guess he must have wandered away somehow...`} />,
+    <Story story={`Maybe touched the pretty carvings...`} />,
+    <Story story={`And that could have been enough.`} />,
+    <Story story={`Your heart aches for him.`} />,
+    <Story story={`A teddy bear is meant for the love of a child.`} />,
+    <Story story={`And this one must have been so lonely.`} />,
+    <Title title="> GoodWill Toward Men." />,
+    <Story story={`Suddenly, Elfward tumbles out of the advent calendar!`} />,
+    <Story story={`You rush to arrest him.`} />,
+    <Story
+      story={`Unfortunately, your cuffs must have gotten lost at some point.`}
+    />,
+    <Story story={`You settle for tackling him to the ground.`} />,
+    <Title title="> Elfward." />,
+    <Story story={`You suppose you deserve this.`} />,
+
+    <Title title="> Santa Lizzy." />,
+    <Story story={`You remember that this teddy bear is battery powered.`} />,
+
+    <Title title="> La Befellena." />,
+    <Story story={`It takes some time, but you're able to `} />,
+
+    <Title title="> Elfward." />,
+    <Story
+      story={`You spend quite a bit of time thinking about improving your communication skills.`}
+    />,
+    <Story story={`You talk things over with your friends.`} />,
+    <Story story={`You apologize profusely.`} />,
+    <Story story={`They suggest you retire to Banff or Juneau.`} />,
+    <Story story={`You quite like those suggestions...`} />,
+    <Story
+      story={`Santa Lizzy reminds you that you were the one who made the mysterious teddy bear.`}
+    />,
+    <Story story={`When the teddy bear is revived, you go to see him.`} />,
 
     <>
       <span onClick={() => handleEnd()}>
