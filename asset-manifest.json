@@ -1,19 +1,21 @@
 {
   "files": {
-    "main.css": "/christmas/static/css/main.fe670e55.css",
-    "main.js": "/christmas/static/js/main.8e88e00d.js",
+    "main.css": "/christmas/static/css/main.ef9c16ad.css",
+    "main.js": "/christmas/static/js/main.97d9156d.js",
     "static/media/jazz.mp3": "/christmas/static/media/jazz.41bf468961746e168fa9.mp3",
     "static/media/angelswehaveheardonhigh.mp3": "/christmas/static/media/angelswehaveheardonhigh.9b259fb288cb63a49236.mp3",
     "static/media/Krampus.mp3": "/christmas/static/media/Krampus.7a568a878a0e53346ba8.mp3",
     "static/media/santababy.mp3": "/christmas/static/media/santababy.7ba35a109fc5c03ee295.mp3",
     "static/media/whitechristmas.mp3": "/christmas/static/media/whitechristmas.5299d06fdf07c014bed2.mp3",
+    "static/media/DeckTheHalls.mp3": "/christmas/static/media/DeckTheHalls.73e37a6c461e22ed1751.mp3",
     "static/media/rockinaroundthechristmastree.mp3": "/christmas/static/media/rockinaroundthechristmastree.6def8c823ca4054e4701.mp3",
+    "static/media/squares.png": "/christmas/static/media/squares.6e2a4ec6e0ebd45cef47.png",
     "index.html": "/christmas/index.html",
-    "main.fe670e55.css.map": "/christmas/static/css/main.fe670e55.css.map",
-    "main.8e88e00d.js.map": "/christmas/static/js/main.8e88e00d.js.map"
+    "main.ef9c16ad.css.map": "/christmas/static/css/main.ef9c16ad.css.map",
+    "main.97d9156d.js.map": "/christmas/static/js/main.97d9156d.js.map"
   },
   "entrypoints": [
-    "static/css/main.fe670e55.css",
-    "static/js/main.8e88e00d.js"
+    "static/css/main.ef9c16ad.css",
+    "static/js/main.97d9156d.js"
   ]
 }
