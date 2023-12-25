@@ -2,6 +2,6 @@ This Christmas-themed text-based adventure is a continuation of my [2022 Christm
 
 This adventure was designed to be played on three separate days: Thanksgiving, Christmas Eve, and Christmas. Riddles begin on Christmas Eve and continue into Christmas.
 
-If you're stuck, no need to panic! You can type 'skip' into any text box to move forward. However, I recommend giving it your best shot for the intended experience.
+If you're stuck, no need to panic! You can type 'skip' into any text box to move forward. However, I recommend giving it your best shot first.
 
 Good luck!
