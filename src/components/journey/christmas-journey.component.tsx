@@ -559,9 +559,7 @@ export const ChristmasJourney = ({
     <Story story={`The elves cheer you from below.`} />,
     <Story story={`The teddy bear rides happily in the back.`} />,
     <>
-      <span onClick={() => handleEnd()}>
-        You just know it's going to be a very merry Christmas!!!
-      </span>
+      <span>You just know it's going to be a very merry Christmas!!!</span>
     </>,
   ];
 
