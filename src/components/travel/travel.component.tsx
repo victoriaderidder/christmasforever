@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction, useEffect, useState } from "react";
+import { Dispatch, SetStateAction, useEffect } from "react";
 import styles from "./travel.module.css";
 import Krampus from "../../assets/music/Krampus.mp3";
 import Jazz from "../../assets/music/jazz.mp3";
@@ -13,7 +13,6 @@ interface TravelProps {
   setShowTree: Dispatch<SetStateAction<boolean>>;
   showJourney?: boolean;
   setShowJourney: Dispatch<SetStateAction<boolean>>;
-  storyArray?: any;
   JourneyComponent?: any;
   journeyName: string;
 }
@@ -27,15 +26,11 @@ const angels = new Audio(Angels);
 const finale = new Audio(Finale);
 
 export const Travel = ({
-  storyArray,
-  showJourney,
   JourneyComponent,
   setShowTree,
   setShowJourney,
   journeyName,
 }: TravelProps) => {
-  const [index, setIndex] = useState(Number);
-
   const getJourneyClass = () => {
     if (journeyName === "Thanksgiving") {
       return styles.thanksgiving;
@@ -79,23 +74,13 @@ export const Travel = ({
     setShowJourney(false);
   };
 
-  const increment = () => {
-    index === storyArray?.length - 1 ? handleEnd() : setIndex(index + 1);
-  };
-
   return (
     <>
       <div className={`${styles.app} ${getJourneyClass()}`}>
         <div className={styles.appHeader}>
-          {storyArray && (
-            <div className="journey" onClick={increment}>
-              {storyArray && storyArray[index]}
-            </div>
-          )}
           <div className="journey">
             {JourneyComponent && (
               <JourneyComponent
-                index={index}
                 handleEnd={handleEnd}
                 krampus={krampus}
                 rockin={rockin}

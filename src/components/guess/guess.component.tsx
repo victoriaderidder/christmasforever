@@ -87,7 +87,7 @@ const Guess: FC<GuessProps> = ({
   };
 
   const onKeyDown = (event: any) => {
-    event.code === "Enter" && handleGuess();
+    event.code === "Enter" ? handleGuess() : setError(false);
   };
 
   useEffect(() => {

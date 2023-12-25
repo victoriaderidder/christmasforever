@@ -33,7 +33,7 @@ function App() {
           showJourney={showThanksgiving}
           setShowJourney={setShowThanksgiving}
           journeyName="Thanksgiving"
-          storyArray={ThanksgivingJourney}
+          JourneyComponent={ThanksgivingJourney}
         />
       )}
       {showChristmasEve && (

@@ -1,15 +1,8 @@
 import Story from "../story/story.component";
 import Title from "../title/title.component";
-import Riddle from "../riddle/riddle.component";
-import squarePuzzle from "../../assets/img/squares.png";
+import { ChristmasJourneyProps } from "./journey.types";
+import { handleChristmasRiddle } from "./utils/christmas-riddle-utils";
 import { useState } from "react";
-
-interface ChristmasJourneyProps {
-  handleEnd: any;
-  playSong: any;
-  finale: any;
-  krampus: any;
-}
 
 export const ChristmasJourney = ({
   handleEnd,
@@ -23,313 +16,6 @@ export const ChristmasJourney = ({
 
   const increment = () => {
     index === storyArray?.length - 1 ? handleEnd() : setIndex(index + 1);
-  };
-
-  const handleRiddle = (riddle: number) => {
-    setShowStory(false);
-    switch (riddle) {
-      case 1:
-        setRiddle(
-          <Riddle
-            question={"Why didn't the teddy bear eat his lunch?"}
-            answer={["stuffed", "he was stuffed", "because he was stuffed"]}
-            setShowElement={setShowStory}
-          />
-        );
-        break;
-      case 2:
-        setRiddle(
-          <Riddle
-            question={
-              <>
-                <p>D, D, P, V, C, C, D, ?, R</p>
-                <p>
-                  To show your understanding, you'll need more than just the
-                  letter…
-                </p>
-              </>
-            }
-            answer={["blitzen"]}
-            setShowElement={setShowStory}
-          />
-        );
-        break;
-      case 3:
-        setRiddle(
-          <Riddle
-            question={
-              <>
-                <a
-                  href="https://mywordle.strivemath.com/?word=fccoj"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Click here to continue...
-                </a>
-              </>
-            }
-            answer={["jolly"]}
-            setShowElement={setShowStory}
-          />
-        );
-        break;
-      case 4:
-        setRiddle(
-          <Riddle
-            question={
-              <>
-                <a
-                  href="https://connections.swellgarfo.com/game/-NmMqmx8orAb1oQnUu2i"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Click here to continue...
-                </a>
-              </>
-            }
-            answer={[
-              "snow, polar, northern, jingle",
-              "snow polar northern jingle",
-              "snowpolarnorthernjingle",
-            ]}
-            setShowElement={setShowStory}
-          />
-        );
-        break;
-      case 5:
-        setRiddle(
-          <Riddle
-            question={
-              "I fulfilled my duties for years, and now I am tired. I am ready to retire. Who am I?"
-            }
-            answer={["elfward"]}
-            setShowElement={setShowStory}
-          />
-        );
-        break;
-      case 6:
-        setRiddle(
-          <Riddle
-            question={"Buck, Cod, Dahlia, Rook, Cuckoo, Rail, Haddock, ?"}
-            answer={["cub"]}
-            setShowElement={setShowStory}
-          />
-        );
-        break;
-      case 7:
-        setRiddle(
-          <Riddle
-            question={"What do you call a bear with no teeth?"}
-            answer={["a gummy bear", "gummy bear"]}
-            setShowElement={setShowStory}
-          />
-        );
-        break;
-      case 8:
-        setRiddle(
-          <Riddle
-            question={
-              <>
-                North, south, east, or west
-                <br />
-                I won't tell you which way is best.
-                <br />
-                I'll point you in any direction you guess
-                <br />
-                But I can't reach the destination myself.
-              </>
-            }
-            answer={["compass", "a compass"]}
-            setShowElement={setShowStory}
-          />
-        );
-        break;
-      case 9:
-        setRiddle(
-          <Riddle
-            question={"Vixen, Madison, Delta, Mars"}
-            answer={[
-              "four",
-              "4",
-              "fourth",
-              "4th",
-              "fourth in a series",
-              "4th in a series",
-              "4 in a series",
-              "four in a series",
-            ]}
-            setShowElement={setShowStory}
-          />
-        );
-        break;
-      case 10:
-        setRiddle(
-          <Riddle
-            question={
-              <>
-                <img src={squarePuzzle} alt="square puzzle" />
-                <br />
-                How many squares do you see?
-              </>
-            }
-            answer={["40", "forty"]}
-            setShowElement={setShowStory}
-          />
-        );
-        break;
-      case 11:
-        setRiddle(
-          <Riddle
-            question={"Who is the Christmas king?"}
-            answer={["stocking"]}
-            setShowElement={setShowStory}
-          />
-        );
-        break;
-      case 12:
-        setRiddle(
-          <Riddle
-            question={
-              <>
-                In our house, all four walls face south.
-                <br />
-                What color is the bear who walks past?
-              </>
-            }
-            answer={["white"]}
-            setShowElement={setShowStory}
-          />
-        );
-        break;
-      case 13:
-        setRiddle(
-          <Riddle
-            question={
-              <>
-                Black as night, white as snow
-                <br />
-                Shrouded in cloaks from head to toe
-                <br />
-                We fly from south, to east, west, north
-                <br />
-                Two of a kind at opposite sides of the earth.
-              </>
-            }
-            answer={["rook", "a rook", "rooks"]}
-            setShowElement={setShowStory}
-          />
-        );
-        break;
-      case 14:
-        setRiddle(
-          <Riddle
-            question={
-              <>
-                Walk on the living, they don't even mumble. <br />
-                Walk on the dead, they mutter and grumble.
-              </>
-            }
-            answer={["leaves", "leaf"]}
-            setShowElement={setShowStory}
-          />
-        );
-        break;
-      case 15:
-        setRiddle(
-          <Riddle
-            question={"Too much heat may cause me to freeze. What am I?"}
-            answer={[
-              "computer",
-              "a computer",
-              "engine",
-              "an engine",
-              "criminal",
-              "a criminal",
-              "electronics",
-            ]}
-            setShowElement={setShowStory}
-          />
-        );
-        break;
-      case 16:
-        setRiddle(
-          <Riddle
-            question={
-              <>
-                I don't know what I am, but I know what I'm not.
-                <br />
-                I am not somebody who likes this season a lot.
-                <br />
-                I am not anyone who brings gifts and cheer.
-                <br />
-                I am not someone that nobody fears.
-                <br />
-                Who am I not?
-              </>
-            }
-            answer={["santa", "santa claus"]}
-            setShowElement={setShowStory}
-          />
-        );
-        break;
-      case 17:
-        setRiddle(
-          <Riddle
-            question={
-              <>
-                If you're good, you needn't fear me.
-                <br />
-                If you're bad, you will be seeing me.
-                <br />
-                On Christmas Eve only I will smile.
-                <br />
-                Spare the rod and spoil the child.
-              </>
-            }
-            answer={["krampus"]}
-            setShowElement={setShowStory}
-          />
-        );
-        break;
-      case 18:
-        setRiddle(
-          <Riddle
-            question={
-              <>
-                If you throw me out the window,
-                <br />
-                I'll leave a grieving wife.
-                <br />
-                But bring me back through the door,
-                <br />
-                And you'll see someone giving life.
-              </>
-            }
-            answer={["n", "the letter n"]}
-            setShowElement={setShowStory}
-          />
-        );
-        break;
-      case 19:
-        setRiddle(
-          <Riddle
-            question={
-              <>
-                To avoid the calf, I veered sharply to the left.
-                <br />
-                Meeting friends after work helps executives network effectively.
-                <br />
-                My parents told me to never cross the road without looking.
-              </>
-            }
-            answer={["521", "5 2 1"]}
-            setShowElement={setShowStory}
-          />
-        );
-        break;
-      default:
-        return null;
-    }
   };
 
   const storyArray = [
@@ -358,7 +44,7 @@ export const ChristmasJourney = ({
     />,
     <Story story={`You hold out a sheet of paper.`} />,
     <>
-      <div onClick={() => handleRiddle(1)}>
+      <div onClick={() => handleChristmasRiddle(1, setShowStory, setRiddle)}>
         <Story
           story={`Something is scrawled on it in your own childlike handwriting...`}
         />
@@ -388,7 +74,7 @@ export const ChristmasJourney = ({
     <Story story={`There's some sort of translucent barrier.`} />,
     <Story story={`You press against it, but it's no use.`} />,
     <>
-      <div onClick={() => handleRiddle(2)}>
+      <div onClick={() => handleChristmasRiddle(2, setShowStory, setRiddle)}>
         <Story story={`There are letters on the floor in front of you...`} />
       </div>
     </>,
@@ -411,7 +97,7 @@ export const ChristmasJourney = ({
       story={`You pull yourself together and take a look at the shimmering barrier.`}
     />,
     <>
-      <div onClick={() => handleRiddle(3)}>
+      <div onClick={() => handleChristmasRiddle(3, setShowStory, setRiddle)}>
         <Story story={`It looks like some sort of grid...`} />
       </div>
     </>,
@@ -440,7 +126,7 @@ export const ChristmasJourney = ({
       story={`You have a brief celebration before the next riddle arrives.`}
     />,
     <>
-      <div onClick={() => handleRiddle(4)}>
+      <div onClick={() => handleChristmasRiddle(4, setShowStory, setRiddle)}>
         <Story story={`It seems to fill the entire floor...`} />
       </div>
     </>,
@@ -495,7 +181,7 @@ export const ChristmasJourney = ({
     />,
     <Story story={`How could you not?`} />,
     <>
-      <div onClick={() => handleRiddle(5)}>
+      <div onClick={() => handleChristmasRiddle(5, setShowStory, setRiddle)}>
         <Story
           story={`Elfward has been your most trusted advisor for hundreds of years.`}
         />
@@ -521,7 +207,7 @@ export const ChristmasJourney = ({
     <Story story={`But the North Pole doesn't really need him anymore...`} />,
     <Story story={`They have you, after all!`} />,
     <>
-      <div onClick={() => handleRiddle(6)}>
+      <div onClick={() => handleChristmasRiddle(6, setShowStory, setRiddle)}>
         <Story
           story={`As if grateful for the understanding, a riddle appears in your hand.`}
         />
@@ -550,7 +236,7 @@ export const ChristmasJourney = ({
     <Title title="> Elfward." />,
     <Story story={`Uhhhh, you guess you're solving this riddle now.`} />,
     <>
-      <div onClick={() => handleRiddle(7)}>
+      <div onClick={() => handleChristmasRiddle(7, setShowStory, setRiddle)}>
         <Story story={`You hope they won't all be bear themed.`} />
       </div>
     </>,
@@ -564,7 +250,7 @@ export const ChristmasJourney = ({
       story={`Another riddle is rather abruptly thrown into your room.`}
     />,
     <>
-      <div onClick={() => handleRiddle(8)}>
+      <div onClick={() => handleChristmasRiddle(8, setShowStory, setRiddle)}>
         <Story story={`You gather round...`} />
       </div>
     </>,
@@ -593,13 +279,13 @@ export const ChristmasJourney = ({
       story={`If you could cry, there would be tears in your little button eyes.`}
     />,
     <>
-      <div onClick={() => handleRiddle(9)}>
+      <div onClick={() => handleChristmasRiddle(9, setShowStory, setRiddle)}>
         <Story story={`You gently reach out for the riddle...`} />
       </div>
     </>,
     <Story story={`You are so happy. You are so proud.`} />,
     <Story
-      story={`Though you have lived here for many years, you never thought about solving the riddles.`}
+      story={`Though you have lived here for many years, you never considered solving any riddles.`}
     />,
     <Story story={`(After all, your brain is full of fluff.)`} />,
     <Story
@@ -610,7 +296,7 @@ export const ChristmasJourney = ({
       story={`You have been walking down the passage for some time now.`}
     />,
     <>
-      <div onClick={() => handleRiddle(10)}>
+      <div onClick={() => handleChristmasRiddle(10, setShowStory, setRiddle)}>
         <Story story={`You reach a door with a mysterious pattern on it...`} />
       </div>
     </>,
@@ -628,7 +314,7 @@ export const ChristmasJourney = ({
     <Story story={`You all count to find there are still 9 doors closed.`} />,
     <Story story={`One of the doors begins shaking.`} />,
     <>
-      <div onClick={() => handleRiddle(11)}>
+      <div onClick={() => handleChristmasRiddle(11, setShowStory, setRiddle)}>
         <Story story={`It opens to reveal a riddle inside:`} />
       </div>
     </>,
@@ -653,7 +339,7 @@ export const ChristmasJourney = ({
     <Story story={`You pity this little elf.`} />,
     <Story story={`You know just what will make him feel better.`} />,
     <>
-      <div onClick={() => handleRiddle(12)}>
+      <div onClick={() => handleChristmasRiddle(12, setShowStory, setRiddle)}>
         <Story story={`Another handmade riddle!!!`} />
       </div>
     </>,
@@ -661,7 +347,7 @@ export const ChristmasJourney = ({
     <Story story={`At least his riddles are getting a little better.`} />,
     <Story story={`The next riddle you touch doesn't go anywhere either.`} />,
     <>
-      <div onClick={() => handleRiddle(13)}>
+      <div onClick={() => handleChristmasRiddle(13, setShowStory, setRiddle)}>
         <Story story={`This calendar must really want you to solve it...`} />
       </div>
     </>,
@@ -673,7 +359,7 @@ export const ChristmasJourney = ({
     <Story story={`You split up to handle the riddles.`} />,
     <Title title="> GoodWill Toward Men." />,
     <>
-      <div onClick={() => handleRiddle(14)}>
+      <div onClick={() => handleChristmasRiddle(14, setShowStory, setRiddle)}>
         <Story
           story={`You are confident in your ability to solve any riddle.`}
         />
@@ -681,14 +367,14 @@ export const ChristmasJourney = ({
     </>,
     <Title title="> Santa Lizzy." />,
     <>
-      <div onClick={() => handleRiddle(15)}>
+      <div onClick={() => handleChristmasRiddle(15, setShowStory, setRiddle)}>
         <Story story={`You just want to go home...`} />
       </div>
     </>,
     <Title title="> La Befellena." />,
     <Story story={`You approach your riddle with trepidation.`} />,
     <>
-      <div onClick={() => handleRiddle(16)}>
+      <div onClick={() => handleChristmasRiddle(16, setShowStory, setRiddle)}>
         <Story story={`Something just seems a little off about this...`} />
       </div>
     </>,
@@ -702,7 +388,7 @@ export const ChristmasJourney = ({
     <Title title="> Elfward." />,
     <Story story={`This next riddle is for you.`} />,
     <>
-      <div onClick={() => handleRiddle(17)}>
+      <div onClick={() => handleChristmasRiddle(17, setShowStory, setRiddle)}>
         <Story story={`It seems quite different from the rest...`} />
       </div>
     </>,
@@ -755,7 +441,7 @@ export const ChristmasJourney = ({
     <Story story={`This is not the retirement you'd hoped for.`} />,
     <Story story={`You scour the pitch black room for something, anything.`} />,
     <>
-      <div onClick={() => handleRiddle(18)}>
+      <div onClick={() => handleChristmasRiddle(18, setShowStory, setRiddle)}>
         <Story story={`Something glows faintly in the corner...`} />
       </div>
     </>,
@@ -807,7 +493,7 @@ export const ChristmasJourney = ({
     <Story story={`They have a secret reset code.`} />,
     <Story story={`(Just in case of rogue sentient robots and such.)`} />,
     <>
-      <div onClick={() => handleRiddle(19)}>
+      <div onClick={() => handleChristmasRiddle(19, setShowStory, setRiddle)}>
         <Story story={`It's always a 3 digit numeric code...`} />
       </div>
     </>,

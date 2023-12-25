@@ -1,17 +1,8 @@
 import Story from "../story/story.component";
 import Title from "../title/title.component";
-import Riddle from "../riddle/riddle.component";
+import { handleChristmasEveRiddle } from "./utils/christmas-eve-riddle-utils";
+import { ChristmasEveJourneyProps } from "./journey.types";
 import { useState } from "react";
-
-interface ChristmasEveJourneyProps {
-  handleEnd: any;
-  krampus: any;
-  rockin: any;
-  whiteChristmas: any;
-  santaBaby: any;
-  angels: any;
-  playSong: any;
-}
 
 export const ChristmasEveJourney = ({
   handleEnd,
@@ -28,84 +19,6 @@ export const ChristmasEveJourney = ({
 
   const increment = () => {
     index === storyArray?.length - 1 ? handleEnd() : setIndex(index + 1);
-  };
-
-  const handleRiddle = (riddle: number) => {
-    setShowStory(false);
-    switch (riddle) {
-      case 1:
-        setRiddle(
-          <Riddle
-            question={"🎸🔄🎄"}
-            answer={[
-              "rockin around the christmas tree",
-              "rocking around the christmas tree",
-              "rockin' around the christmas tree",
-            ]}
-            setShowElement={setShowStory}
-            songHandling={playSong}
-            song1={rockin}
-            song2={krampus}
-          />
-        );
-        break;
-      case 2:
-        setRiddle(
-          <Riddle
-            question={"🟦🎄"}
-            answer={["blue christmas"]}
-            setShowElement={setShowStory}
-            songHandling={playSong}
-            song1={whiteChristmas}
-            song2={rockin}
-          />
-        );
-        break;
-      case 3:
-        setRiddle(
-          <Riddle
-            question={"🎅🏻🍼"}
-            answer={["santa baby"]}
-            setShowElement={setShowStory}
-            songHandling={playSong}
-            song1={santaBaby}
-            song2={whiteChristmas}
-          />
-        );
-        break;
-      case 4:
-        setRiddle(
-          <Riddle
-            question={"👼🏻👂🏻⬆️"}
-            answer={["angels we have heard on high"]}
-            setShowElement={setShowStory}
-            songHandling={playSong}
-            song1={angels}
-            song2={santaBaby}
-          />
-        );
-        break;
-      case 5:
-        setRiddle(
-          <Riddle
-            question={
-              <>
-                <p>Clue here: reading initials spells this message's answer.</p>
-                <p>Simple, even very easy!</p>
-              </>
-            }
-            answer={["christmas eve"]}
-            setShowElement={setShowStory}
-            songHandling={playSong}
-            song1={krampus}
-            song2={angels}
-          />
-        );
-        break;
-
-      default:
-        return null;
-    }
   };
 
   const storyArray = [
@@ -191,7 +104,18 @@ export const ChristmasEveJourney = ({
     />,
     <Story story={`It sounds familiar.`} />,
     <>
-      <div onClick={() => handleRiddle(1)}>
+      <div
+        onClick={() =>
+          handleChristmasEveRiddle(
+            1,
+            setShowStory,
+            setRiddle,
+            playSong,
+            krampus,
+            rockin
+          )
+        }
+      >
         <Story story={`It's driving you crazy! What could it be?`} />
       </div>
     </>,
@@ -201,8 +125,8 @@ export const ChristmasEveJourney = ({
       story={`It splits open to reveal a large room filled with mysterious items.`}
     />,
     <Story story={`You step inside and start exploring.`} />,
-    <Story story={`You're surrounded by puzzles: 24 of them, to be exact!`} />,
-    <Story story={`(You guess you've already done #25.)`} />,
+    <Story story={`You're surrounded by puzzles: 23 of them, to be exact!`} />,
+    <Story story={`(You guess you've already done #24.)`} />,
     <Story story={`You touch one of the puzzles.`} />,
     <Story story={`It pulses, then disappears!`} />,
     <Title title="> GoodWill Toward Men." />,
@@ -214,7 +138,18 @@ export const ChristmasEveJourney = ({
       story={`This is the first thing to happen to you in at least a month.`}
     />,
     <>
-      <div onClick={() => handleRiddle(2)}>
+      <div
+        onClick={() =>
+          handleChristmasEveRiddle(
+            2,
+            setShowStory,
+            setRiddle,
+            playSong,
+            rockin,
+            whiteChristmas
+          )
+        }
+      >
         <Story story={`You peer at the mysterious symbols...`} />
       </div>
     </>,
@@ -236,7 +171,18 @@ export const ChristmasEveJourney = ({
     <Story story={`A wall!!!`} />,
     <Story story={`You're so happy to see a wall!`} />,
     <>
-      <div onClick={() => handleRiddle(3)}>
+      <div
+        onClick={() =>
+          handleChristmasEveRiddle(
+            3,
+            setShowStory,
+            setRiddle,
+            playSong,
+            whiteChristmas,
+            santaBaby
+          )
+        }
+      >
         <Story story={`The wall glows with strange symbols.`} />
       </div>
     </>,
@@ -253,7 +199,18 @@ export const ChristmasEveJourney = ({
     <Story story={`There's nothing but misty blackness.`} />,
     <Story story={`A faint tune starts playing in the distance.`} />,
     <>
-      <div onClick={() => handleRiddle(4)}>
+      <div
+        onClick={() =>
+          handleChristmasEveRiddle(
+            4,
+            setShowStory,
+            setRiddle,
+            playSong,
+            santaBaby,
+            angels
+          )
+        }
+      >
         <Story story={`You think you've heard it before...`} />
       </div>
     </>,
@@ -279,7 +236,18 @@ export const ChristmasEveJourney = ({
     <Story story={`You touch the next puzzle.`} />,
     <Story story={`It begins glowing, but it doesn't go anywhere.`} />,
     <>
-      <div onClick={() => handleRiddle(5)}>
+      <div
+        onClick={() =>
+          handleChristmasEveRiddle(
+            5,
+            setShowStory,
+            setRiddle,
+            playSong,
+            angels,
+            krampus
+          )
+        }
+      >
         <Story story={`This must be your puzzle!`} />
       </div>
     </>,
@@ -294,11 +262,7 @@ export const ChristmasEveJourney = ({
     <Story story={`You know you're not alone anymore.`} />,
     <Story story={`You slowly turn around...`} />,
     <Story story={`TO BE CONTINUED`} />,
-    <>
-      <span onClick={() => handleEnd()}>
-        <Story story={`...TOMORROW`} />
-      </span>
-    </>,
+    <Story story={`...TOMORROW`} />,
   ];
 
   return (
