@@ -666,7 +666,7 @@ export const ChristmasJourney = ({
       </div>
     </>,
     <Story story={`The riddles are humming excitedly.`} />,
-    <Story story={`As if they're excited to be solved.`} />,
+    <Story story={`As if they're anxious to be solved.`} />,
     <Story story={`Several fly away without even being touched...`} />,
     <Title title="> Santa Squad." />,
     <Story story={`Three doors fly open at once.`} />,
@@ -874,9 +874,7 @@ export const ChristmasJourney = ({
     <Story story={`The teddy bear rides happily in the back.`} />,
     <>
       <span onClick={() => handleEnd()}>
-        <Story
-          story={`You just know it's going to be a very merry Christmas!!!`}
-        />
+        You just know it's going to be a very merry Christmas!!!
       </span>
     </>,
   ];
