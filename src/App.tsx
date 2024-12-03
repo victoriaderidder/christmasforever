@@ -1,60 +1,35 @@
-import "./App.css";
-import Tree from "./components/tree/tree.component";
-import { ThanksgivingJourney } from "./components/journey/thanksgiving-journey.component";
-import { ChristmasEveJourney } from "./components/journey/christmas-eve-journey.component";
-import { ChristmasJourney } from "./components/journey/christmas-journey.component";
-import { Travel } from "./components/travel/travel.component";
 import { useState } from "react";
+import "./App.css";
+import App2023 from "./App2023";
+import Box from "./components/box/box.component";
 
 function App() {
-  const [showTree, setShowTree] = useState(true);
-  const [showThanksgiving, setShowThanksgiving] = useState(false);
-  const [showChristmasEve, setShowChristmasEve] = useState(false);
-  const [showChristmas, setShowChristmas] = useState(false);
+  const [showMain, setShowMain] = useState(true);
+  const [show2023, setShow2023] = useState(false);
+  const handleClick = (setShowYear: any) => {
+    setShowYear(true);
+    setShowMain(false);
+  };
 
   return (
     <main className="main">
-      {showTree && (
-        <Tree
-          showTree={showTree}
-          setShowTree={setShowTree}
-          showChristmas={showChristmas}
-          setShowChristmas={setShowChristmas}
-          showThanksgiving={showThanksgiving}
-          setShowThanksgiving={setShowThanksgiving}
-          setShowChristmasEve={setShowChristmasEve}
-          showChristmasEve={showChristmasEve}
-        />
+      {showMain && (
+        <div
+          //className={styles.present1}
+          onClick={() => handleClick(setShow2023)}
+        >
+          <Box
+            width={125}
+            height={125}
+            backgroundColor={"#DC4D01"}
+            borderColor={"#8B4000"}
+            text={"🦃"}
+            textColor={"white"}
+          />
+        </div>
       )}
-      {showThanksgiving && (
-        <Travel
-          showTree={showTree}
-          setShowTree={setShowTree}
-          showJourney={showThanksgiving}
-          setShowJourney={setShowThanksgiving}
-          journeyName="Thanksgiving"
-          JourneyComponent={ThanksgivingJourney}
-        />
-      )}
-      {showChristmasEve && (
-        <Travel
-          showTree={showTree}
-          setShowTree={setShowTree}
-          showJourney={showChristmasEve}
-          setShowJourney={setShowChristmasEve}
-          journeyName="Christmas Eve"
-          JourneyComponent={ChristmasEveJourney}
-        />
-      )}
-      {showChristmas && (
-        <Travel
-          showTree={showTree}
-          setShowTree={setShowTree}
-          showJourney={showChristmas}
-          setShowJourney={setShowChristmas}
-          journeyName="Christmas"
-          JourneyComponent={ChristmasJourney}
-        />
+      {show2023 && (
+        <App2023 setShowMain={setShowMain} setShowSelf={setShow2023} />
       )}
     </main>
   );

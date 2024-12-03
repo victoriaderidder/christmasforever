@@ -1,11 +1,6 @@
 .main {
-  /* display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  padding: 6rem;
-  max-height: 100vh;
-  z-index: -3; */
+  position: absolute;
+  width: 100%;
   background-color: #c30f16;
   overflow: hidden;
   height: 100%;
