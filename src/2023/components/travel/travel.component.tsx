@@ -8,7 +8,7 @@ import WhiteChristmas from "../../assets/music/whitechristmas.mp3";
 import Angels from "../../assets/music/angelswehaveheardonhigh.mp3";
 import Finale from "../../assets/music/deckthehalls.mp3";
 
-interface TravelProps {
+interface Travel2023Props {
   showTree: boolean;
   setShowTree: Dispatch<SetStateAction<boolean>>;
   showJourney?: boolean;
@@ -25,12 +25,12 @@ const whiteChristmas = new Audio(WhiteChristmas);
 const angels = new Audio(Angels);
 const finale = new Audio(Finale);
 
-export const Travel = ({
+export const Travel2023 = ({
   JourneyComponent,
   setShowTree,
   setShowJourney,
   journeyName,
-}: TravelProps) => {
+}: Travel2023Props) => {
   const getJourneyClass = () => {
     if (journeyName === "Thanksgiving") {
       return styles.thanksgiving;

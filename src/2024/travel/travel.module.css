@@ -1,0 +1,16 @@
+.app {
+  text-align: center;
+  background-color: #c30f16;
+  width: 100%;
+}
+
+.appHeader {
+  min-height: 100vh;
+  margin-right: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 2em;
+  color: white;
+}

@@ -4,7 +4,7 @@ import Tree from "./components/tree/tree.component";
 import { ThanksgivingJourney } from "./components/journey/thanksgiving-journey.component";
 import { ChristmasEveJourney } from "./components/journey/christmas-eve-journey.component";
 import { ChristmasJourney } from "./components/journey/christmas-journey.component";
-import { Travel } from "./components/travel/travel.component";
+import { Travel2023 } from "./components/travel/travel.component";
 // import Home from "./components/home/home.component";
 
 interface App2023Props {
@@ -34,7 +34,7 @@ const App2023: FC<App2023Props> = ({ setShowSelf, setShowMain }) => {
         />
       )}
       {showThanksgiving && (
-        <Travel
+        <Travel2023
           showTree={showTree}
           setShowTree={setShowTree}
           showJourney={showThanksgiving}
@@ -44,7 +44,7 @@ const App2023: FC<App2023Props> = ({ setShowSelf, setShowMain }) => {
         />
       )}
       {showChristmasEve && (
-        <Travel
+        <Travel2023
           showTree={showTree}
           setShowTree={setShowTree}
           showJourney={showChristmasEve}
@@ -54,7 +54,7 @@ const App2023: FC<App2023Props> = ({ setShowSelf, setShowMain }) => {
         />
       )}
       {showChristmas && (
-        <Travel
+        <Travel2023
           showTree={showTree}
           setShowTree={setShowTree}
           showJourney={showChristmas}
