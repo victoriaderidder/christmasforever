@@ -6,7 +6,7 @@
     transform: rotate(5deg);
   }
   50% {
-    transform: scale(2);
+    transform: scale(1);
   }
   75% {
     transform: rotate(-5deg);

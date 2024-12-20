@@ -3,6 +3,7 @@ import "./App.css";
 import App2023 from "./App2023";
 import App2024 from "./App2024";
 import Box from "./components/box/box.component";
+import Snowfall from "react-snowfall";
 
 function App() {
   const [showMain, setShowMain] = useState(true);
@@ -15,6 +16,7 @@ function App() {
 
   return (
     <main className="main">
+      <Snowfall />
       {showMain && (
         <>
           <div className="year-box" onClick={() => handleClick(setShow2023)}>
