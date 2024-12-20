@@ -1,5 +1,5 @@
-import Story from "../story/story.component";
-import Title from "../title/title.component";
+import Story from "../../../components/story.component";
+import Title from "../../../components/title.component";
 import { ChristmasJourneyProps } from "./journey.types";
 import { handleChristmasRiddle } from "./utils/christmas-riddle-utils";
 import { useState } from "react";

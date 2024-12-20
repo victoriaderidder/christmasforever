@@ -1,6 +1,6 @@
 import { Dispatch, SetStateAction, useEffect } from "react";
 import styles from "./travel.module.css";
-import Krampus from "../../assets/music/krampus.mp3";
+import Krampus from "../../../assets/music/krampus.mp3";
 import Jazz from "../../assets/music/jazz.mp3";
 import Rockin from "../../assets/music/rockinaroundthechristmastree.mp3";
 import SantaBaby from "../../assets/music/santababy.mp3";

@@ -1,4 +1,4 @@
-import Riddle from "../../riddle/riddle.component";
+import Riddle from "../../../../components/riddle/riddle.component";
 
 export const handleChristmasEveRiddle = (
   riddle: any,

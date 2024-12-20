@@ -1,8 +1,8 @@
 import { useState } from "react";
 import "./App.css";
-import App2023 from "./App2023";
-import App2024 from "./App2024";
-import Box from "./components/box/box.component";
+import App2023 from "./2023/App2023";
+import App2024 from "./2024/App2024";
+import Box from "./components/box.component";
 import Snowfall from "react-snowfall";
 
 function App() {
@@ -16,9 +16,9 @@ function App() {
 
   return (
     <main className="main">
-      <Snowfall />
       {showMain && (
         <>
+          <Snowfall snowflakeCount={125} />
           <div className="year-box" onClick={() => handleClick(setShow2023)}>
             <Box
               width={125}

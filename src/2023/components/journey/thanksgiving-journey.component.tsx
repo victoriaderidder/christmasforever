@@ -1,6 +1,6 @@
 import { useState } from "react";
-import Story from "../story/story.component";
-import Title from "../title/title.component";
+import Story from "../../../components/story.component";
+import Title from "../../../components/title.component";
 import { JourneyProps } from "./journey.types";
 
 export const ThanksgivingJourney = ({ handleEnd }: JourneyProps) => {

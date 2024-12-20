@@ -1,5 +1,5 @@
 import { FC } from "react";
-import Guess from "../guess/guess.component";
+import Guess from "../guess.component";
 import "./riddle.module.css";
 
 interface RiddleProps {

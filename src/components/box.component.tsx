@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import { FC } from "react";
 import MuiBox from "@mui/material/Box";
 
 interface BoxProps {
@@ -36,10 +36,6 @@ const Box: FC<BoxProps> = ({
         position: "relative",
         cursor: "pointer",
         fontSize: "48px",
-        // '&:hover': {
-        //   backgroundColor: 'primary.main',
-        //   opacity: [0.9, 0.8, 0.7],
-        // },
       }}
     >
       <>

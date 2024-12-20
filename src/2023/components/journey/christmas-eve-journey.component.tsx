@@ -1,5 +1,5 @@
-import Story from "../story/story.component";
-import Title from "../title/title.component";
+import Story from "../../../components/story.component";
+import Title from "../../../components/title.component";
 import { handleChristmasEveRiddle } from "./utils/christmas-eve-riddle-utils";
 import { ChristmasEveJourneyProps } from "./journey.types";
 import { useState } from "react";

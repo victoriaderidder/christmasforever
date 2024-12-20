@@ -1,5 +1,5 @@
 import { Dispatch, SetStateAction } from "react";
-import Box from "./box.component";
+import Box from "../../../components/box.component";
 import styles from "./box-wrapper.module.css";
 
 interface BoxWrapperProps {

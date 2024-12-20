@@ -1,4 +1,4 @@
-import Riddle from "../../riddle/riddle.component";
+import Riddle from "../../../../components/riddle/riddle.component";
 import squarePuzzle from "../../../assets/img/squares.png";
 
 export const handleChristmasRiddle = (
