@@ -1,8 +1,50 @@
+@keyframes grow {
+  0% {
+    transform: scale(1.05);
+  }
+  25% {
+    transform: rotate(5deg);
+  }
+  50% {
+    transform: scale(1);
+  }
+  75% {
+    transform: rotate(-5deg);
+  }
+  100% {
+    transform: scale(1.05);
+  }
+}
+
 .main {
   position: absolute;
   width: 100%;
-  background-color: #c30f16;
+  background-color: #03045e;
   overflow: hidden;
   height: 100%;
   max-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.years {
+  display: flex;
+}
+
+a {
+  text-decoration: none;
+}
+
+.year-box {
+  display: flex;
+  margin-top: -20px;
+}
+
+#this-year {
+  animation-name: grow;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  z-index: 3;
 }

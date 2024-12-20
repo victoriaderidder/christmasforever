@@ -1,5 +1,5 @@
-import { Button, TextField } from "@mui/material";
-import { FC, useEffect, useState } from "react";
+import { Button } from "@mui/material";
+import { FC } from "react";
 
 interface HomeProps {
   setShowElement: (showList: boolean) => void;
@@ -76,7 +76,7 @@ const Home: FC<HomeProps> = ({
     <>
       {
         <Button
-          variant="outlined"
+          variant="text"
           //   style={{
           //     backgroundColor: "inherit",
           //     marginTop: "10px",

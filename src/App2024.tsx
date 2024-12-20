@@ -7,12 +7,12 @@ import { ChristmasJourney } from "./components/journey/christmas-journey.compone
 import { Travel } from "./components/travel/travel.component";
 // import Home from "./components/home/home.component";
 
-interface App2023Props {
+interface App2024Props {
   setShowMain: (showMain: boolean) => void;
   setShowSelf: (showSelf: boolean) => void;
 }
 
-const App2023: FC<App2023Props> = ({ setShowSelf, setShowMain }) => {
+const App2024: FC<App2024Props> = ({ setShowSelf, setShowMain }) => {
   const [showTree, setShowTree] = useState(true);
   const [showThanksgiving, setShowThanksgiving] = useState(false);
   const [showChristmasEve, setShowChristmasEve] = useState(false);
@@ -67,4 +67,4 @@ const App2023: FC<App2023Props> = ({ setShowSelf, setShowMain }) => {
   );
 };
 
-export default App2023;
+export default App2024;
