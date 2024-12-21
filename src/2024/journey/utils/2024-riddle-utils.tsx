@@ -1,7 +1,7 @@
 import Riddle from "../../../components/riddle/riddle.component";
 import squarePuzzle from "../../../2023/assets/img/squares.png";
 
-export const handleChristmasRiddle = (
+export const handle2024Riddle = (
   riddle: number,
   setShowStory: any,
   setRiddle: any
@@ -11,8 +11,8 @@ export const handleChristmasRiddle = (
     case 1:
       setRiddle(
         <Riddle
-          question={"Why didn't the teddy bear eat his lunch?"}
-          answer={["stuffed", "he was stuffed", "because he was stuffed"]}
+          question={"taedvn eoln igedrgabern gegong vloe"}
+          answer={["angel"]}
           setShowElement={setShowStory}
         />
       );
@@ -20,16 +20,8 @@ export const handleChristmasRiddle = (
     case 2:
       setRiddle(
         <Riddle
-          question={
-            <>
-              <p>D, D, P, V, C, C, D, ?, R</p>
-              <p>
-                To show your understanding, you'll need more than just the
-                letter…
-              </p>
-            </>
-          }
-          answer={["blitzen"]}
+          question={"1 9 10 __ 90"}
+          answer={["19"]}
           setShowElement={setShowStory}
         />
       );
@@ -38,15 +30,7 @@ export const handleChristmasRiddle = (
       setRiddle(
         <Riddle
           question={
-            <>
-              <a
-                href="https://mywordle.strivemath.com/?word=fccoj"
-                target="_blank"
-                rel="noreferrer"
-              >
-                Click here to continue...
-              </a>
-            </>
+            "CHEER + 7 = the way this Mysterious Teddy Bear is feeling today!"
           }
           answer={["jolly"]}
           setShowElement={setShowStory}

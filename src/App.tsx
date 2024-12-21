@@ -30,7 +30,11 @@ function App() {
             />
           </div>
           <div className="year-box">
-            <a href="https://victoriaderidder.github.io/christmas2022/">
+            <a
+              href="https://victoriaderidder.github.io/christmas2022/"
+              target="_blank"
+              rel="noreferrer"
+            >
               <Box
                 width={125}
                 height={125}
@@ -53,10 +57,15 @@ function App() {
               borderColor={"#DAA520"}
               text={"2024"}
               textColor={"white"}
+              fontSize={100}
             />
           </div>
           <div className="year-box">
-            <a href="https://victoriaderidder.github.io/achristmaschallenge/">
+            <a
+              href="https://victoriaderidder.github.io/achristmaschallenge/"
+              target="_blank"
+              rel="noreferrer"
+            >
               <Box
                 width={125}
                 height={125}
@@ -68,7 +77,11 @@ function App() {
             </a>
           </div>
           <div className="year-box">
-            <a href="https://victoriaderidder.github.io/achristmaschallenge/V1%20(2020)/page1.html">
+            <a
+              href="https://victoriaderidder.github.io/achristmaschallenge/V1%20(2020)/page1.html"
+              target="_blank"
+              rel="noreferrer"
+            >
               <Box
                 width={125}
                 height={125}

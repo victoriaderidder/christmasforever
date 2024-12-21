@@ -19,7 +19,7 @@ const Box: FC<BoxProps> = ({
   text,
   borderColor,
   textColor,
-  fontSize,
+  fontSize = "48px",
   fontBold,
 }) => {
   return (
@@ -35,7 +35,7 @@ const Box: FC<BoxProps> = ({
         zIndex: 2,
         position: "relative",
         cursor: "pointer",
-        fontSize: "48px",
+        fontSize: { fontSize },
       }}
     >
       <>

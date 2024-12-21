@@ -24,6 +24,8 @@ export const Travel2024 = ({ temp }: Travel2024Props) => {
     song.loop = true;
   };
 
+  angels.play();
+
   // useEffect(() => {
   //   if (journeyName === "Thanksgiving") {
   //     krampus.pause();
