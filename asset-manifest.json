@@ -1,27 +1,27 @@
 {
   "files": {
-    "main.css": "/christmas2023/static/css/main.f372241b.css",
-    "main.js": "/christmas2023/static/js/main.ad011ba5.js",
-    "static/media/jazz.mp3": "/christmas2023/static/media/jazz.41bf468961746e168fa9.mp3",
-    "static/media/lastchristmas.mp3": "/christmas2023/static/media/lastchristmas.87e4cb2ed0b124358d2d.mp3",
-    "static/media/angelswehaveheardonhigh.mp3": "/christmas2023/static/media/angelswehaveheardonhigh.9b259fb288cb63a49236.mp3",
-    "static/media/krampus.mp3": "/christmas2023/static/media/krampus.7a568a878a0e53346ba8.mp3",
-    "static/media/santababy.mp3": "/christmas2023/static/media/santababy.7ba35a109fc5c03ee295.mp3",
-    "static/media/whitechristmas.mp3": "/christmas2023/static/media/whitechristmas.5299d06fdf07c014bed2.mp3",
-    "static/media/circus.mp3": "/christmas2023/static/media/circus.1f7229d4672431798f84.mp3",
-    "static/media/jinglebellrock.mp3": "/christmas2023/static/media/jinglebellrock.ad82f82a39847efefeec.mp3",
-    "static/media/silentnight.mp3": "/christmas2023/static/media/silentnight.935ac8e1ea29fab6e1c1.mp3",
-    "static/media/chipmunksong.mp3": "/christmas2023/static/media/chipmunksong.bf8b379640f79e631785.mp3",
-    "static/media/deckthehalls.mp3": "/christmas2023/static/media/deckthehalls.73e37a6c461e22ed1751.mp3",
-    "static/media/rockinaroundthechristmastree.mp3": "/christmas2023/static/media/rockinaroundthechristmastree.6def8c823ca4054e4701.mp3",
-    "static/media/cookie.png": "/christmas2023/static/media/cookie.a1c45a4be015ac256640.png",
-    "static/media/squares.png": "/christmas2023/static/media/squares.6e2a4ec6e0ebd45cef47.png",
-    "index.html": "/christmas2023/index.html",
-    "main.f372241b.css.map": "/christmas2023/static/css/main.f372241b.css.map",
-    "main.ad011ba5.js.map": "/christmas2023/static/js/main.ad011ba5.js.map"
+    "main.css": "/christmasforever/static/css/main.f372241b.css",
+    "main.js": "/christmasforever/static/js/main.bdfbed13.js",
+    "static/media/jazz.mp3": "/christmasforever/static/media/jazz.41bf468961746e168fa9.mp3",
+    "static/media/lastchristmas.mp3": "/christmasforever/static/media/lastchristmas.87e4cb2ed0b124358d2d.mp3",
+    "static/media/angelswehaveheardonhigh.mp3": "/christmasforever/static/media/angelswehaveheardonhigh.9b259fb288cb63a49236.mp3",
+    "static/media/krampus.mp3": "/christmasforever/static/media/krampus.7a568a878a0e53346ba8.mp3",
+    "static/media/santababy.mp3": "/christmasforever/static/media/santababy.7ba35a109fc5c03ee295.mp3",
+    "static/media/whitechristmas.mp3": "/christmasforever/static/media/whitechristmas.5299d06fdf07c014bed2.mp3",
+    "static/media/circus.mp3": "/christmasforever/static/media/circus.1f7229d4672431798f84.mp3",
+    "static/media/jinglebellrock.mp3": "/christmasforever/static/media/jinglebellrock.ad82f82a39847efefeec.mp3",
+    "static/media/silentnight.mp3": "/christmasforever/static/media/silentnight.935ac8e1ea29fab6e1c1.mp3",
+    "static/media/chipmunksong.mp3": "/christmasforever/static/media/chipmunksong.bf8b379640f79e631785.mp3",
+    "static/media/deckthehalls.mp3": "/christmasforever/static/media/deckthehalls.73e37a6c461e22ed1751.mp3",
+    "static/media/rockinaroundthechristmastree.mp3": "/christmasforever/static/media/rockinaroundthechristmastree.6def8c823ca4054e4701.mp3",
+    "static/media/cookie.png": "/christmasforever/static/media/cookie.a1c45a4be015ac256640.png",
+    "static/media/squares.png": "/christmasforever/static/media/squares.6e2a4ec6e0ebd45cef47.png",
+    "index.html": "/christmasforever/index.html",
+    "main.f372241b.css.map": "/christmasforever/static/css/main.f372241b.css.map",
+    "main.bdfbed13.js.map": "/christmasforever/static/js/main.bdfbed13.js.map"
   },
   "entrypoints": [
     "static/css/main.f372241b.css",
-    "static/js/main.ad011ba5.js"
+    "static/js/main.bdfbed13.js"
   ]
 }
