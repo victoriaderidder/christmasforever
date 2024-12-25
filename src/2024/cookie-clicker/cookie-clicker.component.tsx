@@ -33,14 +33,14 @@ const CookieClicker: FC<CookieClickerProps> = ({ setShowStory }) => {
   );
 
   const handleClick = () => {
-    counter === 1 && setMax(true);
+    counter === 500 && setMax(true);
     max ? setCounter(counter - 1) : setCounter(counter + 1);
     max && counter === 2 && setShowStory(true);
   };
 
   return (
     <div style={{ display: "flex" }} className={styles.unselectable}>
-      {counter > 500 &&
+      {counter > 1 &&
         Array.from({ length: counter + counter }, (_, i) => (
           <div className={`${styles.cookieMover} ${styles.unselectable}`}>
             <div
