@@ -533,7 +533,14 @@ export const Journey2024 = ({
     <>
       <div
         onClick={() =>
-          handle2024Riddle(4, setShowStory, setRiddle, playSong, angels, circus)
+          handle2024Riddle(
+            4,
+            setShowStory,
+            setRiddle,
+            playSong,
+            lastChristmas,
+            circus
+          )
         }
       >
         <Story story={`You take the cookie in your hands and crumble it!`} />
