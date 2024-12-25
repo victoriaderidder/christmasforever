@@ -33,7 +33,7 @@ const CookieClicker: FC<CookieClickerProps> = ({ setShowStory }) => {
   );
 
   const handleClick = () => {
-    counter === 500 && setMax(true);
+    counter === 400 && setMax(true);
     max ? setCounter(counter - 1) : setCounter(counter + 1);
     max && counter === 2 && setShowStory(true);
   };

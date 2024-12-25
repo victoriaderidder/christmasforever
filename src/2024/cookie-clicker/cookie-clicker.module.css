@@ -89,7 +89,7 @@
 }
 
 .cookieMover {
-  animation: moveAround 20s infinite;
+  animation: moveAround 25s infinite;
   position: absolute;
   display: flex;
 }
