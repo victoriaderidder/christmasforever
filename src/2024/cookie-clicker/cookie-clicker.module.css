@@ -1,0 +1,103 @@
+@keyframes spin {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes grow {
+  0% {
+    transform: scale(0.3);
+  }
+  50% {
+    transform: scale(0.1);
+  }
+  100% {
+    transform: scale(0.3);
+  }
+}
+
+@keyframes moveAround {
+  0% {
+    top: 0;
+    right: 0;
+  }
+  20% {
+    top: 450px;
+    left: 50%;
+  }
+  30% {
+    top: 300px;
+    right: 30%;
+  }
+  40% {
+    top: 450px;
+    left: 64%;
+  }
+  50% {
+    top: 100px;
+    left: 20%;
+  }
+  60% {
+    top: 0;
+    left: 43%;
+  }
+  70% {
+    top: 450px;
+    right: 22%;
+  }
+  80% {
+    top: 340px;
+    left: 0%;
+  }
+  90% {
+    top: 0;
+    right: 33%;
+  }
+  100% {
+    top: 300px;
+    right: 72%;
+  }
+}
+
+.cookie {
+  /* width: 65%; */
+  height: 550px;
+  animation: spin 35s linear infinite;
+  cursor: pointer;
+  display: flex;
+  align-self: center;
+}
+
+.movingCookie {
+  /* width: 65%; */
+  height: 200px;
+  animation: spin 35s linear infinite;
+  cursor: pointer;
+  /* display: flex; */
+  /* align-self: center; */
+}
+
+.cookieMover2 {
+  animation-name: grow;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  display: flex;
+}
+
+.cookieMover {
+  animation: moveAround 20s infinite;
+  position: absolute;
+  display: flex;
+}
+
+*.unselectable {
+  -moz-user-select: -moz-none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}

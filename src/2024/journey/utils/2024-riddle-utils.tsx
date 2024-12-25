@@ -1,10 +1,13 @@
 import Riddle from "../../../components/riddle/riddle.component";
-import squarePuzzle from "../../../2023/assets/img/squares.png";
+import CookieClicker from "../../cookie-clicker/cookie-clicker.component";
 
 export const handle2024Riddle = (
   riddle: number,
   setShowStory: any,
-  setRiddle: any
+  setRiddle: any,
+  playSong?: any,
+  song?: any,
+  previousSong?: any
 ) => {
   setShowStory(false);
   switch (riddle) {
@@ -38,35 +41,21 @@ export const handle2024Riddle = (
       );
       break;
     case 4:
-      setRiddle(
-        <Riddle
-          question={
-            <>
-              <a
-                href="https://connections.swellgarfo.com/game/-NmMqmx8orAb1oQnUu2i"
-                target="_blank"
-                rel="noreferrer"
-              >
-                Click here to continue...
-              </a>
-            </>
-          }
-          answer={[
-            "snow, polar, northern, jingle",
-            "snow polar northern jingle",
-            "snowpolarnorthernjingle",
-          ]}
-          setShowElement={setShowStory}
-        />
-      );
+      setShowStory(false);
+      playSong(previousSong, song);
+      setRiddle(<CookieClicker setShowStory={setShowStory} />);
       break;
     case 5:
       setRiddle(
         <Riddle
           question={
-            "I fulfilled my duties for years, and now I am tired. I am ready to retire. Who am I?"
+            <>
+              What two word phrase do you get if you remove two letters?
+              <p />
+              SUTRWPROILSEEPTATRETRSY
+            </>
           }
-          answer={["elfward"]}
+          answer={["surprise party"]}
           setShowElement={setShowStory}
         />
       );
@@ -74,69 +63,56 @@ export const handle2024Riddle = (
     case 6:
       setRiddle(
         <Riddle
-          question={"Buck, Cod, Dahlia, Rook, Cuckoo, Rail, Haddock, ?"}
-          answer={["cub"]}
+          question={"🔔🪨"}
+          answer={["jingle bell rock"]}
           setShowElement={setShowStory}
+          songHandling={playSong}
+          song1={previousSong}
+          song2={song}
         />
       );
       break;
     case 7:
       setRiddle(
         <Riddle
-          question={"What do you call a bear with no teeth?"}
-          answer={["a gummy bear", "gummy bear"]}
+          question={"🔇🌃"}
+          answer={["silent night"]}
           setShowElement={setShowStory}
+          songHandling={playSong}
+          song1={previousSong}
+          song2={song}
         />
       );
       break;
     case 8:
       setRiddle(
         <Riddle
-          question={
-            <>
-              North, south, east, or west
-              <br />
-              I won't tell you which way is best.
-              <br />
-              I'll point you in any direction you guess
-              <br />
-              But I can't reach the destination myself.
-            </>
-          }
-          answer={["compass", "a compass"]}
+          question={"🐿️🎵"}
+          answer={["chipmunk song", "the chipmunk song"]}
           setShowElement={setShowStory}
+          songHandling={playSong}
+          song1={previousSong}
+          song2={song}
         />
       );
       break;
     case 9:
       setRiddle(
         <Riddle
-          question={"Vixen, Madison, Delta, Mars"}
-          answer={[
-            "four",
-            "4",
-            "fourth",
-            "4th",
-            "fourth in a series",
-            "4th in a series",
-            "4 in a series",
-            "four in a series",
-          ]}
+          question={"👹"}
+          answer={["krampus"]}
           setShowElement={setShowStory}
+          songHandling={playSong}
+          song1={previousSong}
+          song2={song}
         />
       );
       break;
     case 10:
       setRiddle(
         <Riddle
-          question={
-            <>
-              <img src={squarePuzzle} alt="square puzzle" />
-              <br />
-              How many squares do you see?
-            </>
-          }
-          answer={["40", "forty"]}
+          question={"SEVEN - ONE = 2. NINE + THREE = 9. TEN + TWO = ?"}
+          answer={["six", "6"]}
           setShowElement={setShowStory}
         />
       );
@@ -144,8 +120,8 @@ export const handle2024Riddle = (
     case 11:
       setRiddle(
         <Riddle
-          question={"Who is the Christmas king?"}
-          answer={["stocking"]}
+          question={"permit yonder materialize blaze"}
+          answer={["let there be light"]}
           setShowElement={setShowStory}
         />
       );
@@ -153,15 +129,12 @@ export const handle2024Riddle = (
     case 12:
       setRiddle(
         <Riddle
-          question={
-            <>
-              In our house, all four walls face south.
-              <br />
-              What color is the bear who walks past?
-            </>
-          }
-          answer={["white"]}
+          question={"⬅️🎄"}
+          answer={["last christmas"]}
           setShowElement={setShowStory}
+          songHandling={playSong}
+          song1={previousSong}
+          song2={song}
         />
       );
       break;
@@ -170,16 +143,11 @@ export const handle2024Riddle = (
         <Riddle
           question={
             <>
-              Black as night, white as snow
-              <br />
-              Shrouded in cloaks from head to toe
-              <br />
-              We fly from south, to east, west, north
-              <br />
-              Two of a kind at opposite sides of the earth.
+              What is the only letter of the alphabet missing from this list?
+              <br />B C D E G P T Z
             </>
           }
-          answer={["rook", "a rook", "rooks"]}
+          answer={["v"]}
           setShowElement={setShowStory}
         />
       );
