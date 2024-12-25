@@ -354,7 +354,6 @@ export const Journey2024 = ({
     <Story story={`The record player shatters on the ground!`} />,
     <Story story={`You and Elfward are in a pile of broken glass!`} />,
     <Story story={`But at least he didn't get hit with the frisbee.`} />,
-    <Story story={`You stare out in despair.`} />,
     <Title title="> Santa Lizzy." />,
     <Story
       story={`You were outside the workshop, listening to the music changing.`}

@@ -23,7 +23,7 @@ export const handle2024Riddle = (
     case 2:
       setRiddle(
         <Riddle
-          question={"1 9 10 __ 90"}
+          question={"1 8 10 __ 90"}
           answer={["19"]}
           setShowElement={setShowStory}
         />

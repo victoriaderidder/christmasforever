@@ -32,6 +32,7 @@ export const Travel2024 = ({ temp }: Travel2024Props) => {
   };
 
   angels.play();
+  angels.loop = true;
 
   const handleEnd = () => {};
 
