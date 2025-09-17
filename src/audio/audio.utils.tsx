@@ -1,21 +1,3 @@
-import { useCallback } from "react";
-
-// export class AudioHandler {
-//   private static createAudio(src: string): HTMLAudioElement {
-//     const audio = new Audio(src);
-//     audio.loop = true;
-//     return audio;
-//   }
-
-//   static playSong(song: HTMLAudioElement, previousSong?: HTMLAudioElement) {
-//     if (previousSong) {
-//       previousSong.pause();
-//       previousSong.currentTime = 0;
-//     }
-//     song.play();
-//   }
-// }
-
 export const AUDIO_PATHS = {
   krampus: require("../assets/music/krampus.mp3"),
   angels: require("../assets/music/angelswehaveheardonhigh.mp3"),
