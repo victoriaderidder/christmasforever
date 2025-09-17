@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC } from "react";
 import "./App2024.css";
 import { Travel2024 } from "./travel/travel.component";
 // import Home from "./components/home/home.component";
