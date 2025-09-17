@@ -1,12 +1,13 @@
 import { Button, TextField } from "@mui/material";
 import { FC, useEffect, useState } from "react";
+import { useAudio } from "../audio/audio.hooks";
+import { AUDIO_PATHS } from "../audio/audio.utils";
 
 interface GuessProps {
   setShowElement: (showList: boolean) => void;
   answer: string[];
-  songHandling?: any;
-  song1?: any;
-  song2?: any;
+  song?: any;
+  previousSong?: any;
 }
 
 const style = {
@@ -62,12 +63,12 @@ const style = {
 const Guess: FC<GuessProps> = ({
   setShowElement,
   answer,
-  songHandling,
-  song1,
-  song2,
+  song,
+  previousSong,
 }) => {
   const [theGuess, setTheGuess] = useState("");
   const [error, setError] = useState(false);
+  const { playSong } = useAudio(AUDIO_PATHS);
 
   const compareValues = () => {
     const answerMap = answer.map((answer: string) => answer.toLowerCase());
@@ -77,13 +78,13 @@ const Guess: FC<GuessProps> = ({
     );
   };
 
-  const handleEnd = (song1: any, song2: any) => {
-    song1 && song2 && songHandling(song1, song2);
+  const handleEnd = () => {
+    song && previousSong && playSong(song, previousSong);
     setShowElement(true);
   };
 
   const handleGuess = () => {
-    compareValues() === true ? handleEnd(song1, song2) : setError(true);
+    compareValues() === true ? handleEnd() : setError(true);
   };
 
   const onKeyDown = (event: any) => {

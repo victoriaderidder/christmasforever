@@ -4,7 +4,6 @@ export const handleChristmasEveRiddle = (
   riddle: any,
   setShowStory: any,
   setRiddle: any,
-  playSong: any,
   song: any,
   previousSong: any
 ) => {
@@ -20,9 +19,8 @@ export const handleChristmasEveRiddle = (
             "rockin' around the christmas tree",
           ]}
           setShowElement={setShowStory}
-          songHandling={playSong}
-          song1={previousSong}
-          song2={song}
+          song={song}
+          previousSong={previousSong}
         />
       );
       break;
@@ -32,9 +30,8 @@ export const handleChristmasEveRiddle = (
           question={"🟦🎄"}
           answer={["blue christmas"]}
           setShowElement={setShowStory}
-          songHandling={playSong}
-          song1={previousSong}
-          song2={song}
+          song={song}
+          previousSong={previousSong}
         />
       );
       break;
@@ -44,9 +41,8 @@ export const handleChristmasEveRiddle = (
           question={"🎅🏻🍼"}
           answer={["santa baby"]}
           setShowElement={setShowStory}
-          songHandling={playSong}
-          song1={previousSong}
-          song2={song}
+          song={song}
+          previousSong={previousSong}
         />
       );
       break;
@@ -56,9 +52,8 @@ export const handleChristmasEveRiddle = (
           question={"👼🏻👂🏻⬆️"}
           answer={["angels we have heard on high"]}
           setShowElement={setShowStory}
-          songHandling={playSong}
-          song1={previousSong}
-          song2={song}
+          song={song}
+          previousSong={previousSong}
         />
       );
       break;
@@ -73,9 +68,8 @@ export const handleChristmasEveRiddle = (
           }
           answer={["christmas eve"]}
           setShowElement={setShowStory}
-          songHandling={playSong}
-          song1={previousSong}
-          song2={song}
+          song={song}
+          previousSong={previousSong}
         />
       );
       break;

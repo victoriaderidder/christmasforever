@@ -6,18 +6,16 @@ interface RiddleProps {
   setShowElement: (showList: boolean) => void;
   answer: string[];
   question: any;
-  songHandling?: any;
-  song1?: any;
-  song2?: any;
+  song?: any;
+  previousSong?: any;
 }
 
 const Riddle: FC<RiddleProps> = ({
   setShowElement,
   answer,
   question,
-  songHandling,
-  song1,
-  song2,
+  song,
+  previousSong,
 }) => {
   return (
     <>
@@ -31,9 +29,8 @@ const Riddle: FC<RiddleProps> = ({
             <Guess
               setShowElement={setShowElement}
               answer={answer}
-              songHandling={songHandling}
-              song1={song1}
-              song2={song2}
+              song={song}
+              previousSong={previousSong}
             />
           }
         </p>

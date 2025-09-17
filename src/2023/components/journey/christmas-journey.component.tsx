@@ -1,15 +1,14 @@
 import Story from "../../../components/story.component";
 import Title from "../../../components/title.component";
-import { ChristmasJourneyProps } from "./journey.types";
+import { JourneyProps } from "./journey.types";
 import { handleChristmasRiddle } from "./utils/christmas-riddle-utils";
 import { useState } from "react";
 
 export const ChristmasJourney = ({
   handleEnd,
   playSong,
-  finale,
-  krampus,
-}: ChristmasJourneyProps) => {
+  audioRefs,
+}: JourneyProps) => {
   const [showStory, setShowStory] = useState(true);
   const [riddle, setRiddle] = useState(<></>);
   const [index, setIndex] = useState(Number);
@@ -499,7 +498,11 @@ export const ChristmasJourney = ({
     </>,
     <Story story={`"521!" you shout.`} />,
     <>
-      <div onClick={() => playSong(finale, krampus)}>
+      <div
+        onClick={() =>
+          playSong(audioRefs.finale.current, audioRefs.krampus.current)
+        }
+      >
         <Story story={`The teddy bear slumps to the ground.`} />{" "}
       </div>
     </>,

@@ -1,12 +1,7 @@
 import { Dispatch, SetStateAction, useEffect } from "react";
 import styles from "./travel.module.css";
-import Krampus from "../../../assets/music/krampus.mp3";
-import Jazz from "../../assets/music/jazz.mp3";
-import Rockin from "../../assets/music/rockinaroundthechristmastree.mp3";
-import SantaBaby from "../../assets/music/santababy.mp3";
-import WhiteChristmas from "../../assets/music/whitechristmas.mp3";
-import Angels from "../../assets/music/angelswehaveheardonhigh.mp3";
-import Finale from "../../assets/music/deckthehalls.mp3";
+import { useAudio } from "../../../audio/audio.hooks";
+import { AUDIO_PATHS } from "../../../audio/audio.utils";
 
 interface Travel2023Props {
   showTree: boolean;
@@ -16,14 +11,6 @@ interface Travel2023Props {
   JourneyComponent?: any;
   journeyName: string;
 }
-
-const jazz = new Audio(Jazz);
-const krampus = new Audio(Krampus);
-const rockin = new Audio(Rockin);
-const santaBaby = new Audio(SantaBaby);
-const whiteChristmas = new Audio(WhiteChristmas);
-const angels = new Audio(Angels);
-const finale = new Audio(Finale);
 
 export const Travel2023 = ({
   JourneyComponent,
@@ -40,35 +27,27 @@ export const Travel2023 = ({
       return styles.christmas;
     }
   };
-
-  const playSong = (song: any, previousSong?: any) => {
-    previousSong.pause();
-    previousSong.currentTime = 0;
-    song.play();
-    song.loop = true;
-  };
+  const { audioRefs, playSong } = useAudio(AUDIO_PATHS);
 
   useEffect(() => {
     if (journeyName === "Thanksgiving") {
-      krampus.pause();
-      finale.pause();
-      krampus.currentTime = 0;
-      finale.currentTime = 0;
-      jazz.play();
-      jazz.loop = true;
+      audioRefs.krampus.current.pause();
+      audioRefs.finale.current.pause();
+      audioRefs.krampus.current.currentTime = 0;
+      audioRefs.finale.current.currentTime = 0;
+      playSong(audioRefs.jazz.current);
     } else if (journeyName === "Christmas Eve" || journeyName === "Christmas") {
-      jazz.pause();
-      finale.pause();
-      finale.currentTime = 0;
-      jazz.currentTime = 0;
-      krampus.play();
-      krampus.loop = true;
+      audioRefs.jazz.current.pause();
+      audioRefs.finale.current.pause();
+      audioRefs.finale.current.currentTime = 0;
+      audioRefs.jazz.current.currentTime = 0;
+      playSong(audioRefs.krampus.current);
     }
   }, [journeyName]);
 
   const handleEnd = () => {
     if (journeyName === "Thanksgiving") {
-      playSong(krampus, jazz);
+      playSong(audioRefs.krampus.current, audioRefs.jazz.current);
     }
     setShowTree(true);
     setShowJourney(false);
@@ -82,12 +61,7 @@ export const Travel2023 = ({
             {JourneyComponent && (
               <JourneyComponent
                 handleEnd={handleEnd}
-                krampus={krampus}
-                rockin={rockin}
-                santaBaby={santaBaby}
-                whiteChristmas={whiteChristmas}
-                angels={angels}
-                finale={finale}
+                audioRefs={audioRefs}
                 playSong={playSong}
               />
             )}

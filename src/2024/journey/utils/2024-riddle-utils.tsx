@@ -5,9 +5,9 @@ export const handle2024Riddle = (
   riddle: number,
   setShowStory: any,
   setRiddle: any,
-  playSong?: any,
   song?: any,
-  previousSong?: any
+  previousSong?: any,
+  playSong?: any
 ) => {
   setShowStory(false);
   switch (riddle) {
@@ -66,9 +66,8 @@ export const handle2024Riddle = (
           question={"🔔🪨"}
           answer={["jingle bell rock"]}
           setShowElement={setShowStory}
-          songHandling={playSong}
-          song1={previousSong}
-          song2={song}
+          song={song}
+          previousSong={previousSong}
         />
       );
       break;
@@ -78,9 +77,8 @@ export const handle2024Riddle = (
           question={"🔇🌃"}
           answer={["silent night"]}
           setShowElement={setShowStory}
-          songHandling={playSong}
-          song1={previousSong}
-          song2={song}
+          song={song}
+          previousSong={previousSong}
         />
       );
       break;
@@ -90,9 +88,8 @@ export const handle2024Riddle = (
           question={"🐿️🎵"}
           answer={["chipmunk song", "the chipmunk song"]}
           setShowElement={setShowStory}
-          songHandling={playSong}
-          song1={previousSong}
-          song2={song}
+          song={song}
+          previousSong={previousSong}
         />
       );
       break;
@@ -102,9 +99,8 @@ export const handle2024Riddle = (
           question={"👹"}
           answer={["krampus"]}
           setShowElement={setShowStory}
-          songHandling={playSong}
-          song1={previousSong}
-          song2={song}
+          song={song}
+          previousSong={previousSong}
         />
       );
       break;
@@ -132,9 +128,8 @@ export const handle2024Riddle = (
           question={"⬅️🎄"}
           answer={["last christmas"]}
           setShowElement={setShowStory}
-          songHandling={playSong}
-          song1={previousSong}
-          song2={song}
+          song={song}
+          previousSong={previousSong}
         />
       );
       break;

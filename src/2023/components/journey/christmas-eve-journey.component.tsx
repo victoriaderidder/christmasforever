@@ -1,18 +1,10 @@
 import Story from "../../../components/story.component";
 import Title from "../../../components/title.component";
 import { handleChristmasEveRiddle } from "./utils/christmas-eve-riddle-utils";
-import { ChristmasEveJourneyProps } from "./journey.types";
+import { JourneyProps } from "./journey.types";
 import { useState } from "react";
 
-export const ChristmasEveJourney = ({
-  handleEnd,
-  krampus,
-  rockin,
-  whiteChristmas,
-  angels,
-  santaBaby,
-  playSong,
-}: ChristmasEveJourneyProps) => {
+export const ChristmasEveJourney = ({ handleEnd, audioRefs }: JourneyProps) => {
   const [showStory, setShowStory] = useState(true);
   const [riddle, setRiddle] = useState(<></>);
   const [index, setIndex] = useState(Number);
@@ -110,9 +102,8 @@ export const ChristmasEveJourney = ({
             1,
             setShowStory,
             setRiddle,
-            playSong,
-            krampus,
-            rockin
+            audioRefs.rockin.current,
+            audioRefs.krampus.current
           )
         }
       >
@@ -144,9 +135,8 @@ export const ChristmasEveJourney = ({
             2,
             setShowStory,
             setRiddle,
-            playSong,
-            rockin,
-            whiteChristmas
+            audioRefs.whiteChristmas.current,
+            audioRefs.rockin.current
           )
         }
       >
@@ -177,9 +167,8 @@ export const ChristmasEveJourney = ({
             3,
             setShowStory,
             setRiddle,
-            playSong,
-            whiteChristmas,
-            santaBaby
+            audioRefs.santaBaby.current,
+            audioRefs.whiteChristmas.current
           )
         }
       >
@@ -205,9 +194,8 @@ export const ChristmasEveJourney = ({
             4,
             setShowStory,
             setRiddle,
-            playSong,
-            santaBaby,
-            angels
+            audioRefs.angels.current,
+            audioRefs.santaBaby.current
           )
         }
       >
@@ -242,9 +230,8 @@ export const ChristmasEveJourney = ({
             5,
             setShowStory,
             setRiddle,
-            playSong,
-            angels,
-            krampus
+            audioRefs.krampus.current,
+            audioRefs.angels.current
           )
         }
       >
