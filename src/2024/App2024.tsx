@@ -1,18 +1,13 @@
 import { FC } from "react";
 import "./App2024.css";
 import { Travel2024 } from "./travel/travel.component";
-// import Home from "./components/home/home.component";
+import Home from "../components/home.component";
 
-interface App2024Props {
-  setShowMain: (showMain: boolean) => void;
-  setShowSelf: (showSelf: boolean) => void;
-}
-
-const App2024: FC<App2024Props> = ({ setShowSelf, setShowMain }) => {
+const App2024: FC = () => {
   return (
     <main className="main2024">
-      {/* <Home setShowMain={setShowMain} setShowElement={setShowSelf} /> */}
-      <Travel2024 temp={true} />
+      <Home />
+      <Travel2024 />
     </main>
   );
 };

@@ -1,93 +1,38 @@
-import { Button } from "@mui/material";
 import { FC } from "react";
+import { useNavigate } from "react-router-dom";
+import { IconButton } from "@mui/material";
+import { styled } from "@mui/material/styles";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHouse } from "@fortawesome/free-solid-svg-icons";
+import { useAudio } from "../audio/audio.hooks";
+import { AUDIO_PATHS } from "../audio/audio.utils";
 
-interface HomeProps {
-  setShowElement: (showList: boolean) => void;
-  setShowMain: (showList: boolean) => void;
-  //   answer: string[];
-  //   songHandling?: any;
-  //   song1?: any;
-  //   song2?: any;
-}
+const HomeIconButton = styled(IconButton)({
+  position: "fixed",
+  top: "5px",
+  left: "5px",
+  color: "white",
+  // backgroundColor: "rgba(255, 255, 255, 0.1)",
+  // "&:hover": {
+  //   backgroundColor: "rgba(255, 255, 255, 0.2)",
+  // },
+  zIndex: 100,
+  padding: "8px",
+});
 
-// const style = {
-//   "& .MuiInputLabel-root": {
-//     color: "white",
-//     marginLeft: "4px",
-//     opacity: "40%",
-//   },
+const Home: FC = () => {
+  const navigate = useNavigate();
+  const { stopAllAudio } = useAudio(AUDIO_PATHS);
 
-//   "& label.Mui-focused:not(.Mui-error)": {
-//     color: "white",
-//   },
-//   "& .Mui-error": {
-//     color: "#8B0000 !important",
-//   },
-//   "& .MuiOutlinedInput-root:not(.Mui-error)": {
-//     "& fieldset": {
-//       borderColor: "white",
-//     },
-//     "&:hover fieldset": {
-//       borderColor: "white",
-//     },
-//     "&.Mui-focused fieldset": {
-//       borderColor: "white",
-//     },
-//   },
-//   "& .Mui-error .MuiOutlinedInput-notchedOutline": {
-//     borderColor: "#8B0000 !important",
-//     "& fieldset": {
-//       borderColor: "#8B0000 !important",
-//     },
-//     "&:hover fieldset": {
-//       borderColor: "#8B0000 !important",
-//     },
-//     "&.Mui-focused fieldset": {
-//       borderColor: "#8B0000 !important",
-//     },
-//   },
-//   "& .MuiOutlinedInput-root:(.Mui-error)": {
-//     "& fieldset": {
-//       borderColor: "#8B0000 !important",
-//     },
-//     "&:hover fieldset": {
-//       borderColor: "#8B0000 !important",
-//     },
-//     "&.Mui-focused fieldset": {
-//       borderColor: "#8B0000 !important",
-//     },
-//   },
-//   input: { color: "white" },
-// };
-
-const Home: FC<HomeProps> = ({
-  setShowElement,
-  setShowMain,
-  //   answer,
-  //   songHandling,
-  //   song1,
-  //   song2,
-}) => {
   const handleClick = () => {
-    setShowElement(false);
-    setShowMain(true);
+    stopAllAudio();
+    navigate("/");
   };
+
   return (
-    <>
-      {
-        <Button
-          variant="text"
-          //   style={{
-          //     backgroundColor: "inherit",
-          //     marginTop: "10px",
-          //     marginLeft: "20px",
-          //   }}
-          onClick={handleClick}
-        >
-          Home
-        </Button>
-      }
-    </>
+    <HomeIconButton onClick={handleClick} aria-label="Return home">
+      <FontAwesomeIcon icon={faHouse} />{" "}
+    </HomeIconButton>
   );
 };
 

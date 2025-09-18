@@ -2,6 +2,7 @@ import { Dispatch, SetStateAction, useEffect } from "react";
 import styles from "./travel.module.css";
 import { useAudio } from "../../../audio/audio.hooks";
 import { AUDIO_PATHS } from "../../../audio/audio.utils";
+import Home from "../../../components/home.component";
 
 interface Travel2023Props {
   showTree: boolean;
@@ -27,20 +28,16 @@ export const Travel2023 = ({
       return styles.christmas;
     }
   };
-  const { audioRefs, playSong } = useAudio(AUDIO_PATHS);
+  const { audioRefs, playSong, stopAllAudio } = useAudio(AUDIO_PATHS);
 
   useEffect(() => {
+    const cleanup = async () => {
+      await stopAllAudio();
+    };
+    cleanup();
     if (journeyName === "Thanksgiving") {
-      audioRefs.krampus.current.pause();
-      audioRefs.finale.current.pause();
-      audioRefs.krampus.current.currentTime = 0;
-      audioRefs.finale.current.currentTime = 0;
       playSong(audioRefs.jazz.current);
     } else if (journeyName === "Christmas Eve" || journeyName === "Christmas") {
-      audioRefs.jazz.current.pause();
-      audioRefs.finale.current.pause();
-      audioRefs.finale.current.currentTime = 0;
-      audioRefs.jazz.current.currentTime = 0;
       playSong(audioRefs.krampus.current);
     }
   }, [journeyName]);
@@ -55,6 +52,7 @@ export const Travel2023 = ({
 
   return (
     <>
+      <Home />
       <div className={`${styles.app} ${getJourneyClass()}`}>
         <div className={styles.appHeader}>
           <div className="journey">

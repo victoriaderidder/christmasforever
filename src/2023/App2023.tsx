@@ -5,14 +5,8 @@ import { ThanksgivingJourney } from "./components/journey/thanksgiving-journey.c
 import { ChristmasEveJourney } from "./components/journey/christmas-eve-journey.component";
 import { ChristmasJourney } from "./components/journey/christmas-journey.component";
 import { Travel2023 } from "./components/travel/travel.component";
-// import Home from "./components/home/home.component";
 
-interface App2023Props {
-  setShowMain: (showMain: boolean) => void;
-  setShowSelf: (showSelf: boolean) => void;
-}
-
-const App2023: FC<App2023Props> = ({ setShowSelf, setShowMain }) => {
+const App2023: FC = () => {
   const [showTree, setShowTree] = useState(true);
   const [showThanksgiving, setShowThanksgiving] = useState(false);
   const [showChristmasEve, setShowChristmasEve] = useState(false);
@@ -20,7 +14,6 @@ const App2023: FC<App2023Props> = ({ setShowSelf, setShowMain }) => {
 
   return (
     <main className="main2023">
-      {/* <Home setShowMain={setShowMain} setShowElement={setShowSelf} /> */}
       {showTree && (
         <Tree
           showTree={showTree}

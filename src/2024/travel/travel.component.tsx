@@ -2,18 +2,19 @@ import { Journey2024 } from "../journey/journey-2024.component";
 import styles from "./travel.module.css";
 import { useAudio } from "../../audio/audio.hooks";
 import { AUDIO_PATHS } from "../../audio/audio.utils";
-import { useEffect } from "react";
+import { FC, useEffect } from "react";
 
-interface Travel2024Props {
-  temp: boolean;
-}
-
-export const Travel2024 = ({ temp }: Travel2024Props) => {
+export const Travel2024: FC = () => {
   const { audioRefs, playSong } = useAudio(AUDIO_PATHS);
 
   useEffect(() => {
-    playSong(audioRefs?.angels.current);
+    const play = async () => {
+      await playSong(audioRefs?.angels.current);
+      console.log(audioRefs?.angels);
+    };
+    play();
   }, []);
+
   const handleEnd = () => {};
 
   return (
