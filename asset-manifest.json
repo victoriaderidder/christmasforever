@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/christmasforever/static/css/main.4cad2587.css",
-    "main.js": "/christmasforever/static/js/main.ad94022a.js",
+    "main.js": "/christmasforever/static/js/main.ac415dbf.js",
     "static/media/jazz.mp3": "/christmasforever/static/media/jazz.41bf468961746e168fa9.mp3",
     "static/media/lastchristmas.mp3": "/christmasforever/static/media/lastchristmas.87e4cb2ed0b124358d2d.mp3",
     "static/media/angelswehaveheardonhigh.mp3": "/christmasforever/static/media/angelswehaveheardonhigh.9b259fb288cb63a49236.mp3",
@@ -15,13 +15,14 @@
     "static/media/deckthehalls.mp3": "/christmasforever/static/media/deckthehalls.73e37a6c461e22ed1751.mp3",
     "static/media/rockinaroundthechristmastree.mp3": "/christmasforever/static/media/rockinaroundthechristmastree.6def8c823ca4054e4701.mp3",
     "static/media/cookie.png": "/christmasforever/static/media/cookie.a1c45a4be015ac256640.png",
+    "static/media/peppermint-scimitar.webp": "/christmasforever/static/media/peppermint-scimitar.3ff23056dcee85bbb2b7.webp",
     "static/media/squares.png": "/christmasforever/static/media/squares.6e2a4ec6e0ebd45cef47.png",
     "index.html": "/christmasforever/index.html",
     "main.4cad2587.css.map": "/christmasforever/static/css/main.4cad2587.css.map",
-    "main.ad94022a.js.map": "/christmasforever/static/js/main.ad94022a.js.map"
+    "main.ac415dbf.js.map": "/christmasforever/static/js/main.ac415dbf.js.map"
   },
   "entrypoints": [
     "static/css/main.4cad2587.css",
-    "static/js/main.ad94022a.js"
+    "static/js/main.ac415dbf.js"
   ]
 }
