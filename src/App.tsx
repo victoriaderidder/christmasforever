@@ -3,7 +3,7 @@ import {
   Route,
   Link,
   useLocation,
-  BrowserRouter,
+  HashRouter,
   useNavigate,
 } from "react-router-dom";
 import Snowfall from "react-snowfall";
@@ -42,7 +42,7 @@ function App() {
   };
 
   return (
-    <BrowserRouter>
+    <HashRouter>
       <RouteChangeHandler />
       <main className="main">
         <Routes>
@@ -120,7 +120,7 @@ function App() {
           <Route path="/2024" element={<App2024 />} />
         </Routes>
       </main>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
