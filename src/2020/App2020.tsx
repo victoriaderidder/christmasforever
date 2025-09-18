@@ -78,8 +78,4 @@ const App2020: FC = () => {
   );
 };
 
-// : (
-//         <div>{riddle}</div>
-//       )}
-
 export default App2020;
