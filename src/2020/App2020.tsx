@@ -3,6 +3,12 @@ import styled from "@emotion/styled";
 import Home from "../components/home.component";
 import ScavengeGrid from "./scavenge.component";
 
+/*
+ * The original implementation can be found here:
+ * https://victoriaderidder.github.io/achristmaschallenge/V1%20(2020)/page1.html
+ * This component is a React recreation.
+ */
+
 const PageContainer = styled.div`
   position: fixed;
   top: 0;
