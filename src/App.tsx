@@ -4,6 +4,7 @@ import {
   Link,
   useLocation,
   BrowserRouter,
+  useNavigate,
 } from "react-router-dom";
 import Snowfall from "react-snowfall";
 import App2023 from "2023/App2023";
@@ -13,19 +14,25 @@ import { useAudio } from "./audio/audio.hooks";
 import { AUDIO_PATHS } from "./audio/audio.utils";
 import { useEffect } from "react";
 import "./App.css";
+import App2020 from "2020/App2020";
 
 function App() {
   const { stopAllAudio } = useAudio(AUDIO_PATHS);
   const RouteChangeHandler = () => {
     const location = useLocation();
+    const navigate = useNavigate();
     useEffect(() => {
       const handleRouteChange = async () => {
         console.log("Route changed to:", location.pathname);
         await stopAllAudio();
       };
+
+      if (location.pathname === "/christmasforever") {
+        navigate("/");
+      }
+
       if (location.pathname === "/") {
         handleRouteChange();
-
         window.addEventListener("popstate", handleRouteChange);
         return () => window.removeEventListener("popstate", handleRouteChange);
       }
@@ -95,12 +102,7 @@ function App() {
                     textColor={"white"}
                   />
                 </a>
-                <a
-                  href="https://victoriaderidder.github.io/achristmaschallenge/V1%20(2020)/page1.html"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="year-box"
-                >
+                <Link to="/2020" className="year-box">
                   <Box
                     width={125}
                     height={125}
@@ -109,10 +111,11 @@ function App() {
                     text={"2020"}
                     textColor={"white"}
                   />
-                </a>
+                </Link>
               </>
             }
           />
+          <Route path="/2020" element={<App2020 />} />
           <Route path="/2023" element={<App2023 />} />
           <Route path="/2024" element={<App2024 />} />
         </Routes>
