@@ -2,6 +2,7 @@ export const AUDIO_PATHS = {
   krampus: require("../assets/music/krampus.mp3"),
   angels: require("../assets/music/angelswehaveheardonhigh.mp3"),
   finale: require("../assets/music/deckthehalls.mp3"),
+  deckTheHalls: require("../assets/music/deckthehalls.mp3"),
   silentNight: require("../assets/music/silentnight.mp3"),
   lastChristmas: require("../assets/music/lastchristmas.mp3"),
   jbr: require("../assets/music/jinglebellrock.mp3"),

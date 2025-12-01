@@ -1,0 +1,113 @@
+@keyframes spin {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes grow {
+  0% {
+    transform: scale(0.3);
+  }
+  50% {
+    transform: scale(0.1);
+  }
+  100% {
+    transform: scale(0.3);
+  }
+}
+
+@keyframes moveAround {
+  0% {
+    top: 0;
+    left: 0;
+  }
+  15% {
+    top: 0px;
+    left: calc(100% - 220px);
+  }
+  25% {
+    top: 300px;
+    left: 0px;
+  }
+  50% {
+    top: 300px;
+    left: calc(100% - 220px);
+  }
+  75% {
+    top: 0px;
+    left: calc(100% - 220px);
+  }
+  85% {
+    top: 300px;
+    left: 0px;
+  }
+  100% {
+    top: 0px;
+    left: 0;
+  }
+}
+
+#snowflake {
+  width: 650px;
+  height: 650px;
+  cursor: pointer;
+}
+
+#cookie {
+  width: 65%;
+  height: 65%;
+  animation: spin 35s linear infinite;
+  cursor: pointer;
+}
+
+.cookieMover2 {
+  animation-name: grow;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+.cookieMover {
+  position: absolute;
+  animation: moveAround 15s infinite;
+}
+
+*.unselectable {
+  -moz-user-select: -moz-none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.App {
+  text-align: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  text-align: center;
+}
+
+.App-header {
+  min-height: 100vh;
+  margin-right: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 2em;
+  color: white;
+}
+
+.Menu-bar {
+  margin-left: -15px;
+}
+
+h1 {
+  font-size: 2em;
+}

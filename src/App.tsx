@@ -7,6 +7,8 @@ import {
   useNavigate,
 } from "react-router-dom";
 import Snowfall from "react-snowfall";
+import App2020 from "2020/App2020";
+import App2022 from "2022/App2022";
 import App2023 from "2023/App2023";
 import App2024 from "2024/App2024";
 import Box from "components/box.component";
@@ -14,7 +16,6 @@ import { useAudio } from "./audio/audio.hooks";
 import { AUDIO_PATHS } from "./audio/audio.utils";
 import { useEffect } from "react";
 import "./App.css";
-import App2020 from "2020/App2020";
 
 function App() {
   const { stopAllAudio } = useAudio(AUDIO_PATHS);
@@ -61,12 +62,7 @@ function App() {
                     textColor={"white"}
                   />
                 </Link>
-                <a
-                  href="https://victoriaderidder.github.io/christmas2022/"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="year-box"
-                >
+                <Link to="/2022" className="year-box">
                   <Box
                     width={125}
                     height={125}
@@ -75,7 +71,7 @@ function App() {
                     text={"2022"}
                     textColor={"white"}
                   />
-                </a>
+                </Link>
                 <Link to="/2024" className="year-box" id="this-year">
                   <Box
                     width={250}
@@ -116,6 +112,7 @@ function App() {
             }
           />
           <Route path="/2020" element={<App2020 />} />
+          <Route path="/2022" element={<App2022 />} />
           <Route path="/2023" element={<App2023 />} />
           <Route path="/2024" element={<App2024 />} />
         </Routes>

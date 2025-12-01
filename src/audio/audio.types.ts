@@ -11,4 +11,5 @@ export interface AudioProps {
   rockin: HTMLAudioElement;
   santaBaby: HTMLAudioElement;
   whiteChristmas: HTMLAudioElement;
+  deckTheHalls: HTMLAudioElement;
 }

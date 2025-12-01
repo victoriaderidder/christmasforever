@@ -9,6 +9,7 @@ export const useAudio = (audioSources: Record<keyof AudioProps, string>) => {
     finale: useRef(new Audio(audioSources.finale)),
     silentNight: useRef(new Audio(audioSources.silentNight)),
     lastChristmas: useRef(new Audio(audioSources.lastChristmas)),
+    deckTheHalls: useRef(new Audio(audioSources.deckTheHalls)),
     jbr: useRef(new Audio(audioSources.jbr)),
     circus: useRef(new Audio(audioSources.circus)),
     chipmunk: useRef(new Audio(audioSources.chipmunk)),

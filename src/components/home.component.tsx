@@ -34,6 +34,7 @@ const Home: FC = () => {
       onClick={handleClick}
       aria-label="Return home"
       is2020route={is2020Route}
+      disableRipple
     >
       <FontAwesomeIcon icon={faHouse} />{" "}
     </HomeIconButton>
