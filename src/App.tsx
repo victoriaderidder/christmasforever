@@ -11,7 +11,9 @@ import App2020 from "2020/App2020";
 import App2022 from "2022/App2022";
 import App2023 from "2023/App2023";
 import App2024 from "2024/App2024";
+import App2025 from "2025/App2025";
 import Box from "components/box.component";
+import Star from "components/star.component";
 import { useAudio } from "./audio/audio.hooks";
 import { AUDIO_PATHS } from "./audio/audio.utils";
 import { useEffect } from "react";
@@ -52,62 +54,80 @@ function App() {
             element={
               <>
                 <Snowfall snowflakeCount={125} />
-                <Link to="/2023" className="year-box">
-                  <Box
-                    width={125}
-                    height={125}
-                    backgroundColor={"#D4AF37"}
-                    borderColor={"#DAA520"}
-                    text={"2023"}
-                    textColor={"white"}
-                  />
-                </Link>
-                <Link to="/2022" className="year-box">
-                  <Box
-                    width={125}
-                    height={125}
-                    backgroundColor={"#D4AF37"}
-                    borderColor={"#DAA520"}
-                    text={"2022"}
-                    textColor={"white"}
-                  />
-                </Link>
-                <Link to="/2024" className="year-box" id="this-year">
-                  <Box
+                <Link to="/2025" className="year-box" id="this-year">
+                  <Star
                     width={250}
                     height={250}
                     backgroundColor={"#D4AF37"}
                     borderColor={"#DAA520"}
-                    text={"2024"}
+                    text={"2025"}
                     textColor={"white"}
                     fontSize={100}
                   />
                 </Link>
-                <a
-                  href="https://victoriaderidder.github.io/achristmaschallenge//"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="year-box"
-                >
-                  <Box
-                    width={125}
-                    height={125}
-                    backgroundColor={"#D4AF37"}
-                    borderColor={"#DAA520"}
-                    text={"2021"}
-                    textColor={"white"}
-                  />
-                </a>
-                <Link to="/2020" className="year-box">
-                  <Box
-                    width={125}
-                    height={125}
-                    backgroundColor={"#D4AF37"}
-                    borderColor={"#DAA520"}
-                    text={"2020"}
-                    textColor={"white"}
-                  />
-                </Link>
+
+                <div className="bottom-row" aria-hidden={false}>
+                  <Link to="/2023" className="year-box">
+                    <Box
+                      width={125}
+                      height={125}
+                      backgroundColor={"#D4AF37"}
+                      borderColor={"#DAA520"}
+                      text={"2023"}
+                      textColor={"white"}
+                      isPresent={true}
+                    />
+                  </Link>
+                  <Link to="/2022" className="year-box">
+                    <Box
+                      width={125}
+                      height={125}
+                      backgroundColor={"#D4AF37"}
+                      borderColor={"#DAA520"}
+                      text={"2022"}
+                      textColor={"white"}
+                      isPresent={true}
+                    />
+                  </Link>
+                  <Link to="/2024" className="year-box">
+                    <Box
+                      width={125}
+                      height={125}
+                      backgroundColor={"#D4AF37"}
+                      borderColor={"#DAA520"}
+                      text={"2024"}
+                      textColor={"white"}
+                      isPresent={true}
+                    />
+                  </Link>
+                  <a
+                    href="https://victoriaderidder.github.io/achristmaschallenge//"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="year-box"
+                  >
+                    <Box
+                      width={125}
+                      height={125}
+                      backgroundColor={"#D4AF37"}
+                      borderColor={"#DAA520"}
+                      text={"2021"}
+                      textColor={"white"}
+                      isPresent={true}
+                    />
+                  </a>
+                  <Link to="/2020" className="year-box">
+                    <Box
+                      width={125}
+                      height={125}
+                      backgroundColor={"#D4AF37"}
+                      borderColor={"#DAA520"}
+                      text={"2020"}
+                      textColor={"white"}
+                      isPresent={true}
+                    />
+                  </Link>
+                </div>
               </>
             }
           />
@@ -115,6 +135,7 @@ function App() {
           <Route path="/2022" element={<App2022 />} />
           <Route path="/2023" element={<App2023 />} />
           <Route path="/2024" element={<App2024 />} />
+          <Route path="/2025" element={<App2025 />} />
         </Routes>
       </main>
     </HashRouter>

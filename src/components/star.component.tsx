@@ -19,7 +19,7 @@ const Star: FC<StarProps> = ({
   text,
   borderColor,
   textColor,
-  fontSize = "48px",
+  fontSize = "32px",
   fontBold,
 }) => {
   return (

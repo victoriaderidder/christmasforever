@@ -25,20 +25,29 @@
   max-height: 100vh;
   display: flex;
   align-items: center;
-  justify-content: space-around;
-}
-
-.years {
-  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
 
 a {
   text-decoration: none;
 }
 
+.bottom-row {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 24px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 0 24px;
+  gap: 16px;
+  pointer-events: auto;
+}
+
 .year-box {
   display: flex;
-  margin-top: -20px;
 }
 
 #this-year {
