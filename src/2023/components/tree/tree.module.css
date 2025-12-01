@@ -14,6 +14,8 @@
   --trunk-width: calc(var(--tree-width) * 0.1); /* trunk is 10% of tree */
   --box-size: calc(var(--tree-width) * 0.208333); /* box ~125px at 600px tree */
   --present-gap: clamp(8px, 2vw, 24px);
+  --spacing-d: calc(var(--box-size) + var(--present-gap));
+  --right-offset: calc(var(--box-size) + var(--present-gap) * 1.2);
 }
 
 .snow {
