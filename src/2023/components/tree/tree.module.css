@@ -6,29 +6,50 @@
   padding: 6rem;
   max-height: 100vh;
   background-color: #0b1a5e;
-  overflow: hidden;
-  height: 100%;
+  overflow: visible;
+  min-height: 100vh;
+  position: relative;
+  /* layout variables used by presents positioning */
+  --tree-width: clamp(360px, 40vw, 600px); /* responsive tree width */
+  --trunk-width: calc(var(--tree-width) * 0.1); /* trunk is 10% of tree */
+  --box-size: calc(var(--tree-width) * 0.208333); /* box ~125px at 600px tree */
+  --present-gap: clamp(8px, 2vw, 24px);
 }
 
 .snow {
-  background: white;
-  position: absolute;
+  background: #ffffff;
+  position: fixed;
+  left: 0;
   width: 100%;
-  height: 12%;
-  bottom: 0%;
-  z-index: 1;
+  height: 14vh;
+  bottom: 0;
+  z-index: 9990;
+  pointer-events: none;
+  box-shadow: 0 -6px 12px rgba(0, 0, 0, 0.06);
+}
+
+.boxRow {
+  position: fixed;
+  bottom: 8vh;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  z-index: 9999;
+  pointer-events: auto;
 }
 
 .treeContainer {
-  position: relative;
-  width: 600px;
-  height: 600px;
+  width: 550px;
+  height: 550px;
   margin: auto;
-  margin-top: -60px;
   border-radius: 100px;
   display: flex;
   align-items: center;
   justify-content: center;
+  position: fixed;
+  bottom: 5vh;
 }
 
 .treeTriangle3 {
@@ -74,16 +95,14 @@
 }
 
 .trunk {
-  position: absolute;
-  width: 10%;
-  height: 30%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: var(--trunk-width);
+  height: 200px;
   background: #5c4033;
-  z-index: 1;
-  bottom: 5%;
-  /* left: 50%; */
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: block;
+  bottom: 14vh;
+  position: fixed;
 }
 
 .star {

@@ -18,26 +18,51 @@
 
 .presentContainer {
   display: flex;
-  margin-top: 16rem;
-  font-size: "72px";
+  align-items: flex-end;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: clamp(0.75rem, 4vw, 3rem);
+  width: min(90%, 900px);
+  margin: 0 auto;
+  pointer-events: auto; /* allow children to receive clicks */
+}
+
+.present1,
+.present2,
+.present3 {
+  position: relative;
+  pointer-events: auto;
 }
 
 .present1 {
-  position: absolute;
-  margin-left: -180px;
+  margin-left: 1px;
 }
 
 .present2 {
-  position: absolute;
-  margin-left: 50px;
+  margin-left: 300px;
 }
 
 .present3 {
-  position: absolute;
-  margin-left: 200px;
+  margin-left: 20px;
+  transform: rotate(1deg);
   animation-name: grow;
   animation-duration: 3s;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
   z-index: 3;
+}
+
+/* Smaller screens: use smaller translations so presents don't run off-screen */
+@media (max-width: 800px) {
+  .present3 {
+    transform: translateX(calc((var(--box-size) * 0.9 + var(--present-gap))))
+      rotate(1deg);
+  }
+}
+
+@media (max-width: 480px) {
+  .present3 {
+    transform: translateX(calc((var(--box-size) * 0.75 + var(--present-gap))))
+      rotate(1deg);
+  }
 }

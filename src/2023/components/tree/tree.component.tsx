@@ -55,6 +55,9 @@ const Tree: FC<TreeProps> = ({
         <div className={styles.ornament + " " + styles.or6}>
           <div className={styles.shine}></div>
         </div>
+        </div>
+      <div className={styles.snow}></div>
+      <div className={styles.boxRow}>
         <BoxWrapper
           showTree={showTree}
           setShowTree={setShowTree}
@@ -66,7 +69,6 @@ const Tree: FC<TreeProps> = ({
           setShowChristmas={setShowChristmas}
         />
       </div>
-      <div className={styles.snow}></div>
     </div>
   );
 };
