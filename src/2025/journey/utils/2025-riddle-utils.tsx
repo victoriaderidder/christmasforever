@@ -1,5 +1,5 @@
 import Riddle from "../../../components/riddle/riddle.component";
-import KrampusEyesRiddle from "../krampus-eyes-riddle";
+import KrampusEyesRiddle from "../../components/krampus-eyes-riddle";
 
 export const handle2025Riddle = (
   riddle: number,
