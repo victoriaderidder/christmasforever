@@ -12,4 +12,5 @@ export interface AudioProps {
   santaBaby: HTMLAudioElement;
   whiteChristmas: HTMLAudioElement;
   deckTheHalls: HTMLAudioElement;
+  fire: HTMLAudioElement;
 }

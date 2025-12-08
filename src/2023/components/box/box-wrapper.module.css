@@ -21,6 +21,8 @@
   width: min(90%, 900px);
   margin: 0 auto;
   pointer-events: auto;
+  position: relative; /* establish stacking context so z-index applies */
+  z-index: 10020; /* place presents above the snow (snow is z-index: 9990) */
 }
 
 .present1,
@@ -28,6 +30,7 @@
 .present3 {
   position: relative;
   pointer-events: auto;
+  z-index: 10030; /* ensure each present sits above the snow */
 }
 
 .present1 {
@@ -44,5 +47,4 @@
   animation-duration: 3s;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
-  z-index: 3;
 }

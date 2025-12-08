@@ -14,6 +14,7 @@ import App2024 from "2024/App2024";
 import App2025 from "2025/App2025";
 import Box from "components/box.component";
 import Star from "components/star.component";
+import TreeVisual from "./components/tree-visual.component";
 import { useAudio } from "./audio/audio.hooks";
 import { AUDIO_PATHS } from "./audio/audio.utils";
 import { useEffect } from "react";
@@ -55,16 +56,20 @@ function App() {
               <>
                 <Snowfall snowflakeCount={125} />
                 <Link to="/2025" className="year-box" id="this-year">
-                  <Star
-                    width={250}
-                    height={250}
-                    backgroundColor={"#D4AF37"}
-                    borderColor={"#DAA520"}
-                    text={"2025"}
-                    textColor={"white"}
-                    fontSize={100}
-                  />
+                  <div className="star-glow">
+                    <Star
+                      width={250}
+                      height={250}
+                      backgroundColor={"#D4AF37"}
+                      borderColor={"#DAA520"}
+                      text={"2025"}
+                      textColor={"white"}
+                      fontSize={50}
+                    />
+                  </div>
                 </Link>
+
+                <TreeVisual />
 
                 <div className="bottom-row" aria-hidden={false}>
                   <Link to="/2023" className="year-box">

@@ -19,7 +19,7 @@ const Star: FC<StarProps> = ({
   text,
   borderColor,
   textColor,
-  fontSize = "32px",
+  fontSize = "48px",
   fontBold,
 }) => {
   return (
@@ -47,7 +47,7 @@ const Star: FC<StarProps> = ({
             fontSize: fontSize,
             fontWeight: fontBold,
             position: "relative",
-            top: "-8%",
+            top: "-1%",
           }}
         >
           {text}

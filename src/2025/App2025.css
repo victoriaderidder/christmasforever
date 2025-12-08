@@ -9,7 +9,6 @@
   height: 100vh;
   background: #000000;
   color: white;
-  cursor: none;
   z-index: 999;
   overflow: hidden;
 }
@@ -32,7 +31,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  pointer-events: none;
+  /* allow clicking elements inside the reveal area */
+  pointer-events: auto;
   -webkit-mask-repeat: no-repeat;
   mask-repeat: no-repeat;
 }
@@ -64,10 +64,17 @@
   transition: opacity 160ms ease;
   z-index: 1000;
   animation: flicker 360ms infinite;
+  /* don't block clicks — let the reveal area receive events */
+  pointer-events: none;
 }
 
 .app2025.active .spotlight {
   opacity: 1;
+}
+
+/* hide the cursor only when the journey/spotlight is active */
+.app2025.active {
+  cursor: none;
 }
 
 @keyframes flicker {
@@ -104,3 +111,4 @@
     opacity: 0.96;
   }
 }
+

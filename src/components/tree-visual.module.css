@@ -1,0 +1,244 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6rem;
+  max-height: 100vh;
+  overflow: visible;
+  min-height: 100vh;
+  position: relative;
+  /* layout variables used by presents positioning */
+  --tree-width: clamp(360px, 40vw, 600px); /* responsive tree width */
+  --trunk-width: calc(var(--tree-width) * 0.1); /* trunk is 10% of tree */
+  --box-size: calc(var(--tree-width) * 0.208333); /* box ~125px at 600px tree */
+  --present-gap: clamp(8px, 2vw, 24px);
+  --spacing-d: calc(var(--box-size) + var(--present-gap));
+  --right-offset: calc(var(--box-size) + var(--present-gap) * 1.2);
+}
+
+.snow {
+  background: #ffffff;
+  position: fixed;
+  left: 0;
+  width: 100%;
+  height: 14vh;
+  bottom: 0;
+  z-index: 1;
+  pointer-events: none;
+  box-shadow: 0 -6px 12px rgba(0, 0, 0, 0.06);
+}
+
+.boxRow {
+  position: fixed;
+  bottom: 8vh;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  z-index: 9999;
+  pointer-events: auto;
+}
+
+.treeContainer {
+  width: 550px;
+  height: 550px;
+  margin-left: 600px;
+  border-radius: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  bottom: 5vh;
+}
+
+.treeTriangle3 {
+  position: absolute;
+  width: 66%;
+  height: 44%;
+  bottom: 30%;
+  /* left: 3.5%; */
+  background: linear-gradient(180deg, #04673b 0%, #034f33 100%);
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: inset 0 -24px 36px rgba(0, 0, 0, 0.25),
+    0 8px 18px rgba(0, 0, 0, 0.18);
+}
+
+.treeTriangle2 {
+  position: absolute;
+  width: 53%;
+  height: 41%;
+  bottom: 45%;
+  /* left: 10%; */
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  background: linear-gradient(180deg, #048453 0%, #046944 100%);
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: inset 0 -18px 28px rgba(0, 0, 0, 0.18),
+    0 6px 12px rgba(0, 0, 0, 0.12);
+}
+
+.treeTriangle1 {
+  position: absolute;
+  width: 42%;
+  height: 33%;
+  bottom: 60%;
+  /* left: 15.5%; */
+  background: linear-gradient(180deg, #02a060 0%, #038052 100%);
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: inset 0 -12px 20px rgba(0, 0, 0, 0.14),
+    0 4px 8px rgba(0, 0, 0, 0.08);
+}
+
+.trunk {
+  margin-right: -45px;
+  transform: translateX(-50%);
+  width: var(--trunk-width, 48px);
+  height: 160px;
+  background: linear-gradient(180deg, #6b4a38 0%, #5c4033 100%);
+  display: block;
+  bottom: 14vh;
+  position: fixed;
+  border-radius: 6px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+  z-index: 2; /* sits in front of background but behind tree layers */
+}
+
+.ornament {
+  position: absolute;
+  width: 5%;
+  height: 5%;
+  border-radius: 50%;
+  z-index: 9; /* above tree triangles (3-5) */
+  /* realistic glossy sphere: two layered radial gradients + base color */
+  background: radial-gradient(
+      circle at 30% 25%,
+      rgba(255, 255, 255, 0.95) 0 14%,
+      rgba(255, 255, 255, 0.2) 15% 18%,
+      transparent 20%
+    ),
+    radial-gradient(
+      circle at 55% 70%,
+      rgba(0, 0, 0, 0.22) 0 40%,
+      rgba(0, 0, 0, 0.45) 60%
+    ),
+    currentColor;
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.35),
+    inset 0 -6px 10px rgba(0, 0, 0, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  transform-origin: center;
+  transition: transform 220ms ease, box-shadow 220ms ease;
+  animation: ornamentFloat 6s ease-in-out infinite;
+}
+
+.shine {
+  position: absolute;
+  width: 36%;
+  height: 36%;
+  top: 8%;
+  left: 14%;
+  border-radius: 50%;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.95),
+    rgba(255, 255, 255, 0.7)
+  );
+  filter: blur(0.6px) opacity(85%);
+  pointer-events: none;
+}
+
+@keyframes ornamentFloat {
+  0% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-3px) scale(1.01);
+  }
+  100% {
+    transform: translateY(0) scale(1);
+  }
+}
+
+.or1 {
+  left: 52%;
+  top: 18%;
+  color: #0742d9;
+}
+
+.or2 {
+  left: 62%;
+  top: 54%;
+  color: #c91212;
+}
+
+.or3 {
+  left: 42%;
+  top: 54%;
+  color: #c0c0c0;
+}
+
+.or4 {
+  left: 56%;
+  top: 50%;
+  color: #0742d9;
+}
+
+.or5 {
+  left: 68%;
+  top: 60%;
+  color: #c0c0c0;
+}
+
+.or6 {
+  left: 38%;
+  top: 62%;
+  color: #c91212;
+}
+
+/* Additional ornaments */
+.or7 {
+  left: 34%;
+  top: 26%;
+  color: #8b0000; /* dark red */
+}
+
+.or8 {
+  left: 50%;
+  top: 40%;
+  color: #c0c0c0; /* gold */
+}
+
+.or9 {
+  left: 48%;
+  top: 28%;
+  color: #0742d9; /* green-yellow */
+}
+
+.or10 {
+  left: 27%;
+  top: 50%;
+  color: #800080; /* purple */
+}
+
+.or11 {
+  left: 56%;
+  top: 50%;
+  color: #ff69b4; /* pink */
+}
+
+.or12 {
+  left: 65%;
+  top: 40%;
+  color: #c0c0c0; /* jade/teal */
+}

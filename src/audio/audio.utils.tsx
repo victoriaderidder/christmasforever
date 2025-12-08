@@ -12,4 +12,5 @@ export const AUDIO_PATHS = {
   rockin: require("../assets/music/rockinaroundthechristmastree.mp3"),
   santaBaby: require("../assets/music/santababy.mp3"),
   whiteChristmas: require("../assets/music/whitechristmas.mp3"),
+  fire: require("../assets/music/cracklingfire.mp3"),
 };

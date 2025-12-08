@@ -36,7 +36,7 @@ const Box: FC<BoxProps> = ({
       sx={{
         width: { width },
         height: { height },
-        backgroundColor: { backgroundColor },
+        background: `linear-gradient(180deg, rgba(255,255,255,0.12), rgba(0,0,0,0.06)), ${backgroundColor}`,
         border: borderStyle,
         display: "flex",
         alignItems: "center",
@@ -46,6 +46,8 @@ const Box: FC<BoxProps> = ({
         cursor: "pointer",
         overflow: "visible",
         fontSize: fontSize,
+        boxShadow:
+          "0 10px 24px rgba(2,6,23,0.36), inset 0 -6px 10px rgba(0,0,0,0.08)",
       }}
     >
       <>
@@ -59,9 +61,11 @@ const Box: FC<BoxProps> = ({
                 transform: "translateX(-50%)",
                 width: Math.max(8, Math.round(width * 0.12)) + "px",
                 height: "100%",
-                background: "#c62828",
+                background: "linear-gradient(180deg,#e53935,#c62828)",
                 zIndex: 0,
                 pointerEvents: "none",
+                boxShadow:
+                  "inset 0 6px 10px rgba(255,255,255,0.04), inset 0 -6px 10px rgba(0,0,0,0.12)",
               }}
             />
             <div
@@ -72,9 +76,11 @@ const Box: FC<BoxProps> = ({
                 transform: "translateY(-50%)",
                 height: Math.max(8, Math.round(height * 0.12)) + "px",
                 width: "100%",
-                background: "#c62828",
+                background: "linear-gradient(90deg,#e53935,#c62828)",
                 zIndex: 0,
                 pointerEvents: "none",
+                boxShadow:
+                  "inset 6px 0 10px rgba(255,255,255,0.03), inset -6px 0 10px rgba(0,0,0,0.12)",
               }}
             />
             <div
@@ -106,10 +112,11 @@ const Box: FC<BoxProps> = ({
                   left: "12%",
                   width: "46%",
                   height: "100%",
-                  background: "#c62828",
+                  background: "linear-gradient(180deg,#ff6b6b,#c62828)",
                   borderRadius: "50% 50% 40% 60%",
                   transform: "rotate(-20deg) scale(1.02)",
-                  boxShadow: "inset -2px -1px 4px rgba(0,0,0,0.08)",
+                  boxShadow:
+                    "inset -4px -2px 8px rgba(0,0,0,0.12), 0 4px 8px rgba(0,0,0,0.08)",
                   overflow: "visible",
                 }}
               />
@@ -119,10 +126,11 @@ const Box: FC<BoxProps> = ({
                   right: "12%",
                   width: "46%",
                   height: "100%",
-                  background: "#c62828",
+                  background: "linear-gradient(180deg,#ff6b6b,#c62828)",
                   borderRadius: "50% 50% 60% 40%",
                   transform: "rotate(20deg) scale(1.02)",
-                  boxShadow: "inset 2px -1px 4px rgba(0,0,0,0.08)",
+                  boxShadow:
+                    "inset 4px -2px 8px rgba(0,0,0,0.12), 0 4px 8px rgba(0,0,0,0.08)",
                   overflow: "visible",
                 }}
               />
@@ -140,9 +148,10 @@ const Box: FC<BoxProps> = ({
                       10,
                       Math.round((height as number) * 0.1 * bowScale)
                     ) + "px",
-                  background: "#c62828",
+                  background: "linear-gradient(180deg,#ff6b6b,#c62828)",
                   borderRadius: "50%",
-                  boxShadow: "0 4px 8px rgba(0,0,0,0.12)",
+                  boxShadow:
+                    "0 6px 12px rgba(0,0,0,0.18), inset 0 -3px 6px rgba(0,0,0,0.12)",
                 }}
               />
             </div>

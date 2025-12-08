@@ -8,10 +8,28 @@ interface StoryProps {
 }
 
 const Story: FC<StoryProps> = ({ story }) => {
+  const containerStyle: React.CSSProperties = {
+    fontSize: "1.6rem",
+    lineHeight: 1.4,
+    textAlign: "center",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+    gap: "12px",
+    padding: "0 24px",
+    maxWidth: "70ch",
+    margin: "0 auto",
+  };
+
+  const textStyle: React.CSSProperties = {
+    display: "inline-block",
+  };
+
   return (
-    <>
-      {story}
-      <div>
+    <div style={containerStyle}>
+      <span style={textStyle}>{story}</span>
+      <div style={{ display: "flex", justifyContent: "center" }}>
         <Button
           size="small"
           variant="contained"
@@ -23,7 +41,7 @@ const Story: FC<StoryProps> = ({ story }) => {
           <FontAwesomeIcon icon={faArrowRightLong} size="lg" />
         </Button>
       </div>
-    </>
+    </div>
   );
 };
 
