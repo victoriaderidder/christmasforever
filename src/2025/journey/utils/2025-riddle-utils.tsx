@@ -1,4 +1,5 @@
 import Riddle from "../../../components/riddle/riddle.component";
+import KrampusEyesRiddle from "../krampus-eyes-riddle";
 
 export const handle2025Riddle = (
   riddle: number,
@@ -12,30 +13,11 @@ export const handle2025Riddle = (
   switch (riddle) {
     case 1:
       setRiddle(
-        <Riddle
-          question={"taedvn eoln igedrgabern gegong vloe"}
-          answer={["angel"]}
-          setShowElement={setShowStory}
-        />
-      );
-      break;
-    case 2:
-      setRiddle(
-        <Riddle
-          question={"1 8 10 __ 90"}
-          answer={["19"]}
-          setShowElement={setShowStory}
-        />
-      );
-      break;
-    case 3:
-      setRiddle(
-        <Riddle
-          question={
-            "CHEER + 7 = the way this Mysterious Teddy Bear is feeling today!"
-          }
-          answer={["jolly"]}
-          setShowElement={setShowStory}
+        <KrampusEyesRiddle
+          onComplete={(won: boolean) => {
+            setRiddle(<></>);
+            setShowStory(true);
+          }}
         />
       );
       break;

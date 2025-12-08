@@ -1,20 +1,13 @@
 import { Journey2025 } from "../journey/journey-2025.component";
 import styles from "./travel.module.css";
-import { useAudio } from "../../audio/audio.hooks";
-import { AUDIO_PATHS } from "../../audio/audio.utils";
-import { FC, useEffect } from "react";
+import { FC } from "react";
 
-export const Travel2024: FC = () => {
-  const { audioRefs, playSong } = useAudio(AUDIO_PATHS);
-
+export const Travel2025: FC = () => {
   return (
     <>
       <div className={styles.app}>
         <div className={styles.appHeader}>
-          <div
-            className="journey"
-            onClick={() => playSong(audioRefs?.fire?.current)}
-          >
+          <div className="journey">
             <Journey2025 handleEnd={() => {}} />
           </div>
         </div>

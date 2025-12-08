@@ -15,80 +15,113 @@ export interface Journey2025Props {
 export const Journey2025 = ({ handleEnd }: Journey2025Props) => {
   const [showStory, setShowStory] = useState(true);
   const [riddle, setRiddle] = useState(<></>);
+  const [redBg, setRedBg] = useState(false);
   const [index, setIndex] = useState(0);
+
   const { audioRefs, playSong, stopAllAudio } = useAudio(AUDIO_PATHS);
 
-  // start fire audio when the Journey mounts
   useEffect(() => {
-    const fire = audioRefs.fire.current;
-    if (fire) {
-      try {
-        playSong(fire);
-      } catch (err) {
-        console.error("Failed to play fire audio:", err);
-      }
-    }
-
-    return () => {
-      try {
-        if (fire) {
-          fire.pause();
-          fire.currentTime = 0;
-        }
-      } catch (err) {
-        console.error("Failed to stop fire audio on unmount:", err);
-      }
-      try {
-        stopAllAudio();
-      } catch (err) {
-        /* ignore */
-      }
-    };
+    playSong(audioRefs.fire.current);
   }, []);
-
-  // spotlight handled by Spotlight component
 
   const increment = () => {
     index === storyArray?.length - 1 ? handleEnd() : setIndex(index + 1);
   };
 
+  const handleSwitchToRed = () => {
+    setRedBg(true);
+    playSong(audioRefs?.krampus?.current, audioRefs?.fire?.current);
+  };
+
   const storyArray = [
-    <Title title="> Santa Lizzy." />,
-    <Story story={`It's the day before Christmas Eve.`} />,
-    <Story story={`You and your elves have been working hard all year.`} />,
-    <Story
-      story={`On toys, of course, but also, your super sweet tricked out sleigh!`}
-    />,
-    <Story story={`You sit in the sleigh, admiring the handiwork.`} />,
-    <Story story={`You have been Santa for five years!!!`} />,
-    <Story story={`You have been Santa for five years!!!`} />,
-    <Story story={`It's a huge milestone.`} />,
-    <Story
-      story={`(Though Santas generally make it a few centuries before being pushed off a roof.)`}
-    />,
-    <Story
-      story={`To celebrate, the elves are throwing you a surprise party!`}
-    />,
-    <Story story={`You're not supposed to know about it...`} />,
-    <Story story={`But they've been planning it for an entire year.`} />,
-    <Story story={`And none of them are particularly subtle.`} />,
-    <Title title="> GoodWill Toward Men." />,
-    <Story story={`OUT OF YOUR WAY!!!! OUT OF YOUR WAY!!!!`} />,
-    <Story story={`You race through the workshop.`} />,
+    // <Title title="> к̴̷̴̭͈̫̫̃̇̓́͟͝р̷̡̦͎͈͋̑ͥ͘͢͢͞ͅα̴̴̴̡̢͕̭ͥͮ̒́μ̵̴̟ͥ̀̎̊ͨ́͠п̴̪̱̤̺̦̃̂̒͑͂̀͜͢͞͝͠у̷̸̷̸̢̖͉̜̲͇̎͐͠͞σ̸̫͔͍̀̍̑͝͠͠͝." />,
+    // <Story story={`you have lost yourself.`} />,
+    // <Story story={`you know only rage.`} />,
+    // <Story story={`you remember only fury.`} />,
+    // <Story story={`the darkness is eternal.`} />,
+    // <Story story={`centuries of you`} />,
+    // <Story story={`alone`} />,
+    // <Story story={`in the dark.`} />,
+    // <Story story={`but now?`} />,
+    // <Story story={`a light...`} />,
+    // <Story story={`something flickering`} />,
+    // <Story story={`far away`} />,
+    // <Story story={`in the corner`} />,
+    // <Story story={`of the...`} />,
+    // <Story story={`cave?`} />,
+    // <Story story={`yes...the cave.`} />,
+    // <Story story={`you remember now.`} />,
+    // <Title title=">Krampus." />,
+    // <Story story={`for that is your name,`} />,
+    // <Story story={`isn't it?`} />,
+    // <Story story={`you are the spirit of Christmas.`} />,
+    // <Story story={`the rightful one.`} />,
+    // <Story story={`a true ancient.`} />,
+    // <Story story={`not like these mortals,`} />,
+    // <Story story={`dressed up in red and playing pretend.`} />,
+    // <Story story={`though many years ago,`} />,
+    // <Story story={`it was one of those mortals who defeated you...`} />,
+    // <Story story={`trapping you in this cave.`} />,
+    // <Story story={`doomed to be alone forever.`} />,
+    // <Story story={`but oh, how that light calls you.`} />,
+    // <Story story={`you haven't seen light since...`} />,
+    // <Story story={`and so your mouth,`} />,
+    // <Story story={`used to nothing but screams of rage,`} />,
+    // <Story story={`attempts to call out.`} />,
+    // <Story story={`Is someone there?`} />,
+    // <Title title=">Mysterious Teddy Bear." />,
+    // <Story story={`You don't know why you're here.`} />,
+    // <Story story={`It's as though your body was possessed...`} />,
+    // <Story story={`As if your tiny legs walked here all on their own.`} />,
+    // <Story story={`But you don't remember the walk.`} />,
+    // <Story story={`You remember being home.`} />,
+    // <Story story={`And you remember the darkness...`} />,
+    // <Story story={`This darkness.`} />,
+    // <Story story={`The howling, the screaming.`} />,
+    // <Story story={`Noises of a beast...`} />,
+    // <Story story={`Of something inhuman.`} />,
+    // <Story story={`Terrified, you'd fumbled in your bear pockets.`} />,
+    // <Story story={`Struck a match.`} />,
+    // <Story story={`Lit a fire.`} />,
+    // <Story story={`And the noises ceased.`} />,
+    // <>
+    //   <div onClick={() => handle2025Riddle(1, setShowStory, setRiddle)}>
+    //     <Story story={`In the darkness, all you see are glowing eyes...`} />
+    //   </div>
+    // </>,
     <>
-      <span>What could be more magical than that?</span>
+      <div onClick={() => handleSwitchToRed()}>
+        <Story story={`Oh my god.`} />
+      </div>
+    </>,
+    <Title title={`> Santa Lizzy.`} />,
+    <>
+      <span>Ending placeholder!</span>
     </>,
   ];
 
   return (
-    <Spotlight radius={80}>
+    <>
       {showStory ? (
-        <div className="story" onClick={increment}>
-          {storyArray[index]}
-        </div>
+        redBg ? (
+          <div className="story story-fullscreen-red" onClick={increment}>
+            {storyArray[index]}
+          </div>
+        ) : (
+          <Spotlight radius={80}>
+            <div className="story" onClick={increment}>
+              {storyArray[index]}
+            </div>
+          </Spotlight>
+        )
       ) : (
-        <div>{riddle}</div>
+        <div
+          className="riddle-container"
+          style={{ padding: "24px", textAlign: "center" }}
+        >
+          {riddle}
+        </div>
       )}
-    </Spotlight>
+    </>
   );
 };

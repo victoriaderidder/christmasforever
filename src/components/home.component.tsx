@@ -13,7 +13,7 @@ const HomeIconButton = styled(IconButton)<{ is2020route?: boolean }>(
     top: "5px",
     left: "5px",
     color: is2020route ? "black" : "white",
-    zIndex: 100,
+    zIndex: 3000,
     padding: "8px",
   })
 );

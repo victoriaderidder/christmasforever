@@ -120,3 +120,19 @@
     opacity: 0.96;
   }
 }
+
+/* Fullscreen red story variant (used for the "Oh my god." node) */
+.story-fullscreen-red {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  box-sizing: border-box;
+  background-color: #c30f16;
+  color: white;
+  z-index: 1100;
+}
