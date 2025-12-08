@@ -31,7 +31,18 @@ export const useAudio = (audioSources: Record<keyof AudioProps, string>) => {
       previousSong.currentTime = 0;
       setPlayingSongs((current) => current.filter((s) => s !== previousSong));
     }
-    song.play();
+    // call play() but attach a catch to avoid uncaught promise rejections
+    const playResult = song.play();
+    if (
+      playResult &&
+      typeof (playResult as Promise<void>).catch === "function"
+    ) {
+      (playResult as Promise<void>).catch((err) => {
+        // expected: play() may be interrupted by a subsequent pause() or blocked by autoplay policies
+        // swallow to avoid uncaught promise error in console
+        console.debug("play() promise rejected (suppressed):", err);
+      });
+    }
     song.loop = true;
     setPlayingSongs([...playingSongs, song]);
   };

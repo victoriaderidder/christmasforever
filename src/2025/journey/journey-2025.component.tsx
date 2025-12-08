@@ -2,8 +2,9 @@ import { useAudio } from "../../audio/audio.hooks";
 import { AUDIO_PATHS } from "../../audio/audio.utils";
 import Story from "../../components/story.component";
 import Title from "../../components/title.component";
+import Spotlight from "../../components/spotlight.component";
 import { handle2025Riddle } from "./utils/2025-riddle-utils";
-import { useState, useRef, useEffect } from "react";
+import { useState, useEffect } from "react";
 import "../App2025.css";
 
 export interface Journey2025Props {
@@ -45,29 +46,10 @@ export const Journey2025 = ({ handleEnd }: Journey2025Props) => {
     };
   }, []);
 
-  // spotlight / reveal state
-  const containerRef = useRef<HTMLDivElement | null>(null);
-  const [pos, setPos] = useState({ x: -9999, y: -9999 });
-  const [active, setActive] = useState(true);
-  const radius = 80;
+  // spotlight handled by Spotlight component
 
   const increment = () => {
     index === storyArray?.length - 1 ? handleEnd() : setIndex(index + 1);
-  };
-
-  const handleMove = (e: any) => {
-    const el = containerRef.current;
-    if (!el) return;
-    const rect = el.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    setPos({ x, y });
-    setActive(true);
-  };
-
-  const handleLeave = () => {
-    setActive(false);
-    setPos({ x: -9999, y: -9999 });
   };
 
   const storyArray = [
@@ -98,37 +80,15 @@ export const Journey2025 = ({ handleEnd }: Journey2025Props) => {
     </>,
   ];
 
-  const mask = `radial-gradient(circle ${radius}px at ${pos.x}px ${pos.y}px, rgba(0,0,0,1) 0%, rgba(0,0,0,0.9) 40%, rgba(0,0,0,0) 70%)`;
-
   return (
-    <div
-      ref={containerRef}
-      onMouseMove={handleMove}
-      onMouseLeave={handleLeave}
-      className={`app2025 ${active ? "active" : ""}`}
-      style={{ cursor: active ? "none" : "auto" }}
-    >
-      <div
-        className="reveal-white"
-        aria-hidden
-        style={{ WebkitMaskImage: mask, maskImage: mask }}
-      >
-        {showStory ? (
-          <div className="story" onClick={increment}>
-            {storyArray[index]}
-          </div>
-        ) : (
-          <div>{riddle}</div>
-        )}
-      </div>
-      <div
-        className="spotlight"
-        style={{
-          ["--sx" as any]: `${pos.x}px`,
-          ["--sy" as any]: `${pos.y}px`,
-          ["--radius" as any]: `${radius}px`,
-        }}
-      />
-    </div>
+    <Spotlight radius={80}>
+      {showStory ? (
+        <div className="story" onClick={increment}>
+          {storyArray[index]}
+        </div>
+      ) : (
+        <div>{riddle}</div>
+      )}
+    </Spotlight>
   );
 };
