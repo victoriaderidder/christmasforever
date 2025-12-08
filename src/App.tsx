@@ -83,7 +83,12 @@ function App() {
                       isPresent={true}
                     />
                   </Link>
-                  <Link to="/2022" className="year-box">
+                  <a
+                    href="https://victoriaderidder.github.io/christmas2022/"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="year-box"
+                  >
                     <Box
                       width={125}
                       height={125}
@@ -93,7 +98,7 @@ function App() {
                       textColor={"white"}
                       isPresent={true}
                     />
-                  </Link>
+                  </a>
                   <Link to="/2024" className="year-box">
                     <Box
                       width={125}
