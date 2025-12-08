@@ -7,19 +7,14 @@ import { FC, useEffect } from "react";
 export const Travel2024: FC = () => {
   const { audioRefs, playSong } = useAudio(AUDIO_PATHS);
 
-  // useEffect(() => {
-  //   const play = async () => {
-  //     await playSong(audioRefs?.angels.current);
-  //     console.log(audioRefs?.angels);
-  //   };
-  //   play();
-  // }, []);
-
   return (
     <>
       <div className={styles.app}>
         <div className={styles.appHeader}>
-          <div className="journey">
+          <div
+            className="journey"
+            onClick={() => playSong(audioRefs?.fire?.current)}
+          >
             <Journey2025 handleEnd={() => {}} />
           </div>
         </div>

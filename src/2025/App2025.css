@@ -33,6 +33,7 @@
   justify-content: center;
   /* allow clicking elements inside the reveal area */
   pointer-events: auto;
+  z-index: 1002;
   -webkit-mask-repeat: no-repeat;
   mask-repeat: no-repeat;
 }
@@ -75,6 +76,14 @@
 /* hide the cursor only when the journey/spotlight is active */
 .app2025.active {
   cursor: none;
+}
+
+/* Force cursor hidden for important journey elements even if they set cursor inline */
+.app2025.active h1,
+.app2025.active .story,
+.app2025.active .story *,
+.app2025.active button {
+  cursor: none !important;
 }
 
 @keyframes flicker {
