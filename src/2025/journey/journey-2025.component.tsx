@@ -94,25 +94,62 @@ export const Journey2025 = ({ handleEnd }: Journey2025Props) => {
         <Story story={`Oh my god.`} />
       </div>
     </>,
+    <Title title={`> Santa Lizzy.`} />,
+    // <Story story={`It's the day before Christmas Eve, and everything is...`} />,
+    // <Story story={`...fine.`} />,
+    // <Story story={`No catastrophes, no surprise parties.`} />,
+    // <Story story={`For the first time since you became Santa,`} />,
+    // <Story story={`everything is proceeding as planned.`} />,
+    // <Story story={`It feels unnatural.`} />,
+    // <Story
+    //   story={`You're sure it's just because you're used to things going wrong.`}
+    // />,
+    // <Story
+    //   story={`But you can't shake the feeling that something really is wrong.`}
+    // />,
+    // <Story story={`But it's fine. Everything is fine.`} />,
+    // <Story story={`Maybe you should try to distract yourself.`} />,
+    // <Story story={`You know what always numbs your feelings?`} />,
     <>
-      <div onClick={() => handle2025Riddle(2, setShowStory, setRiddle)}>
-        <Story story={`In the darkness, all you see are glowing eyes...`} />
+      <div onClick={() => handle2025Riddle(3, setShowStory, setRiddle)}>
+        <Story story={`That's right! Hot chocolate.`} />
       </div>
     </>,
-    <Title title={`> Santa Lizzy.`} />,
-    <Story story={`It's the day before Christmas Eve, and everything is...`} />,
-    <Story story={`...fine.`} />,
-    <Story story={`No disasters, no surprise parties.`} />,
-    <Story story={`For the first time since you became Santa,`} />,
-    <Story story={`everything is proceeding as planned.`} />,
-    <Story story={`It feels unnatural.`} />,
+    <Story story={`That hot chocolate wasn't calming at all...`} />,
+    <Story story={`You feel even worse now.`} />,
+    <Story story={`You decide to go find your Head Elf.`} />,
+    <Story story={`He should know what to do.`} />,
+    <Title title={`> Elfward.`} />,
+    <Story story={`An alarm is going off somewhere.`} />,
+    <Story story={`You've been trying to find it for twenty minutes.`} />,
+    <Story story={`It's so loud it's interfering with toy production.`} />,
+    <Story story={`And you have no time for that,`} />,
+    <Story story={`not with Christmas Eve tomorrow!`} />,
+    <Story story={`You stare in horror at the alarm.`} />,
+    <Story story={`That's where Santa Lizzy finds you.`} />,
+    <Title title={`> GoodWill Toward Men.`} />,
+    <Story story={`You're gathering your army.`} />,
+    <Story story={`Not because you've been told to or anything.`} />,
+    <Story story={`But you'd know that sound anywhere...`} />,
     <Story
-      story={`You're sure it's just because you're used to things going wrong.`}
+      story={`When you were briefly Head Elf, you'd familiarized yourself with all possible alarms.`}
     />,
+    <Story story={`Though this was one you'd never expected to go off.`} />,
+    <Story story={`Toy production has ground to a halt.`} />,
     <Story
-      story={`But you can't shake the feeling that something really is wrong.`}
+      story={`Sorry if Sally on the Nice List doesn't get her dolly...`}
+    />,
+    <Story story={`BUT THIS IS VERY SERIOUS!!!`} />,
+    <Story story={`Somehow, Krampus has been freed.`} />,
+    <Story
+      story={`And he wants nothing more than to destroy Christmas forever.`}
     />,
 
+    // <>
+    //   <div onClick={() => handle2025Riddle(2, setShowStory, setRiddle)}>
+    //     <Story story={`In the darkness, all you see are glowing eyes...`} />
+    //   </div>
+    // </>,
     <>
       <span>Ending placeholder!</span>
     </>,

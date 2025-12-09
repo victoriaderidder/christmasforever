@@ -1,6 +1,7 @@
 import Riddle from "../../../components/riddle/riddle.component";
 import KrampusEyesRiddle from "../../components/krampus-eyes-riddle";
-import MovingObjectRiddle from "../moving-object-riddle";
+import MovingObjectRiddle from "../../components/moving-object-riddle";
+import HotChocolateHeat from "../hot-chocolate-heat";
 
 export const handle2025Riddle = (
   riddle: number,
@@ -25,6 +26,16 @@ export const handle2025Riddle = (
     case 2:
       setRiddle(
         <MovingObjectRiddle
+          onComplete={(won: boolean) => {
+            setRiddle(<></>);
+            setShowStory(true);
+          }}
+        />
+      );
+      break;
+    case 3:
+      setRiddle(
+        <HotChocolateHeat
           onComplete={(won: boolean) => {
             setRiddle(<></>);
             setShowStory(true);
