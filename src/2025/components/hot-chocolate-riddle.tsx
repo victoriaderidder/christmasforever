@@ -44,7 +44,7 @@ const HotChocolateRiddle: React.FC<Props> = ({ onComplete }) => {
     const TARGET_SECONDS = 10;
     const RADS_PER_SEC_NOMINAL = 2 * Math.PI * 1; // 1 rotation/sec
     const nominalRads = RADS_PER_SEC_NOMINAL * TARGET_SECONDS; // ~125.66
-    const HEAT_PER_RAD = 13 / nominalRads;
+    const HEAT_PER_RAD = 1000 / nominalRads;
 
     const ref = stirRef.current;
     ref.lastAngle = null;
@@ -128,18 +128,28 @@ const HotChocolateRiddle: React.FC<Props> = ({ onComplete }) => {
     dragCompletedRef.current = true;
     setAnswerSlots((prev) => {
       const copy = [...prev];
-      // if slot occupied, return previous letter to available (unless it's the same as the incoming letter)
-      if (copy[slotIndex] && copy[slotIndex]!.fromIndex !== data.fromIndex) {
-        setAvailable((v) => {
-          const c = [...v];
-          c[copy[slotIndex]!.fromIndex] = true;
-          return c;
-        });
-      }
-      // if drag originated from another answer slot, clear that origin
+      // if the drag came from another answer slot, perform a swap: move target -> origin
       if (data.fromSlot != null && data.fromSlot !== slotIndex) {
-        copy[data.fromSlot] = null;
+        const target = copy[slotIndex];
+        if (target) {
+          // move the current occupant into the origin slot
+          copy[data.fromSlot] = target;
+        } else {
+          // target empty: clear origin
+          copy[data.fromSlot] = null;
+        }
+      } else {
+        // drag originated from mug: if target occupied, free its original index
+        if (copy[slotIndex]) {
+          const prevItem = copy[slotIndex]!;
+          setAvailable((v) => {
+            const c = [...v];
+            c[prevItem.fromIndex] = true;
+            return c;
+          });
+        }
       }
+
       // ensure no other slot still references this same fromIndex (prevent duplicates)
       for (let k = 0; k < copy.length; k++) {
         if (
@@ -150,6 +160,8 @@ const HotChocolateRiddle: React.FC<Props> = ({ onComplete }) => {
           copy[k] = null;
         }
       }
+
+      // place incoming letter into the target slot
       copy[slotIndex] = { letter: data.letter, fromIndex: data.fromIndex };
       return copy;
     });
