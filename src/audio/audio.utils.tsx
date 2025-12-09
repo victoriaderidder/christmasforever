@@ -13,4 +13,5 @@ export const AUDIO_PATHS = {
   santaBaby: require("../assets/music/santababy.mp3"),
   whiteChristmas: require("../assets/music/whitechristmas.mp3"),
   fire: require("../assets/music/cracklingfire.mp3"),
+  alarm: require("../assets/music/alarm.mp3"),
 };
