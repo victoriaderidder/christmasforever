@@ -95,6 +95,19 @@ export const Journey2025 = ({ handleEnd }: Journey2025Props) => {
       </div>
     </>,
     <Title title={`> Santa Lizzy.`} />,
+    <Story story={`It's the day before Christmas Eve, and everything is...`} />,
+    <Story story={`...fine.`} />,
+    <Story story={`No disasters, no surprise parties.`} />,
+    <Story story={`For the first time since you became Santa,`} />,
+    <Story story={`everything is proceeding as planned.`} />,
+    <Story story={`It feels unnatural.`} />,
+    <Story
+      story={`You're sure it's just because you're used to things going wrong.`}
+    />,
+    <Story
+      story={`But you can't shake the feeling that something really is wrong.`}
+    />,
+
     <>
       <span>Ending placeholder!</span>
     </>,
