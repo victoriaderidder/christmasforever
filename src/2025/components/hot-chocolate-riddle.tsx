@@ -44,7 +44,7 @@ const HotChocolateRiddle: React.FC<Props> = ({ onComplete }) => {
     const TARGET_SECONDS = 10;
     const RADS_PER_SEC_NOMINAL = 2 * Math.PI * 1; // 1 rotation/sec
     const nominalRads = RADS_PER_SEC_NOMINAL * TARGET_SECONDS; // ~125.66
-    const HEAT_PER_RAD = 1000 / nominalRads;
+    const HEAT_PER_RAD = 13 / nominalRads;
 
     const ref = stirRef.current;
     ref.lastAngle = null;
