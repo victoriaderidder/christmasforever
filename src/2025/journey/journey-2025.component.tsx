@@ -94,6 +94,11 @@ export const Journey2025 = ({ handleEnd }: Journey2025Props) => {
         <Story story={`Oh my god.`} />
       </div>
     </>,
+    <>
+      <div onClick={() => handle2025Riddle(2, setShowStory, setRiddle)}>
+        <Story story={`In the darkness, all you see are glowing eyes...`} />
+      </div>
+    </>,
     <Title title={`> Santa Lizzy.`} />,
     <Story story={`It's the day before Christmas Eve, and everything is...`} />,
     <Story story={`...fine.`} />,
