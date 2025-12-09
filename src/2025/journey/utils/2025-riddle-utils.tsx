@@ -1,7 +1,7 @@
 import Riddle from "../../../components/riddle/riddle.component";
 import KrampusEyesRiddle from "../../components/krampus-eyes-riddle";
 import MovingObjectRiddle from "../../components/moving-object-riddle";
-import HotChocolateHeat from "../hot-chocolate-heat";
+import HotChocolateRiddle from "../../components/hot-chocolate-riddle";
 
 export const handle2025Riddle = (
   riddle: number,
@@ -35,7 +35,7 @@ export const handle2025Riddle = (
       break;
     case 3:
       setRiddle(
-        <HotChocolateHeat
+        <HotChocolateRiddle
           onComplete={(won: boolean) => {
             setRiddle(<></>);
             setShowStory(true);
