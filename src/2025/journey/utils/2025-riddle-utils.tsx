@@ -2,7 +2,7 @@ import Riddle from "../../../components/riddle/riddle.component";
 import KrampusEyesRiddle from "../../components/krampus-eyes-riddle";
 import MovingObjectRiddle from "../../components/moving-object-riddle";
 import HotChocolateRiddle from "../../components/hot-chocolate-riddle";
-import SearchAlarmRiddle from "../../components/search-alarm-riddle";
+import BookshelfRiddle from "../../components/bookshelf-riddle";
 
 export const handle2025Riddle = (
   riddle: number,
@@ -43,7 +43,7 @@ export const handle2025Riddle = (
       break;
     case 4:
       setRiddle(
-        <SearchAlarmRiddle
+        <BookshelfRiddle
           onComplete={(won: boolean) => {
             setRiddle(<></>);
             setShowStory(true);
