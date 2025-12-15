@@ -11,6 +11,7 @@ import App2022 from "2022/App2022";
 import App2023 from "2023/App2023";
 import App2024 from "2024/App2024";
 import Box from "components/box.component";
+import Home from "components/home.component";
 import { useAudio } from "audio/audio.hooks";
 import { AUDIO_PATHS } from "audio/audio.utils";
 import { useEffect } from "react";
@@ -23,19 +24,16 @@ function App() {
     const navigate = useNavigate();
 
     useEffect(() => {
-      // redirect legacy base if present
       if (location.pathname === "/christmasforever") {
         navigate("/");
         return;
       }
 
-      // stop audio on every route change (covers back/forward navigation)
       const stopAudio = async () => {
         try {
           console.log("Route changed to:", location.pathname);
           await stopAllAudio();
         } catch (e) {
-          // swallow errors — stopAllAudio should be best-effort
           console.warn("stopAllAudio failed", e);
         }
       };
@@ -48,6 +46,7 @@ function App() {
 
   return (
     <>
+      <Home />
       <RouteChangeHandler />
       <main className={styles.main}>
         <Routes>
@@ -66,7 +65,13 @@ function App() {
                     textColor={"white"}
                   />
                 </Link>
-                <Link to="/2022" className={styles.yearBox}>
+                <a
+                  href="https://victoriaderidder.github.io/christmas2022/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="year-box"
+                >
+                  {" "}
                   <Box
                     width={125}
                     height={125}
@@ -75,7 +80,7 @@ function App() {
                     text={"2022"}
                     textColor={"white"}
                   />
-                </Link>
+                </a>
                 <Link
                   to="/2024"
                   className={`${styles.yearBox} ${styles.thisYear}`}

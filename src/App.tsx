@@ -73,6 +73,18 @@ function App() {
                 <TreeVisual />
 
                 <div className="bottom-row" aria-hidden={false}>
+                  <Link to="/2024" className="year-box">
+                    <Box
+                      width={125}
+                      height={125}
+                      backgroundColor={"#D4AF37"}
+                      borderColor={"#DAA520"}
+                      text={"2024"}
+                      textColor={"white"}
+                      isPresent={true}
+                      realistic={true}
+                    />
+                  </Link>
                   <Link to="/2023" className="year-box">
                     <Box
                       width={125}
@@ -102,18 +114,6 @@ function App() {
                       realistic={true}
                     />
                   </a>
-                  <Link to="/2024" className="year-box">
-                    <Box
-                      width={125}
-                      height={125}
-                      backgroundColor={"#D4AF37"}
-                      borderColor={"#DAA520"}
-                      text={"2024"}
-                      textColor={"white"}
-                      isPresent={true}
-                      realistic={true}
-                    />
-                  </Link>
                   <a
                     href="https://victoriaderidder.github.io/achristmaschallenge//"
                     target="_blank"
