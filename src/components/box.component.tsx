@@ -11,6 +11,7 @@ interface BoxProps {
   fontSize?: number;
   fontBold?: string;
   isPresent?: boolean;
+  realistic?: boolean;
 }
 
 const Box: FC<BoxProps> = ({
@@ -23,6 +24,7 @@ const Box: FC<BoxProps> = ({
   fontSize = 48,
   fontBold,
   isPresent,
+  realistic = false,
 }) => {
   const borderStyle = isPresent ? "none" : `1px solid ${borderColor}`;
   const bowScale = 1.2; // make the bow a bit larger
@@ -36,7 +38,9 @@ const Box: FC<BoxProps> = ({
       sx={{
         width: { width },
         height: { height },
-        background: `linear-gradient(180deg, rgba(255,255,255,0.12), rgba(0,0,0,0.06)), ${backgroundColor}`,
+        background: realistic
+          ? `linear-gradient(180deg, rgba(255,255,255,0.12), rgba(0,0,0,0.06)), ${backgroundColor}`
+          : backgroundColor,
         border: borderStyle,
         display: "flex",
         alignItems: "center",
@@ -46,8 +50,9 @@ const Box: FC<BoxProps> = ({
         cursor: "pointer",
         overflow: "visible",
         fontSize: fontSize,
-        boxShadow:
-          "0 10px 24px rgba(2,6,23,0.36), inset 0 -6px 10px rgba(0,0,0,0.08)",
+        boxShadow: realistic
+          ? "0 10px 24px rgba(2,6,23,0.36), inset 0 -6px 10px rgba(0,0,0,0.08)"
+          : "none",
       }}
     >
       <>

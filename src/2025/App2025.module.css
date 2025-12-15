@@ -1,0 +1,140 @@
+.app2025 {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  background: #000000;
+  color: white;
+  z-index: 999;
+  overflow: hidden;
+}
+
+.app2025-text {
+  color: black;
+  font-family: inherit;
+}
+.app2025-text::selection {
+  background: transparent;
+}
+
+.reveal {
+  position: relative;
+}
+
+.reveal-white {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* allow clicking elements inside the reveal area */
+  pointer-events: auto;
+  z-index: 1002;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}
+
+.spotlight {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: calc(var(--radius) * 2);
+  height: calc(var(--radius) * 2);
+  border-radius: 50%;
+  transform: translate(
+    calc(var(--sx, -9999px) - var(--radius)),
+    calc(var(--sy, -9999px) - var(--radius))
+  );
+  /* blended layered spotlight */
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(255, 150, 40, 1) 0%,
+    rgba(255, 165, 50, 0.95) 12%,
+    rgba(255, 200, 80, 0.85) 28%,
+    rgba(255, 220, 120, 0.6) 44%,
+    rgba(255, 240, 200, 0.45) 60%,
+    rgba(255, 250, 250, 0.22) 78%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  filter: blur(4px);
+  opacity: 0;
+  transition: opacity 160ms ease;
+  z-index: 1000;
+  animation: flicker 360ms infinite;
+  /* don't block clicks — let the reveal area receive events */
+  pointer-events: none;
+}
+
+.app2025.active .spotlight {
+  opacity: 1;
+}
+
+/* hide the cursor only when the journey/spotlight is active */
+.app2025.active {
+  cursor: none;
+}
+
+/* Force cursor hidden for important journey elements even if they set cursor inline */
+.app2025.active h1,
+.app2025.active .story,
+.app2025.active .story *,
+.app2025.active button {
+  cursor: none !important;
+}
+
+@keyframes flicker {
+  0% {
+    transform: translate(
+        calc(var(--sx, -9999px) - var(--radius)),
+        calc(var(--sy, -9999px) - var(--radius))
+      )
+      scale(1);
+    opacity: 0.96;
+  }
+  40% {
+    transform: translate(
+        calc(var(--sx, -9999px) - var(--radius)),
+        calc(var(--sy, -9999px) - var(--radius))
+      )
+      scale(1.03);
+    opacity: 1;
+  }
+  70% {
+    transform: translate(
+        calc(var(--sx, -9999px) - var(--radius)),
+        calc(var(--sy, -9999px) - var(--radius))
+      )
+      scale(0.99);
+    opacity: 0.94;
+  }
+  100% {
+    transform: translate(
+        calc(var(--sx, -9999px) - var(--radius)),
+        calc(var(--sy, -9999px) - var(--radius))
+      )
+      scale(1);
+    opacity: 0.96;
+  }
+}
+
+/* Fullscreen red story variant (used for the "Oh my god." node) */
+.story-fullscreen-red {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  box-sizing: border-box;
+  background-color: #c30f16;
+  color: white;
+  z-index: 1100;
+}
+
+/* hot-chocolate-riddle cursor removed — no custom cursor by default */

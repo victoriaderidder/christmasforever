@@ -5,7 +5,7 @@ import Title from "../../components/title.component";
 import Spotlight from "../../components/spotlight.component";
 import { handle2025Riddle } from "./utils/2025-riddle-utils";
 import { useState, useEffect } from "react";
-import "../App2025.css";
+import styles from "../App2025.module.css";
 
 export interface Journey2025Props {
   handleEnd: any;
@@ -171,7 +171,10 @@ export const Journey2025 = ({ handleEnd }: Journey2025Props) => {
     <>
       {showStory ? (
         redBg ? (
-          <div className="story story-fullscreen-red" onClick={increment}>
+          <div
+            className={`story ${styles["story-fullscreen-red"]}`}
+            onClick={increment}
+          >
             {storyArray[index]}
           </div>
         ) : (

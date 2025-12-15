@@ -1,5 +1,5 @@
 import React, { FC, useRef, useState, useEffect } from "react";
-import "../2025/App2025.css";
+import styles from "../2025/App2025.module.css";
 
 interface SpotlightProps {
   radius?: number;
@@ -56,18 +56,18 @@ const Spotlight: FC<SpotlightProps> = ({ radius = 120, children }) => {
       ref={containerRef}
       onMouseMove={handleMove}
       onMouseLeave={handleLeave}
-      className={`app2025 ${active ? "active" : ""}`}
+      className={`${styles.app2025} ${active ? styles.active : ""}`}
       style={{ cursor: active ? "none" : "auto" }}
     >
       <div
-        className="reveal-white"
+        className={styles["reveal-white"]}
         aria-hidden
         style={{ WebkitMaskImage: mask, maskImage: mask }}
       >
         {children}
       </div>
       <div
-        className="spotlight"
+        className={styles.spotlight}
         style={{
           ["--sx" as any]: `${pos.x}px`,
           ["--sy" as any]: `${pos.y}px`,

@@ -3,7 +3,6 @@ import {
   Route,
   Link,
   useLocation,
-  BrowserRouter as Router,
   useNavigate,
 } from "react-router-dom";
 import Snowfall from "react-snowfall";
@@ -15,37 +14,42 @@ import Box from "components/box.component";
 import { useAudio } from "audio/audio.hooks";
 import { AUDIO_PATHS } from "audio/audio.utils";
 import { useEffect } from "react";
-import "./App.css";
+import styles from "./LandingPage2024.module.css";
 
 function App() {
   const { stopAllAudio } = useAudio(AUDIO_PATHS);
   const RouteChangeHandler = () => {
     const location = useLocation();
     const navigate = useNavigate();
-    useEffect(() => {
-      const handleRouteChange = async () => {
-        console.log("Route changed to:", location.pathname);
-        await stopAllAudio();
-      };
 
+    useEffect(() => {
+      // redirect legacy base if present
       if (location.pathname === "/christmasforever") {
         navigate("/");
+        return;
       }
 
-      if (location.pathname === "/") {
-        handleRouteChange();
-        window.addEventListener("popstate", handleRouteChange);
-        return () => window.removeEventListener("popstate", handleRouteChange);
-      }
-    }, [location.pathname]);
+      // stop audio on every route change (covers back/forward navigation)
+      const stopAudio = async () => {
+        try {
+          console.log("Route changed to:", location.pathname);
+          await stopAllAudio();
+        } catch (e) {
+          // swallow errors — stopAllAudio should be best-effort
+          console.warn("stopAllAudio failed", e);
+        }
+      };
+
+      stopAudio();
+    }, [location.pathname, navigate]);
 
     return null;
   };
 
   return (
-    <Router basename={process.env.PUBLIC_URL || "/christmasforever"}>
+    <>
       <RouteChangeHandler />
-      <main className="main">
+      <main className={styles.main}>
         <Routes>
           <Route
             path="/"
@@ -62,7 +66,7 @@ function App() {
                     textColor={"white"}
                   />
                 </Link>
-                <Link to="/2022" className="year-box">
+                <Link to="/2022" className={styles.yearBox}>
                   <Box
                     width={125}
                     height={125}
@@ -72,7 +76,10 @@ function App() {
                     textColor={"white"}
                   />
                 </Link>
-                <Link to="/2024" className="year-box" id="this-year">
+                <Link
+                  to="/2024"
+                  className={`${styles.yearBox} ${styles.thisYear}`}
+                >
                   <Box
                     width={250}
                     height={250}
@@ -87,7 +94,7 @@ function App() {
                   href="https://victoriaderidder.github.io/achristmaschallenge//"
                   target="_blank"
                   rel="noreferrer"
-                  className="year-box"
+                  className={styles.yearBox}
                 >
                   <Box
                     width={125}
@@ -98,7 +105,7 @@ function App() {
                     textColor={"white"}
                   />
                 </a>
-                <Link to="/2020" className="year-box">
+                <Link to="/2020" className={styles.yearBox}>
                   <Box
                     width={125}
                     height={125}
@@ -111,13 +118,9 @@ function App() {
               </>
             }
           />
-          <Route path="/2020" element={<App2020 />} />
-          <Route path="/2022" element={<App2022 />} />
-          <Route path="/2023" element={<App2023 />} />
-          <Route path="/2024" element={<App2024 />} />
         </Routes>
       </main>
-    </Router>
+    </>
   );
 }
 

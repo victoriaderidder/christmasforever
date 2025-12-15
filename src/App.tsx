@@ -11,6 +11,7 @@ import App2020 from "2020/App2020";
 import App2022 from "2022/App2022";
 import App2023 from "2023/App2023";
 import App2024 from "2024/App2024";
+import LandingPage2024 from "2024/LandingPage2024";
 import App2025 from "2025/App2025";
 import Box from "components/box.component";
 import Star from "components/star.component";
@@ -81,6 +82,7 @@ function App() {
                       text={"2023"}
                       textColor={"white"}
                       isPresent={true}
+                      realistic={true}
                     />
                   </Link>
                   <a
@@ -97,6 +99,7 @@ function App() {
                       text={"2022"}
                       textColor={"white"}
                       isPresent={true}
+                      realistic={true}
                     />
                   </a>
                   <Link to="/2024" className="year-box">
@@ -108,6 +111,7 @@ function App() {
                       text={"2024"}
                       textColor={"white"}
                       isPresent={true}
+                      realistic={true}
                     />
                   </Link>
                   <a
@@ -124,6 +128,7 @@ function App() {
                       text={"2021"}
                       textColor={"white"}
                       isPresent={true}
+                      realistic={true}
                     />
                   </a>
                   <Link to="/2020" className="year-box">
@@ -135,6 +140,7 @@ function App() {
                       text={"2020"}
                       textColor={"white"}
                       isPresent={true}
+                      realistic={true}
                     />
                   </Link>
                 </div>
@@ -144,6 +150,7 @@ function App() {
           <Route path="/2020" element={<App2020 />} />
           <Route path="/2022" element={<App2022 />} />
           <Route path="/2023" element={<App2023 />} />
+          <Route path="/2024/landing" element={<LandingPage2024 />} />
           <Route path="/2024" element={<App2024 />} />
           <Route path="/2025" element={<App2025 />} />
         </Routes>
