@@ -2,12 +2,15 @@ import Riddle from "../../../components/riddle/riddle.component";
 import KrampusEyesRiddle from "../../components/krampus-eyes-riddle";
 import MovingObjectRiddle from "../../components/moving-object-riddle";
 import HotChocolateRiddle from "../../components/hot-chocolate-riddle";
-import BookshelfRiddle from "../../components/bookshelf-riddle";
+import BookshelfRiddle from "../../components/bookshelf-riddle/bookshelf-riddle";
 
 export const handle2025Riddle = (
   riddle: number,
   setShowStory: any,
-  setRiddle: any
+  setRiddle: any,
+  song?: any,
+  previousSong?: any,
+  playSong?: any
 ) => {
   setShowStory(false);
   switch (riddle) {

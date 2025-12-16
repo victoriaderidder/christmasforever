@@ -133,12 +133,21 @@ export const Journey2025 = ({ handleEnd }: Journey2025Props) => {
     // <Story story={`It's so loud it's interfering with toy production.`} />,
     // <Story story={`And you have no time for that,`} />,
     // <Story story={`not with Christmas Eve tomorrow!`} />,
+    <Story
+      story={`You've narrowed your search to a bookshelf at the end of the room.`}
+    />,
+    <Story story={`You know one of these books opens a secret room.`} />,
     <>
       <div onClick={() => handle2025Riddle(4, setShowStory, setRiddle)}>
-        <Story story={`You stare in horror at the alarm.`} />
+        <Story story={`The only question is which one...`} />
       </div>
     </>,
-    <Story story={`That's where Santa Lizzy finds you.`} />,
+    <Story story={`The bookshelf swings open, revealing a dingy room.`} />,
+    <Story story={`There's only one alarm here.`} />,
+    <Story
+      story={`You realize you know of this alarm, though you've never seen it.`}
+    />,
+    <Story story={`It precedes Santa Lizzy and it precedes you.`} />,
     <Title title={`> GoodWill Toward Men.`} />,
     <Story story={`You're gathering your army.`} />,
     <Story story={`Not because you've been told to or anything.`} />,

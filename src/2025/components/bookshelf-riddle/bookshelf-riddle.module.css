@@ -1,5 +1,3 @@
-/* keyframes moved to global CSS to ensure animation names are available at runtime */
-
 .container {
   display: block;
 }
