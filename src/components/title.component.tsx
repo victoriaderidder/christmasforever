@@ -14,6 +14,7 @@ const Title: FC<TitleProps> = ({ title, plain = false }) => {
     textAlign: "center",
     fontWeight: 700,
     lineHeight: 1.05,
+    userSelect: "none",
   };
 
   return (

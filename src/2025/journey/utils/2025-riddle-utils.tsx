@@ -3,6 +3,7 @@ import KrampusEyesRiddle from "../../components/krampus-eyes-riddle";
 import MovingObjectRiddle from "../../components/moving-object-riddle";
 import HotChocolateRiddle from "../../components/hot-chocolate-riddle";
 import BookshelfRiddle from "../../components/bookshelf-riddle/bookshelf-riddle";
+import PotionRiddle from "../../components/potion-riddle/potion-riddle";
 
 export const handle2025Riddle = (
   riddle: number,
@@ -51,6 +52,33 @@ export const handle2025Riddle = (
             setRiddle(<></>);
             setShowStory(true);
           }}
+        />
+      );
+      break;
+    case 6:
+      setRiddle(
+        <PotionRiddle
+          onComplete={(won: boolean, quality?: number) => {
+            setRiddle(<></>);
+            setShowStory(true);
+          }}
+        />
+      );
+      break;
+    case 5:
+      setRiddle(
+        <Riddle
+          question={
+            <>
+              In the realm where shadows creep
+              <br />I gallop through the fields of sleep.
+              <br />A steed of darkness, wild and free
+              <br />
+              Bearing fears you cannot flee.
+            </>
+          }
+          answer={["nightmare"]}
+          setShowElement={setShowStory}
         />
       );
       break;

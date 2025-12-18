@@ -20,6 +20,7 @@ const Story: FC<StoryProps> = ({ story }) => {
     padding: "0 24px",
     maxWidth: "70ch",
     margin: "0 auto",
+    userSelect: "none",
   };
 
   const textStyle: React.CSSProperties = {

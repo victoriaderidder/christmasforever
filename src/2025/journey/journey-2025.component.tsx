@@ -133,39 +133,125 @@ export const Journey2025 = ({ handleEnd }: Journey2025Props) => {
     // <Story story={`It's so loud it's interfering with toy production.`} />,
     // <Story story={`And you have no time for that,`} />,
     // <Story story={`not with Christmas Eve tomorrow!`} />,
-    <Story
-      story={`You've narrowed your search to a bookshelf at the end of the room.`}
-    />,
-    <Story story={`You know one of these books opens a secret room.`} />,
-    <>
-      <div onClick={() => handle2025Riddle(4, setShowStory, setRiddle)}>
-        <Story story={`The only question is which one...`} />
-      </div>
-    </>,
-    <Story story={`The bookshelf swings open, revealing a dingy room.`} />,
-    <Story story={`There's only one alarm here.`} />,
-    <Story
-      story={`You realize you know of this alarm, though you've never seen it.`}
-    />,
-    <Story story={`It precedes Santa Lizzy and it precedes you.`} />,
-    <Title title={`> GoodWill Toward Men.`} />,
-    <Story story={`You're gathering your army.`} />,
-    <Story story={`Not because you've been told to or anything.`} />,
-    <Story story={`But you'd know that sound anywhere...`} />,
-    <Story
-      story={`When you were briefly Head Elf, you'd familiarized yourself with all possible alarms.`}
-    />,
-    <Story story={`Though this was one you'd never expected to go off.`} />,
-    <Story story={`Toy production has ground to a halt.`} />,
-    <Story
-      story={`Sorry if Sally on the Nice List doesn't get her dolly...`}
-    />,
-    <Story story={`BUT THIS IS VERY SERIOUS!!!`} />,
-    <Story story={`Somehow, Krampus has been freed.`} />,
-    <Story
-      story={`And he wants nothing more than to destroy Christmas forever.`}
-    />,
+    // <Story
+    //   story={`You've narrowed your search to a bookshelf at the end of the room.`}
+    // />,
+    // <Story story={`You know one of these books opens a secret room.`} />,
+    // <>
+    //   <div onClick={() => handle2025Riddle(4, setShowStory, setRiddle)}>
+    //     <Story story={`The only question is which one...`} />
+    //   </div>
+    // </>,
+    // <Story story={`The bookshelf swings open, revealing a dingy room.`} />,
+    // <Story story={`There's only one alarm here.`} />,
+    // <Story story={`Terror fills you as you realize you know what it is.`} />,
+    // <Title title={`> GoodWill Toward Men.`} />,
+    // <Story story={`You're gathering your army.`} />,
+    // <Story story={`Not because you've been told to or anything.`} />,
+    // <Story story={`But you'd know that sound anywhere...`} />,
+    // <Story
+    //   story={`When you were briefly Head Elf, you'd familiarized yourself with all possible alarms.`}
+    // />,
+    // <Story story={`Though this was one you'd never expected to go off.`} />,
+    // <Story story={`Toy production has ground to a halt.`} />,
+    // <Story
+    //   story={`Sorry if Sally on the Nice List doesn't get her dolly...`}
+    // />,
+    // <Story story={`BUT THIS IS VERY SERIOUS!!!`} />,
+    // <Story story={`Somehow, Krampus has been freed.`} />,
+    // <Story
+    //   story={`And he wants nothing more than to destroy Christmas forever.`}
+    // />,
+    // <Story story={`Obviously you won't let that happen.`} />,
+    // <Story story={`A large group of elves stand before you.`} />,
+    // <>
+    //   <div onClick={() => handle2025Riddle(5, setShowStory, setRiddle)}>
+    //     <Story story={`What will you say to convince them to join you?`} />
+    //   </div>
+    // </>,
+    // <Story story={`Krampus is nothing less than a nightmare.`} />,
+    // <Story story={`He will stop at nothing to take over the North Pole`} />,
+    // <Story story={`And he'll destroy much more than just Christmas.`} />,
+    // <Story story={`Will you help save our home?!`} />,
+    // <Title title={`> La Befellena.`} />,
+    // <Story story={`You feel the alarm deep within your soul.`} />,
+    // <Story
+    //   story={`Many years ago, you helped the first Santa defeat Krampus.`}
+    // />,
+    // <Story story={`You devised the system to trap him in that cave.`} />,
+    // <Story story={`And you created the alarm you'd hoped to never hear.`} />,
+    // <Story story={`Your magic has failed.`} />,
+    // <Story story={`Somehow, Krampus is coming.`} />,
+    // <Story story={`You need to make things right.`} />,
+    // <Story story={`You've gathered materials to make a potion.`} />,
+    // <Story story={`If Krampus drinks it, he'll lose all his magic.`} />,
+    // <Story
+    //   story={`You just need to add the ingredients in the right order...`}
+    // />,
+    // <>
+    //   <div onClick={() => handle2025Riddle(6, setShowStory, setRiddle)}>
+    //     <Story story={`What order was that again?`} />
+    //   </div>
+    // </>,
+    // <Story story={`You hold up the potion triumphantly!`} />,
+    // <Story story={`Now you just have to get Krampus to drink it.`} />,
+    // <Story story={`That might be easier said than done...`} />,
+    <Title title=">Mysterious Teddy Bear." />,
+    <Story story={`Things are strange and things are dark.`} />,
+    <Story story={`Chilly air seeps through your fur.`} />,
+    <Story story={`You have the sensation of speeding, flying.`} />,
+    <Story story={`It reminds you of riding Santa's sleigh.`} />,
+    <Story story={`But this is different.`} />,
+    <Story story={`You are flying, but there are no other toys here.`} />,
+    <Story story={`You hear the wind whistling...and something else.`} />,
+    <Story story={`Many voices, weeping, all at once.`} />,
+    // a riddle or a game
+    // then he realizes you're awake...
+    // that's the last thing you remember.
+    <Title title={`> Santa Lizzy.`} />,
+    <Story story={`THE alarm is going off.`} />,
+    <Story story={`Krampus is on his way here, to the North Pole.`} />,
+    <Story story={`And you can feel that he's close.`} />,
+    <Story story={`But this is different.`} />,
+    // you run through the halls with elfward
+    // preparing to warn everyone you can;
+    // telling your friends to seek shelter
+    // a riddle or a game??
+    <Title title={`> Elfward.`} />,
+    // a riddle: we need some battle music!
 
+    <Title title={`> La Befellena.`} />,
+    // santa lizzy, la befellena, elfward: discuss a plan
+    // (a game here? a riddle?)
+
+    <Title title={`> GoodWill Toward Men.`} />,
+    // arms his friends with candycanes
+    // (a game for W to count the stripes on a mint or candycane)
+    // you hear a commotion outside...
+    // krampus lands in the north pole
+    // immediately leaving destruction in his wake
+    // felling candycane posts...destroying toys...
+    // and with every toy he destroys, the weeping gets louder
+
+    // mysterious teddy bear is possessed, but aware
+    // he can't stop himself from trying to hurt his friends
+
+    // we defeat Krampus!
+    // we pretend the potion is to strengthen our magic
+    // we let him steal it
+    // he takes the potion...
+    // and all his magic is broken
+    // the weeping toys' spirits are freed
+    // mysterious teddy bear is himself again
+    // for the first time, he feels sad feelings in his soul
+    // how could he hurt his friends? what's wrong with him?
+    // will they ever trust him again?
+    // the north pole is in tatters...
+    // christmas will continue, but not all children will get their toys
+    // santa lizzy is so sad
+    // la befellena...magics the toys' spirits into new bodies??
+    // a magic spell we must all participate in to win our shirts
+    // and then: we've saved christmas!
     // <>
     //   <div onClick={() => handle2025Riddle(2, setShowStory, setRiddle)}>
     //     <Story story={`In the darkness, all you see are glowing eyes...`} />
@@ -195,7 +281,7 @@ export const Journey2025 = ({ handleEnd }: Journey2025Props) => {
         )
       ) : (
         <div
-          className="riddle-container"
+          className={`story ${redBg && styles["story-fullscreen-red"]}`}
           style={{ padding: "24px", textAlign: "center" }}
         >
           {riddle}
