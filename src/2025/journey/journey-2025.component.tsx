@@ -196,27 +196,43 @@ export const Journey2025 = ({ handleEnd }: Journey2025Props) => {
     // <Story story={`You hold up the potion triumphantly!`} />,
     // <Story story={`Now you just have to get Krampus to drink it.`} />,
     // <Story story={`That might be easier said than done...`} />,
-    <Title title=">Mysterious Teddy Bear." />,
-    <Story story={`Things are strange and things are dark.`} />,
-    <Story story={`Chilly air seeps through your fur.`} />,
-    <Story story={`You have the sensation of speeding, flying.`} />,
-    <Story story={`It reminds you of riding Santa's sleigh.`} />,
-    <Story story={`But this is different.`} />,
-    <Story story={`You are flying, but there are no other toys here.`} />,
-    <Story story={`You hear the wind whistling...and something else.`} />,
-    <Story story={`Many voices, weeping, all at once.`} />,
-    // a riddle or a game
-    // then he realizes you're awake...
-    // that's the last thing you remember.
-    <Title title={`> Santa Lizzy.`} />,
-    <Story story={`THE alarm is going off.`} />,
-    <Story story={`Krampus is on his way here, to the North Pole.`} />,
-    <Story story={`And you can feel that he's close.`} />,
-    <Story story={`But this is different.`} />,
-    // you run through the halls with elfward
-    // preparing to warn everyone you can;
-    // telling your friends to seek shelter
-    // a riddle or a game??
+    // <Title title=">Mysterious Teddy Bear." />,
+    // <Story story={`Things are strange and things are dark.`} />,
+    // <Story story={`Chilly air seeps through your fur.`} />,
+    // <Story story={`You have the sensation of speeding, flying.`} />,
+    // <Story story={`It reminds you of riding Santa's sleigh.`} />,
+    // <Story story={`But this is different.`} />,
+    // <Story story={`You are flying, but there are no other toys here.`} />,
+    // <Story story={`You hear the wind whistling...and something else.`} />,
+    // <Story story={`Hundreds of voices, weeping, all at the same time.`} />,
+    // <Story story={`You lift your head up and see Him.`} />,
+    // <Story story={`The creature with the red eyes.`} />,
+    // <Story story={`And he sees you.`} />,
+    // <Story story={`You hear his words echo in your stuffed head.`} />,
+    // <Story story={`Don't worry, little bear.`} italic />,
+    // <>
+    //   <div onClick={() => handle2025Riddle(7, setShowStory, setRiddle)}>
+    //     <Story story={`Soon Christmas will be ours...`} italic />
+    //   </div>
+    // </>,
+    // <Story story={`You realize some amount of time has passed.`} />,
+    // <Story story={`You see the North Pole in the distance...`} />,
+    // <Story story={`And then you know nothing but darkness.`} />,
+    // <Title title={`> Santa Lizzy.`} />,
+    // <Story story={`THE alarm is going off.`} />,
+    // <Story story={`Krampus is on his way here, to the North Pole.`} />,
+    // <Story story={`And you can feel that he's close.`} />,
+    // <Story story={`You and Elfward run through the halls.`} />,
+    // <Story story={`You warn everyone you see.`} />,
+    // <Story story={`Elves run every which way.`} />,
+    // <Story story={`Some seek shelter, some seek to defend their home.`} />,
+    // <Story story={`And you?`} />,
+    <Story story={`You seek...`} />,
+    <>
+      <div onClick={() => handle2025Riddle(2, setShowStory, setRiddle)}>
+        <Story story={`A cookie.`} />
+      </div>
+    </>,
     <Title title={`> Elfward.`} />,
     // a riddle: we need some battle music!
 
@@ -239,9 +255,11 @@ export const Journey2025 = ({ handleEnd }: Journey2025Props) => {
     // we defeat Krampus!
     // we pretend the potion is to strengthen our magic
     // we let him steal it
+    // (a game or riddle of deception?)
     // he takes the potion...
     // and all his magic is broken
     // the weeping toys' spirits are freed
+
     // mysterious teddy bear is himself again
     // for the first time, he feels sad feelings in his soul
     // how could he hurt his friends? what's wrong with him?
@@ -251,6 +269,7 @@ export const Journey2025 = ({ handleEnd }: Journey2025Props) => {
     // santa lizzy is so sad
     // la befellena...magics the toys' spirits into new bodies??
     // a magic spell we must all participate in to win our shirts
+    // i email an image to each participant related to their shirts
     // and then: we've saved christmas!
     // <>
     //   <div onClick={() => handle2025Riddle(2, setShowStory, setRiddle)}>

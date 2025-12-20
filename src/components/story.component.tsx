@@ -5,9 +5,10 @@ import { faArrowRightLong } from "@fortawesome/free-solid-svg-icons";
 
 interface StoryProps {
   story: string;
+  italic?: boolean;
 }
 
-const Story: FC<StoryProps> = ({ story }) => {
+const Story: FC<StoryProps> = ({ story, italic }) => {
   const containerStyle: React.CSSProperties = {
     fontSize: "1.6rem",
     lineHeight: 1.4,
@@ -25,6 +26,7 @@ const Story: FC<StoryProps> = ({ story }) => {
 
   const textStyle: React.CSSProperties = {
     display: "inline-block",
+    fontStyle: italic ? "italic" : undefined,
   };
 
   return (

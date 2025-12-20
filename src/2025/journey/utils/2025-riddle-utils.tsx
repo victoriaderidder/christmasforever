@@ -1,9 +1,10 @@
 import Riddle from "../../../components/riddle/riddle.component";
 import KrampusEyesRiddle from "../../components/krampus-eyes-riddle";
-import MovingObjectRiddle from "../../components/moving-object-riddle";
+import MovingCookieRiddle from "../../components/moving-cookie-riddle/moving-cookie-riddle";
 import HotChocolateRiddle from "../../components/hot-chocolate-riddle";
 import BookshelfRiddle from "../../components/bookshelf-riddle/bookshelf-riddle";
 import PotionRiddle from "../../components/potion-riddle/potion-riddle";
+import MazeRiddle from "../../components/maze-riddle";
 
 export const handle2025Riddle = (
   riddle: number,
@@ -27,7 +28,7 @@ export const handle2025Riddle = (
       break;
     case 2:
       setRiddle(
-        <MovingObjectRiddle
+        <MovingCookieRiddle
           onComplete={(won: boolean) => {
             setRiddle(<></>);
             setShowStory(true);
@@ -59,6 +60,16 @@ export const handle2025Riddle = (
       setRiddle(
         <PotionRiddle
           onComplete={(won: boolean, quality?: number) => {
+            setRiddle(<></>);
+            setShowStory(true);
+          }}
+        />
+      );
+      break;
+    case 7:
+      setRiddle(
+        <MazeRiddle
+          onComplete={(won: boolean) => {
             setRiddle(<></>);
             setShowStory(true);
           }}

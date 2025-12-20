@@ -1,5 +1,5 @@
 import React, { FC, useState } from "react";
-import cookie from "../assets/img/cookie.png";
+import cookie from "../../assets/img/cookie.png";
 import styles from "./cookie-clicker.module.css";
 
 interface CookieClickerProps {
