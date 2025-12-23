@@ -388,6 +388,7 @@ export const buildJourney2025Steps = ({
         <Story story={`He swallows the potion in one gulp.`} />,
       </div>
     </>,
+
     <Title title={`> Mysterious Teddy Bear.`} />,
     <Story story={`You snap back into your body.`} />,
     <Story story={`You don't know where you've been.`} />,

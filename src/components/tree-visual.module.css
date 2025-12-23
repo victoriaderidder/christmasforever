@@ -172,73 +172,72 @@
 
 .or1 {
   left: 52%;
-  top: 18%;
-  color: #0742d9;
+  top: 13%;
+  color: #f8b229;
 }
 
 .or2 {
-  left: 62%;
-  top: 54%;
+  left: 56%;
+  top: 61%;
   color: #c91212;
 }
 
 .or3 {
-  left: 42%;
-  top: 54%;
-  color: #c0c0c0;
+  left: 38%;
+  top: 57%;
+  color: #970f4a;
 }
 
 .or4 {
-  left: 56%;
-  top: 50%;
+  left: 52%;
+  top: 46%;
   color: #0742d9;
 }
 
 .or5 {
-  left: 68%;
-  top: 60%;
-  color: #c0c0c0;
+  left: 75%;
+  top: 62%;
+  color: #f8b229;
 }
 
 .or6 {
-  left: 38%;
-  top: 62%;
+  left: 19%;
+  top: 64%;
   color: #c91212;
 }
 
-/* Additional ornaments */
 .or7 {
   left: 34%;
   top: 26%;
-  color: #8b0000; /* dark red */
+  color: #8b0000;
 }
 
 .or8 {
-  left: 50%;
+  left: 40%;
   top: 40%;
-  color: #c0c0c0; /* gold */
+  color: #c0c0c0;
 }
 
 .or9 {
   left: 48%;
-  top: 28%;
-  color: #0742d9; /* green-yellow */
+  top: 24%;
+  color: #800080;
 }
 
 .or10 {
   left: 27%;
   top: 50%;
-  color: #800080; /* purple */
+  color: #800080;
 }
 
 .or11 {
   left: 56%;
-  top: 50%;
-  color: #ff69b4; /* pink */
+  top: 32%;
+  color: #ff69b4;
 }
 
 .or12 {
   left: 65%;
   top: 40%;
-  color: #c0c0c0; /* jade/teal */
+  color: #c0c0c0;
 }

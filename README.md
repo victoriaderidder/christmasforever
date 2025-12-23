@@ -1,15 +1,21 @@
-This Christmas-themed text-based adventure is a continuation of my [2022 Christmas adventure](https://victoriaderidder.github.io/christmas2022/), which in turn is a continuation of my [2021 Christmas challege](https://victoriaderidder.github.io/achristmaschallenge/). But if you're in a hurry, don't worry! This adventure can stand alone. Just start with the Thanksgiving gift and it will teach you all the backstory you need to know.
-
-This adventure was designed to be played on three separate days: Thanksgiving, Christmas Eve, and Christmas. Riddles begin on Christmas Eve and continue into Christmas.
+This is the home of my yearly Christmas adventure series, which began in 2020. But if you're in a hurry, don't worry — each year's adventure can stand alone.
 
 If you're stuck, no need to panic! You can type 'skip' into any text box to move forward. However, I recommend giving it your best shot first.
+
+You will have the best experience playing these adventures on a laptop with sound on. [Click here to play.](https://victoriaderidder.github.io/christmasforever/)
 
 Good luck!
 
 ## Development
 
-### If `npm start` fails with `EMFILE: too many open files`
+### Running the app locally
 
-On macOS, `react-scripts start` can hit the OS open-file limit while bundling many static assets (e.g. mp3s).
+1. Run npm i
+2. Run npm start, or npm run start:mac if you are developing from a Mac
 
-Run `npm run start:mac`.
+### Deploying the application
+
+1. Commit your changes
+2. Run npm run predeploy
+3. Run npm run deploy
+4. Check the above link to view your changes

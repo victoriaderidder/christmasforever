@@ -67,15 +67,18 @@ function App() {
                 <Snowfall snowflakeCount={125} />
                 <Link to="/2025" className="year-box" id="this-year">
                   <div className="star-glow">
-                    <Star
-                      width={250}
-                      height={250}
-                      backgroundColor={"#D4AF37"}
-                      borderColor={"#DAA520"}
-                      text={"2025"}
-                      textColor={"white"}
-                      fontSize={50}
-                    />
+                    <div className="star-glow__backdrop" aria-hidden />
+                    <div className="star-glow__star">
+                      <Star
+                        width={250}
+                        height={250}
+                        backgroundColor={"#D4AF37"}
+                        borderColor={"#DAA520"}
+                        text={"2025"}
+                        textColor={"white"}
+                        fontSize={50}
+                      />
+                    </div>
                   </div>
                 </Link>
 

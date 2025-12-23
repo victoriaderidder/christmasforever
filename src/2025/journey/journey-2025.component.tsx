@@ -95,9 +95,6 @@ export const Journey2025 = ({
     );
   }
 
-  // TODO: fix ornaments on tree
-  // TODO: redo readme
-
   const currentStep = storyArray[index];
   const isRiddleStep = isJourney2025RiddleStep(currentStep);
 

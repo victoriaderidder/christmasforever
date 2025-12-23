@@ -75,19 +75,18 @@ a {
   line-height: 0; /* avoid extra inline gaps */
 }
 
-.star-glow > * {
+.star-glow__star {
   position: relative;
-  z-index: 2; /* put the star above the glow */
+  z-index: 2;
 }
 
-.star-glow::before {
-  content: "";
+.star-glow__backdrop {
   position: absolute;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%) scale(1);
-  width: 280px;
-  height: 280px;
+  width: 360px;
+  height: 360px;
   border-radius: 50%;
   pointer-events: none;
   /* centered glow */
@@ -99,13 +98,13 @@ a {
     rgba(218, 165, 32, 0.04) 66%,
     transparent 80%
   );
-  filter: blur(16px) saturate(120%);
+  filter: blur(20px) saturate(120%);
   opacity: 0.95;
   z-index: 1;
   transition: transform 220ms ease, opacity 220ms ease;
 }
 
-.star-glow:hover::before {
+.star-glow:hover .star-glow__backdrop {
   transform: translate(-50%, -50%) scale(1.08);
   opacity: 1;
 }
