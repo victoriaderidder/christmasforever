@@ -31,9 +31,9 @@ export const Journey2025 = ({
   useEffect(() => {
     if (index === 0) {
       playSong(audioRefs.fire.current);
-    } else if (index < 52) {
+    } else if (index <= 52) {
       playSong(audioRefs.fire.current);
-    } else if (index >= 52) {
+    } else if (index > 52) {
       playSong(audioRefs?.krampus?.current);
     }
   }, []);
