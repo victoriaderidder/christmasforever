@@ -19,6 +19,8 @@ import MovingCookieRiddle from "2025/components/moving-cookie-riddle/moving-cook
 import PeppermintStickRiddle from "2025/components/peppermint-stick-riddle/peppermint-stick-riddle";
 import MazeRiddle from "2025/components/maze-riddle";
 import PotionRiddle from "2025/components/potion-riddle/potion-riddle";
+import BookshelfRiddle from "2025/components/bookshelf-riddle/bookshelf-riddle";
+import { RiddleRouteWrapper } from "2025/components/riddle-route-wrapper";
 import Box from "components/box.component";
 import Star from "components/star.component";
 import TreeVisual from "./components/tree-visual.component";
@@ -160,64 +162,55 @@ function App() {
           <Route path="/2024/landing" element={<LandingPage2024 />} />
           <Route path="/2024" element={<App2024 />} />
           <Route path="/2025" element={<App2025 />} />
-          <Route path="/2025/journey/:step" element={<JourneyStep />} />
+          <Route path="/2025/:step" element={<JourneyStep />} />
           <Route
             path="/2025/hot-chocolate-riddle"
             element={
-              <div
-                className="story story-fullscreen-red"
-                style={{ padding: "24px", textAlign: "center" }}
-              >
-                <HotChocolateRiddle onComplete={() => {}} />
-              </div>
+              <RiddleRouteWrapper>
+                {(onComplete) => <HotChocolateRiddle onComplete={onComplete} />}
+              </RiddleRouteWrapper>
             }
           />
           <Route
             path="/2025/moving-cookie-riddle"
             element={
-              <div
-                className="story"
-                style={{
-                  padding: "24px",
-                  textAlign: "center",
-                  minHeight: "100vh",
-                }}
-              >
-                <MovingCookieRiddle onComplete={() => {}} />
-              </div>
+              <RiddleRouteWrapper redBackground={false}>
+                {(onComplete) => <MovingCookieRiddle onComplete={onComplete} />}
+              </RiddleRouteWrapper>
             }
           />
           <Route
             path="/2025/peppermint-stick-riddle"
             element={
-              <div
-                className="story story-fullscreen-red"
-                style={{ padding: "24px", textAlign: "center" }}
-              >
-                <PeppermintStickRiddle onComplete={() => {}} />
-              </div>
+              <RiddleRouteWrapper>
+                {(onComplete) => (
+                  <PeppermintStickRiddle onComplete={onComplete} />
+                )}
+              </RiddleRouteWrapper>
             }
           />
           <Route
             path="/2025/maze-riddle"
             element={
-              <div
-                className="story story-fullscreen-red"
-                style={{ padding: "24px", textAlign: "center" }}
-              >
-                <MazeRiddle onComplete={() => {}} />
-              </div>
+              <RiddleRouteWrapper>
+                {(onComplete) => <MazeRiddle onComplete={onComplete} />}
+              </RiddleRouteWrapper>
             }
           />
           <Route
             path="/2025/potion-riddle"
             element={
-              <div
-                className="story story-fullscreen-red"
-                style={{ padding: "24px", textAlign: "center" }}
-              >
-                <PotionRiddle onComplete={() => {}} />
-              </div>
+              <RiddleRouteWrapper>
+                {(onComplete) => <PotionRiddle onComplete={onComplete} />}
+              </RiddleRouteWrapper>
+            }
+          />
+          <Route
+            path="/2025/bookshelf-riddle"
+            element={
+              <RiddleRouteWrapper>
+                {(onComplete) => <BookshelfRiddle onComplete={onComplete} />}
+              </RiddleRouteWrapper>
             }
           />
         </Routes>

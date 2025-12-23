@@ -16,29 +16,29 @@ export const JourneyStep = () => {
   const [redBg, setRedBg] = useState(false);
   const index = parseInt(step || "0", 10);
 
-  const { audioRefs, playSong } = useAudio(AUDIO_PATHS);
+  const { audioRefs, playSong, stopAllAudio } = useAudio(AUDIO_PATHS);
 
   useEffect(() => {
-    if (index === 0) {
+    if (index < 52) {
+      stopAllAudio();
       playSong(audioRefs.fire.current);
     }
     // Check if we should be in red background mode
     if (index >= 52) {
       setRedBg(true);
-      if (index === 52) {
-        playSong(audioRefs?.krampus?.current, audioRefs?.fire?.current);
-      }
+      stopAllAudio();
+      playSong(audioRefs?.krampus?.current);
     }
-  }, [index]);
+  }, []);
 
   const handleSwitchToRed = () => {
     setRedBg(true);
     playSong(audioRefs?.krampus?.current, audioRefs?.fire?.current);
-    navigate(`/2025/journey/${index + 1}`);
+    navigate(`/2025/${index + 1}`);
   };
 
   const increment = () => {
-    navigate(`/2025/journey/${index + 1}`);
+    navigate(`/2025/${index + 1}`);
   };
 
   const storyArray = [
