@@ -67,6 +67,7 @@ export const buildJourney2025Steps = ({
     <Story story={`used to nothing but screams of rage,`} />,
     <Story story={`attempts to call out.`} />,
     <Story story={`Is someone there?`} />,
+
     <Title title=">Mysterious Teddy Bear." />,
     <Story story={`You don't know why you're here.`} />,
     <Story story={`It's as though your body was possessed...`} />,
@@ -94,6 +95,7 @@ export const buildJourney2025Steps = ({
         <Story story={`Oh my god.`} />
       </div>
     </>,
+
     <Title title={`> Santa Lizzy.`} />,
     <Story story={`It's the day before Christmas Eve, and everything is...`} />,
     <Story story={`...fine.`} />,
@@ -129,6 +131,7 @@ export const buildJourney2025Steps = ({
     <Story story={`You feel even worse now.`} />,
     <Story story={`You decide to go find your Head Elf.`} />,
     <Story story={`He should know what to do.`} />,
+
     <>
       <div
         onClick={() => {
@@ -157,6 +160,7 @@ export const buildJourney2025Steps = ({
     <Story story={`The bookshelf swings open, revealing a dingy room.`} />,
     <Story story={`There's only one alarm here.`} />,
     <Story story={`Terror fills you as you realize you know what it is.`} />,
+
     <Title title={`> GoodWill Toward Men.`} />,
     <Story story={`You're gathering your army.`} />,
     <Story story={`Not because you've been told to or anything.`} />,
@@ -197,6 +201,7 @@ export const buildJourney2025Steps = ({
     <Story story={`He will stop at nothing to take over the North Pole.`} />,
     <Story story={`And he'll destroy much more than just Christmas.`} />,
     <Story story={`Will you help save our home?!`} />,
+
     <Title title={`> La Befellena.`} />,
     <Story story={`You feel the alarm deep within your soul.`} />,
     <Story
@@ -217,6 +222,7 @@ export const buildJourney2025Steps = ({
     <Story story={`You hold up the potion triumphantly!`} />,
     <Story story={`Now you just have to get Krampus to drink it.`} />,
     <Story story={`That might be easier said than done...`} />,
+
     <Title title=">Mysterious Teddy Bear." />,
     <Story story={`Things are strange and things are dark.`} />,
     <Story story={`Chilly air seeps through your fur.`} />,
@@ -236,6 +242,7 @@ export const buildJourney2025Steps = ({
     <Story story={`You realize some amount of time has passed.`} />,
     <Story story={`You see the North Pole in the distance...`} />,
     <Story story={`And then you know nothing but darkness.`} />,
+
     <Title title={`> Santa Lizzy.`} />,
     <Story story={`THE alarm is going off.`} />,
     <Story story={`Krampus is on his way here, to the North Pole.`} />,
@@ -263,6 +270,7 @@ export const buildJourney2025Steps = ({
     />,
     <Story story={`Aha! Another magic cookie!`} />,
     <Story story={`If only you knew what to do with it...`} />,
+
     <Title title={`> GoodWill Toward Men.`} />,
     <Story story={`Something lands hard on the ground outside.`} />,
     <Story story={`It must be Krampus.`} />,
@@ -284,6 +292,7 @@ export const buildJourney2025Steps = ({
     />,
     <Story story={`Yes! 98 is the perfect number!`} />,
     <Story story={`You quickly begin passing them out to your army.`} />,
+
     <Title title={`> Elfward.`} />,
     <Story story={`You and Santa Lizzy rush into the Workshop.`} />,
     <Story
@@ -313,6 +322,7 @@ export const buildJourney2025Steps = ({
       setShowElement={goNext}
     />,
     <Story story={`Ahhhh. Now there's a song.`} />,
+
     <Title title={`> Mysterious Teddy Bear.`} />,
     <Story story={`You are in the North Pole.`} />,
     <Story story={`Your second home.`} />,
@@ -370,7 +380,16 @@ export const buildJourney2025Steps = ({
     <Story story={`Krampus smiles, or at least you think he does.`} />,
     <Story story={`He swallows the potion in one gulp.`} />,
 
-    <Title title={`> Mysterious Teddy Bear.`} />,
+    <>
+      <div
+        onClick={() => {
+          playSong(audio.wizardsInWinter, audio.krampus);
+          goNext();
+        }}
+      >
+        <Title title={`> Mysterious Teddy Bear.`} />
+      </div>
+    </>,
     <Story story={`You snap back into your body.`} />,
     <Story story={`You don't know where you've been.`} />,
     <Story story={`But you feel like yourself in a way you've never known.`} />,
@@ -414,10 +433,6 @@ export const buildJourney2025Steps = ({
     //     <Story story={`In the darkness, all you see are glowing eyes...`} />
     //   </div>
     // </>,
-
-    <>
-      <span>Ending placeholder!</span>
-    </>,
   ];
 };
 

@@ -90,7 +90,7 @@ export const Journey2025 = ({
   if (index >= storyArray.length) {
     return (
       <div className={`story ${styles["story-fullscreen-red"]}`}>
-        <span>Story complete!</span>
+        <span>Ending placeholder</span>
       </div>
     );
   }
