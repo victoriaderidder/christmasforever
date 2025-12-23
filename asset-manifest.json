@@ -1,8 +1,9 @@
 {
   "files": {
-    "main.css": "/christmasforever/static/css/main.4cad2587.css",
-    "main.js": "/christmasforever/static/js/main.d8a0ba5e.js",
+    "main.css": "/christmasforever/static/css/main.d9de08f9.css",
+    "main.js": "/christmasforever/static/js/main.47d2fd21.js",
     "static/media/jazz.mp3": "/christmasforever/static/media/jazz.41bf468961746e168fa9.mp3",
+    "static/media/wizardsinwinter.mp3": "/christmasforever/static/media/wizardsinwinter.b6d6e46cc5c2d96147e2.mp3",
     "static/media/lastchristmas.mp3": "/christmasforever/static/media/lastchristmas.87e4cb2ed0b124358d2d.mp3",
     "static/media/angelswehaveheardonhigh.mp3": "/christmasforever/static/media/angelswehaveheardonhigh.9b259fb288cb63a49236.mp3",
     "static/media/krampus.mp3": "/christmasforever/static/media/krampus.7a568a878a0e53346ba8.mp3",
@@ -14,15 +15,23 @@
     "static/media/chipmunksong.mp3": "/christmasforever/static/media/chipmunksong.bf8b379640f79e631785.mp3",
     "static/media/deckthehalls.mp3": "/christmasforever/static/media/deckthehalls.73e37a6c461e22ed1751.mp3",
     "static/media/rockinaroundthechristmastree.mp3": "/christmasforever/static/media/rockinaroundthechristmastree.6def8c823ca4054e4701.mp3",
+    "static/media/cracklingfire.mp3": "/christmasforever/static/media/cracklingfire.126b52aa522e860bd55f.mp3",
+    "static/media/alarm.mp3": "/christmasforever/static/media/alarm.6b9e828002da4e502b4c.mp3",
+    "static/media/stone.png": "/christmasforever/static/media/stone.5f1000bb0690f149bd35.png",
+    "static/media/snowflake.png": "/christmasforever/static/media/snowflake.d3a85716792a9d291370.png",
     "static/media/cookie.png": "/christmasforever/static/media/cookie.a1c45a4be015ac256640.png",
+    "static/media/number3.png": "/christmasforever/static/media/number3.c60588fc1961179ef8f0.png",
+    "static/media/number1.png": "/christmasforever/static/media/number1.07110e703f4015237f4f.png",
+    "static/media/captcha.jpeg": "/christmasforever/static/media/captcha.5f22ee589310cc0ebe29.jpeg",
     "static/media/peppermint-scimitar.webp": "/christmasforever/static/media/peppermint-scimitar.3ff23056dcee85bbb2b7.webp",
     "static/media/squares.png": "/christmasforever/static/media/squares.6e2a4ec6e0ebd45cef47.png",
+    "static/media/number2.jpeg": "/christmasforever/static/media/number2.5eeb003ecdb691abc7fc.jpeg",
     "index.html": "/christmasforever/index.html",
-    "main.4cad2587.css.map": "/christmasforever/static/css/main.4cad2587.css.map",
-    "main.d8a0ba5e.js.map": "/christmasforever/static/js/main.d8a0ba5e.js.map"
+    "main.d9de08f9.css.map": "/christmasforever/static/css/main.d9de08f9.css.map",
+    "main.47d2fd21.js.map": "/christmasforever/static/js/main.47d2fd21.js.map"
   },
   "entrypoints": [
-    "static/css/main.4cad2587.css",
-    "static/js/main.d8a0ba5e.js"
+    "static/css/main.d9de08f9.css",
+    "static/js/main.47d2fd21.js"
   ]
 }
