@@ -41,7 +41,7 @@ const HotChocolateRiddle: React.FC<Props> = ({ onComplete }) => {
   }, []);
 
   useEffect(() => {
-    const TARGET_SECONDS = 10;
+    const TARGET_SECONDS = 1;
     const RADS_PER_SEC_NOMINAL = 2 * Math.PI * 1; // 1 rotation/sec
     const nominalRads = RADS_PER_SEC_NOMINAL * TARGET_SECONDS; // ~125.66
     const HEAT_PER_RAD = 13 / nominalRads;
@@ -119,6 +119,14 @@ const HotChocolateRiddle: React.FC<Props> = ({ onComplete }) => {
       setHeat(100);
     }
   }, [heat, letters, revealComplete]);
+
+  const handleClickMarshmallow = (letter: string, fromIndex: number) => {
+    // find first empty slot
+    const firstEmptyIndex = answerSlots.findIndex((slot) => slot === null);
+    if (firstEmptyIndex !== -1) {
+      handleDropToSlot(firstEmptyIndex, { letter, fromIndex });
+    }
+  };
 
   const handleDropToSlot = (
     slotIndex: number,
@@ -273,8 +281,6 @@ const HotChocolateRiddle: React.FC<Props> = ({ onComplete }) => {
                   background:
                     "radial-gradient(circle at 40% 25%, #6b4226 0%, #4b2b16 40%, #2b170d 100%)",
                   overflow: "hidden",
-                  transform: `rotate(${rotation}deg)`,
-                  transformOrigin: "50% 50%",
                 }}
                 ref={innerRef}
                 onDragOver={(e) => e.preventDefault()}
@@ -365,6 +371,7 @@ const HotChocolateRiddle: React.FC<Props> = ({ onComplete }) => {
                       <button
                         key={i}
                         draggable
+                        onClick={() => handleClickMarshmallow(ch, i)}
                         onDragStart={(e) => {
                           e.dataTransfer.setData(
                             "application/json",
@@ -381,9 +388,18 @@ const HotChocolateRiddle: React.FC<Props> = ({ onComplete }) => {
                           fontWeight: 800,
                           color: "#5b2f15",
                           cursor: "grab",
+                          userSelect: "none",
+                          WebkitUserSelect: "none",
                         }}
                       >
-                        <span style={{ opacity: progress, color: "#5b2f15" }}>
+                        <span
+                          style={{
+                            opacity: progress,
+                            color: "#5b2f15",
+                            userSelect: "none",
+                            WebkitUserSelect: "none",
+                          }}
+                        >
                           {ch}
                         </span>
                       </button>

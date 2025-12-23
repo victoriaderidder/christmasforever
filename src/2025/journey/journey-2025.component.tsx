@@ -33,114 +33,115 @@ export const Journey2025 = ({ handleEnd }: Journey2025Props) => {
   };
 
   const storyArray = [
-    <Title title="> к̴̷̴̭͈̫̫̃̇̓́͟͝р̷̡̦͎͈͋̑ͥ͘͢͢͞ͅα̴̴̴̡̢͕̭ͥͮ̒́μ̵̴̟ͥ̀̎̊ͨ́͠п̴̪̱̤̺̦̃̂̒͑͂̀͜͢͞͝͠у̷̸̷̸̢̖͉̜̲͇̎͐͠͞σ̸̫͔͍̀̍̑͝͠͠͝." />,
-    <Story story={`you have lost yourself.`} />,
-    <Story story={`you know only rage.`} />,
-    <Story story={`you remember only fury.`} />,
-    <Story story={`the darkness is eternal.`} />,
-    <Story story={`centuries of you`} />,
-    <Story story={`alone`} />,
-    <Story story={`in the dark.`} />,
-    <Story story={`but now?`} />,
-    <Story story={`a light...`} />,
-    <Story story={`something flickering`} />,
-    <Story story={`far away`} />,
-    <Story story={`in the corner`} />,
-    <Story story={`of the...`} />,
-    <Story story={`cave?`} />,
-    <Story story={`yes...the cave.`} />,
-    <Story story={`you remember now.`} />,
-    <Title title=">Krampus." />,
-    <Story story={`for that is your name,`} />,
-    <Story story={`isn't it?`} />,
-    <Story story={`you are the spirit of Christmas.`} />,
-    <Story story={`the rightful one.`} />,
-    <Story story={`a true ancient.`} />,
-    <Story story={`not like these mortals,`} />,
-    <Story story={`dressed up in red and playing pretend.`} />,
-    <Story story={`though many years ago,`} />,
-    <Story story={`it was one of those mortals who defeated you...`} />,
-    <Story story={`trapping you in this cave.`} />,
-    <Story story={`doomed to be alone forever.`} />,
-    <Story story={`but oh, how that light calls you.`} />,
-    <Story story={`you haven't seen light since...`} />,
-    <Story story={`and so your mouth,`} />,
-    <Story story={`used to nothing but screams of rage,`} />,
-    <Story story={`attempts to call out.`} />,
-    <Story story={`Is someone there?`} />,
-    <Title title=">Mysterious Teddy Bear." />,
-    <Story story={`You don't know why you're here.`} />,
-    <Story story={`It's as though your body was possessed...`} />,
-    <Story story={`As if your tiny legs walked here all on their own.`} />,
-    <Story story={`But you don't remember the walk.`} />,
-    <Story story={`You remember being home.`} />,
-    <Story story={`And you remember the darkness...`} />,
-    <Story story={`This darkness.`} />,
-    <Story story={`The howling, the screaming.`} />,
-    <Story story={`Noises of a beast...`} />,
-    <Story story={`Of something inhuman.`} />,
-    <Story story={`Terrified, you'd fumbled in your bear pockets.`} />,
-    <Story story={`Struck a match.`} />,
-    <Story story={`Lit a fire.`} />,
-    <Story story={`And the noises ceased.`} />,
-    <>
-      <div onClick={() => handle2025Riddle(1, setShowStory, setRiddle)}>
-        <Story story={`In the darkness, all you see are glowing eyes...`} />
-      </div>
-    </>,
+    // <Title title="> к̴̷̴̭͈̫̫̃̇̓́͟͝р̷̡̦͎͈͋̑ͥ͘͢͢͞ͅα̴̴̴̡̢͕̭ͥͮ̒́μ̵̴̟ͥ̀̎̊ͨ́͠п̴̪̱̤̺̦̃̂̒͑͂̀͜͢͞͝͠у̷̸̷̸̢̖͉̜̲͇̎͐͠͞σ̸̫͔͍̀̍̑͝͠͠͝." />,
+    // <Story story={`you have lost yourself.`} />,
+    // <Story story={`you know only rage.`} />,
+    // <Story story={`you remember only fury.`} />,
+    // <Story story={`the darkness is eternal.`} />,
+    // <Story story={`centuries of you`} />,
+    // <Story story={`alone`} />,
+    // <Story story={`in the dark.`} />,
+    // <Story story={`but now?`} />,
+    // <Story story={`a light...`} />,
+    // <Story story={`something flickering`} />,
+    // <Story story={`far away`} />,
+    // <Story story={`in the corner`} />,
+    // <Story story={`of the...`} />,
+    // <Story story={`cave?`} />,
+    // <Story story={`yes...the cave.`} />,
+    // <Story story={`you remember now.`} />,
+    // <Title title=">Krampus." />,
+    // <Story story={`for that is your name,`} />,
+    // <Story story={`isn't it?`} />,
+    // <Story story={`you are the spirit of Christmas.`} />,
+    // <Story story={`the rightful one.`} />,
+    // <Story story={`a true ancient.`} />,
+    // <Story story={`not like these mortals,`} />,
+    // <Story story={`dressed up in red and playing pretend.`} />,
+    // <Story story={`though many years ago,`} />,
+    // <Story story={`it was one of those mortals who helped to defeat you...`} />,
+    // <Story story={`trapping you in this cave.`} />,
+    // <Story story={`doomed to be alone forever.`} />,
+    // <Story story={`but oh, how that light calls you.`} />,
+    // <Story story={`you haven't seen light since...`} />,
+    // <Story story={`.....`} />,
+    // <Story story={`and so your mouth,`} />,
+    // <Story story={`used to nothing but screams of rage,`} />,
+    // <Story story={`attempts to call out.`} />,
+    // <Story story={`Is someone there?`} />,
+    // <Title title=">Mysterious Teddy Bear." />,
+    // <Story story={`You don't know why you're here.`} />,
+    // <Story story={`It's as though your body was possessed...`} />,
+    // <Story story={`As if your tiny legs walked here all on their own.`} />,
+    // <Story story={`But you don't remember the walk.`} />,
+    // <Story story={`You remember being home.`} />,
+    // <Story story={`And you remember the darkness...`} />,
+    // <Story story={`This darkness.`} />,
+    // <Story story={`The howling, the screaming.`} />,
+    // <Story story={`Noises of a beast...`} />,
+    // <Story story={`Of something inhuman.`} />,
+    // <Story story={`Terrified, you'd fumbled in your bear pockets.`} />,
+    // <Story story={`Struck a match.`} />,
+    // <Story story={`Lit a fire.`} />,
+    // <Story story={`And the noises ceased.`} />,
+    // <>
+    //   <div onClick={() => handle2025Riddle(1, setShowStory, setRiddle)}>
+    //     <Story story={`In the darkness, all you see are glowing eyes...`} />
+    //   </div>
+    // </>,
     <>
       <div onClick={() => handleSwitchToRed()}>
         <Story story={`Oh my god.`} />
       </div>
     </>,
-    <Title title={`> Santa Lizzy.`} />,
-    <Story story={`It's the day before Christmas Eve, and everything is...`} />,
-    <Story story={`...fine.`} />,
-    <Story story={`No catastrophes, no surprise parties.`} />,
-    <Story story={`For the first time since you became Santa,`} />,
-    <Story story={`everything is proceeding as planned.`} />,
-    <Story story={`It feels unnatural.`} />,
-    <Story
-      story={`You're sure it's just because you're used to things going wrong.`}
-    />,
-    <Story
-      story={`But you can't shake the feeling that something really is wrong.`}
-    />,
-    <Story story={`But it's fine. Everything is fine.`} />,
-    <Story story={`Maybe you should try to distract yourself.`} />,
-    <Story story={`You know what always numbs your feelings?`} />,
-    <>
-      <div onClick={() => handle2025Riddle(3, setShowStory, setRiddle)}>
-        <Story story={`That's right! Hot chocolate.`} />
-      </div>
-    </>,
-    <Story story={`That hot chocolate wasn't calming at all...`} />,
-    <Story story={`You feel even worse now.`} />,
-    <Story story={`You decide to go find your Head Elf.`} />,
-    <Story story={`He should know what to do.`} />,
-    <>
-      <div
-        onClick={() =>
-          playSong(audioRefs?.alarm?.current, audioRefs?.krampus?.current)
-        }
-      >
-        <Title title={`> Elfward.`} />
-      </div>
-    </>,
-    <Story story={`An alarm is going off somewhere.`} />,
-    <Story story={`You've been trying to find it for twenty minutes.`} />,
-    <Story story={`It's so loud it's interfering with toy production.`} />,
-    <Story story={`And you have no time for that,`} />,
-    <Story story={`not with Christmas Eve tomorrow!`} />,
-    <Story
-      story={`You've narrowed your search to a bookshelf at the end of the room.`}
-    />,
-    <Story story={`You know one of these books opens a secret room.`} />,
-    <>
-      <div onClick={() => handle2025Riddle(4, setShowStory, setRiddle)}>
-        <Story story={`The only question is which one...`} />
-      </div>
-    </>,
+    // <Title title={`> Santa Lizzy.`} />,
+    // <Story story={`It's the day before Christmas Eve, and everything is...`} />,
+    // <Story story={`...fine.`} />,
+    // <Story story={`No catastrophes, no surprise parties.`} />,
+    // <Story story={`For the first time since you became Santa,`} />,
+    // <Story story={`everything is proceeding as planned.`} />,
+    // <Story story={`It feels unnatural.`} />,
+    // <Story
+    //   story={`You're sure it's just because you're used to things going wrong.`}
+    // />,
+    // <Story
+    //   story={`But you can't shake the feeling that something really is wrong.`}
+    // />,
+    // <Story story={`But it's fine. Everything is fine.`} />,
+    // <Story story={`Maybe you should try to distract yourself.`} />,
+    // <Story story={`You know what always numbs your feelings?`} />,
+    // <>
+    //   <div onClick={() => handle2025Riddle(3, setShowStory, setRiddle)}>
+    //     <Story story={`That's right! Hot chocolate.`} />
+    //   </div>
+    // </>,
+    // <Story story={`That hot chocolate wasn't calming at all...`} />,
+    // <Story story={`You feel even worse now.`} />,
+    // <Story story={`You decide to go find your Head Elf.`} />,
+    // <Story story={`He should know what to do.`} />,
+    // <>
+    //   <div
+    //     onClick={() =>
+    //       playSong(audioRefs?.alarm?.current, audioRefs?.krampus?.current)
+    //     }
+    //   >
+    //     <Title title={`> Elfward.`} />
+    //   </div>
+    // </>,
+    // <Story story={`An alarm is going off somewhere.`} />,
+    // <Story story={`You've been trying to find it for twenty minutes.`} />,
+    // <Story story={`It's so loud it's interfering with toy production.`} />,
+    // <Story story={`And you have no time for that,`} />,
+    // <Story story={`not with Christmas Eve tomorrow!`} />,
+    // <Story
+    //   story={`You've narrowed your search to a bookshelf at the end of the room.`}
+    // />,
+    // <Story story={`You know one of these books opens a secret room.`} />,
+    // <>
+    //   <div onClick={() => handle2025Riddle(4, setShowStory, setRiddle)}>
+    //     <Story story={`The only question is which one...`} />
+    //   </div>
+    // </>,
     <Story story={`The bookshelf swings open, revealing a dingy room.`} />,
     <Story story={`There's only one alarm here.`} />,
     <Story story={`Terror fills you as you realize you know what it is.`} />,
@@ -172,7 +173,7 @@ export const Journey2025 = ({ handleEnd }: Journey2025Props) => {
       </div>
     </>,
     <Story story={`Krampus is nothing less than a nightmare.`} />,
-    <Story story={`He will stop at nothing to take over the North Pole`} />,
+    <Story story={`He will stop at nothing to take over the North Pole.`} />,
     <Story story={`And he'll destroy much more than just Christmas.`} />,
     <Story story={`Will you help save our home?!`} />,
     <Title title={`> La Befellena.`} />,
