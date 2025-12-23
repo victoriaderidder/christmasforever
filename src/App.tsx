@@ -44,7 +44,9 @@ const RouteChangeHandler = ({
       return;
     }
 
-    stopAllAudio();
+    if (location.pathname === "/") {
+      stopAllAudio();
+    }
   }, [location.pathname, navigate, stopAllAudio]);
 
   return null;
