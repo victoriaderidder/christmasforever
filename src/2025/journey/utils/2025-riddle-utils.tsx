@@ -313,6 +313,108 @@ export const buildJourney2025Steps = ({
       setShowElement={goNext}
     />,
     <Story story={`Ahhhh. Now there's a song.`} />,
+    <Title title={`> Mysterious Teddy Bear.`} />,
+    <Story story={`You are in the North Pole.`} />,
+    <Story story={`Your second home.`} />,
+    <Story story={`A place where everyone has always been kind to you.`} />,
+    <Story story={`Yet you are destroying it.`} />,
+    <Story story={`You and the creature fell candycane posts.`} />,
+    <Story story={`He smashes the entrance to Santa's Workshop.`} />,
+    <Story story={`Together, you rush in.`} />,
+    <Story story={`You're met by elves with pointy candycane weapons.`} />,
+    <Story story={`They seem to bounce harmlessly off His fur.`} />,
+    <Story story={`Elves in His way are thrown to the side.`} />,
+    <Story story={`You know, somehow, that He is here for the toys.`} />,
+    <Story story={`The wrapped presents are His first target.`} />,
+    <Story story={`He destroys them with an inhuman speed.`} />,
+    <Story story={`The weeping you heard on the sleigh surrounds you.`} />,
+    <Story story={`It seems to get louder with every package destroyed.`} />,
+    <Story story={`And you are here...`} />,
+    <Story story={`Unable to stop yourself from joining in.`} />,
+
+    <Title title={`> La Befellena.`} />,
+    <Story story={`You rush into the Workshop with your potion.`} />,
+    <Story story={`It's nothing but chaos.`} />,
+    <Story story={`Elves are fighting left and right.`} />,
+    <Story story={`Damaged and destroyed toys litter the ground.`} />,
+    <Story story={`And there he is, just as you remember him.`} />,
+    <Story story={`Krampus.`} />,
+    <Story story={`Just as wrathful and filled with rage as ever.`} />,
+    <Story story={`You stand amidst the pandemonium with no plan.`} />,
+    <Story story={`How can you trick Krampus into taking the potion?`} />,
+    <Story story={`You see Santa Lizzy nearby.`} />,
+    <Story story={`She tries desperately to rescue packages.`} />,
+    <Story story={`To save toys and to save Christmas.`} />,
+    <Story story={`And you have an idea.`} />,
+
+    <Title title={`> Santa Lizzy.`} />,
+    <Story story={`La Befellena shoves her way towards you.`} />,
+    <Story story={`She holds a vial in her hand.`} />,
+    <Story story={`Krampus was paying you no mind before.`} />,
+    <Story story={`But it's like he senses La Befellena's presence.`} />,
+    <Story story={`He whips around and turns towards you.`} />,
+    <Story story={`You see the Mysterious Teddy Bear on his back.`} />,
+    <Story story={`His little button eyes are empty.`} />,
+    <Story story={`Krampus lurches towards you.`} />,
+    <Story story={`La Befellena thrusts the vial into your hand.`} />,
+    <Story story={`She shouts, "Quick! Drink this!"`} />,
+    <Story story={`You uncork the vial and lift it to your mouth...`} />,
+    <Story story={`But it's too late.`} />,
+    <Story
+      story={`The Mysterious Teddy Bear snatches the vial from your hand.`}
+    />,
+    <Story story={`You try to grab him, but he's too quick.`} />,
+    <Story story={`He places the vial in Krampus's hand.`} />,
+    <Story story={`"We can't let him drink that!" La Befellena cries.`} />,
+    <Story story={`"It will strengthen his magic!"`} />,
+    <Story story={`Krampus smiles, or at least you think he does.`} />,
+    <Story story={`He swallows the potion in one gulp.`} />,
+
+    <Title title={`> Mysterious Teddy Bear.`} />,
+    <Story story={`You snap back into your body.`} />,
+    <Story story={`You don't know where you've been.`} />,
+    <Story story={`But you feel like yourself in a way you've never known.`} />,
+    <Story story={`The creature roars with fury.`} />,
+    <Story story={`But he holds no power over you anymore.`} />,
+    <Story story={`You scramble off his shoulder.`} />,
+    <Story story={`The horrible weeping has stopped.`} />,
+    <Story story={`Out of Krampus floods...`} />,
+    <Story story={`Light.`} />,
+    <Story story={`Hundreds of shimmering spirits.`} />,
+    <Story story={`The souls of every toy he's ever destroyed.`} />,
+    <Story story={`They swirl around the Workshop like snowflakes.`} />,
+    <Story story={`Free at last.`} />,
+    <Story story={`Then they turn and surround Krampus.`} />,
+    <Story
+      story={`He howls in terror as, um. He dies? Still writing this...`}
+    />,
+
+    // <Story story={`And you...`} />,
+    // <Story story={`You feel the weight of what you've done.`} />,
+    // <Story story={`The destruction you helped cause.`} />,
+    // <Story story={`You look around at the devastation.`} />,
+    // <Story story={`The shattered toys.`} />,
+    // <Story story={`The wounded elves.`} />,
+    // <Story story={`Will they ever forgive you?`} />,
+    // <Story story={`Can you ever forgive yourself?`} />,
+
+    // mysterious teddy bear is himself again
+    // for the first time, he feels sad feelings in his soul
+    // how could he hurt his friends? what's wrong with him?
+    // will they ever trust him again?
+    // the north pole is in tatters...
+    // christmas will continue, but not all children will get their toys
+    // santa lizzy is so sad
+    // la befellena...magics the toys' spirits into new bodies??
+    // a magic spell we must all participate in to win our shirts
+    // i email an image to each participant related to their shirts
+    // and then: we've saved christmas!
+    // <>
+    //   <div onClick={() => handle2025Riddle(2, setShowStory, setRiddle)}>
+    //     <Story story={`In the darkness, all you see are glowing eyes...`} />
+    //   </div>
+    // </>,
+
     <>
       <span>Ending placeholder!</span>
     </>,

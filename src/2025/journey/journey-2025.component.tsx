@@ -96,7 +96,6 @@ export const Journey2025 = ({
   }
 
   // TODO: fix ornaments on tree
-  // TODO: push to GH pages
   // TODO: redo readme
 
   const currentStep = storyArray[index];
