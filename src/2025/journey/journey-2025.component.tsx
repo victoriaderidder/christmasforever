@@ -1,3 +1,4 @@
+import { useParams, useNavigate } from "react-router-dom";
 import { useAudio } from "../../audio/audio.hooks";
 import { AUDIO_PATHS } from "../../audio/audio.utils";
 import Story from "../../components/story.component";
@@ -8,28 +9,52 @@ import { useState, useEffect } from "react";
 import styles from "../App2025.module.css";
 
 export interface Journey2025Props {
-  handleEnd: any;
+  handleEnd?: any;
+  step?: string;
 }
 
-export const Journey2025 = ({ handleEnd }: Journey2025Props) => {
+export const Journey2025 = ({
+  handleEnd,
+  step: propStep,
+}: Journey2025Props) => {
+  const { step: routeStep } = useParams<{ step: string }>();
+  const navigate = useNavigate();
   const [showStory, setShowStory] = useState(true);
   const [riddle, setRiddle] = useState(<></>);
   const [redBg, setRedBg] = useState(false);
-  const [index, setIndex] = useState(0);
 
+  // Use route param if available, otherwise use prop or default to 0
+  const step = routeStep || propStep;
+  const index = step !== undefined ? parseInt(step, 10) : 0;
   const { audioRefs, playSong, stopAllAudio } = useAudio(AUDIO_PATHS);
 
   useEffect(() => {
-    index === 0 && playSong(audioRefs.fire.current);
+    if (index === 0) {
+      playSong(audioRefs.fire.current);
+    } else if (index < 52) {
+      stopAllAudio();
+      playSong(audioRefs.fire.current);
+    } else if (index >= 52) {
+      setRedBg(true);
+      stopAllAudio();
+      playSong(audioRefs?.krampus?.current);
+    }
   }, []);
 
   const increment = () => {
-    index === storyArray?.length - 1 ? handleEnd() : setIndex(index + 1);
+    navigate(`/2025/${index + 1}`);
+    // Legacy behavior for non-routed usage
+    if (handleEnd && index === storyArray?.length - 1) {
+      handleEnd();
+    } else {
+      // This won't work without state management, but keeping for compatibility
+    }
   };
 
   const handleSwitchToRed = () => {
     setRedBg(true);
     playSong(audioRefs?.krampus?.current, audioRefs?.fire?.current);
+    navigate(`/2025/${index + 1}`);
   };
 
   const storyArray = [
@@ -404,6 +429,14 @@ export const Journey2025 = ({ handleEnd }: Journey2025Props) => {
     </>,
   ];
 
+  if (index >= storyArray.length) {
+    return (
+      <div className={`story ${styles["story-fullscreen-red"]}`}>
+        <span>Story complete!</span>
+      </div>
+    );
+  }
+
   // TODO: fix ornaments on tree
   // TODO: push to GH pages
   // TODO: redo readme
@@ -427,7 +460,15 @@ export const Journey2025 = ({ handleEnd }: Journey2025Props) => {
       ) : (
         <div
           className={`story ${redBg && styles["story-fullscreen-red"]}`}
-          style={{ padding: "24px", textAlign: "center" }}
+          style={{
+            padding: "24px",
+            textAlign: "center",
+            background: "#000",
+            position: "fixed",
+            inset: 0,
+            width: "100vw",
+            height: "100vh",
+          }}
         >
           {riddle}
         </div>

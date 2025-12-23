@@ -13,7 +13,7 @@ import App2023 from "2023/App2023";
 import App2024 from "2024/App2024";
 import LandingPage2024 from "2024/LandingPage2024";
 import App2025 from "2025/App2025";
-import { JourneyStep } from "2025/journey/journey-step.component";
+import { Journey2025 } from "2025/journey/journey-2025.component";
 import HotChocolateRiddle from "2025/components/hot-chocolate-riddle";
 import MovingCookieRiddle from "2025/components/moving-cookie-riddle/moving-cookie-riddle";
 import PeppermintStickRiddle from "2025/components/peppermint-stick-riddle/peppermint-stick-riddle";
@@ -162,7 +162,7 @@ function App() {
           <Route path="/2024/landing" element={<LandingPage2024 />} />
           <Route path="/2024" element={<App2024 />} />
           <Route path="/2025" element={<App2025 />} />
-          <Route path="/2025/:step" element={<JourneyStep />} />
+          <Route path="/2025/:step" element={<Journey2025 />} />
           <Route
             path="/2025/hot-chocolate-riddle"
             element={
