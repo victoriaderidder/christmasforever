@@ -378,8 +378,6 @@ export const buildJourney2025Steps = ({
     <Story story={`"We can't let him drink that!" La Befellena cries.`} />,
     <Story story={`"It will strengthen his magic!"`} />,
     <Story story={`Krampus smiles, or at least you think he does.`} />,
-    <Story story={`He swallows the potion in one gulp.`} />,
-
     <>
       <div
         onClick={() => {
@@ -387,9 +385,10 @@ export const buildJourney2025Steps = ({
           goNext();
         }}
       >
-        <Title title={`> Mysterious Teddy Bear.`} />
+        <Story story={`He swallows the potion in one gulp.`} />,
       </div>
     </>,
+    <Title title={`> Mysterious Teddy Bear.`} />,
     <Story story={`You snap back into your body.`} />,
     <Story story={`You don't know where you've been.`} />,
     <Story story={`But you feel like yourself in a way you've never known.`} />,
