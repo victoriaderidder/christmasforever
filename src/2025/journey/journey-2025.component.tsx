@@ -109,39 +109,39 @@ export const Journey2025 = ({ handleEnd }: Journey2025Props) => {
     // />,
     // <Story story={`But it's fine. Everything is fine.`} />,
     // <Story story={`Maybe you should try to distract yourself.`} />,
-    // <Story story={`You know what always numbs your feelings?`} />,
-    // <>
-    //   <div onClick={() => handle2025Riddle(3, setShowStory, setRiddle)}>
-    //     <Story story={`That's right! Hot chocolate.`} />
-    //   </div>
-    // </>,
-    // <Story story={`That hot chocolate wasn't calming at all...`} />,
-    // <Story story={`You feel even worse now.`} />,
-    // <Story story={`You decide to go find your Head Elf.`} />,
-    // <Story story={`He should know what to do.`} />,
-    // <>
-    //   <div
-    //     onClick={() =>
-    //       playSong(audioRefs?.alarm?.current, audioRefs?.krampus?.current)
-    //     }
-    //   >
-    //     <Title title={`> Elfward.`} />
-    //   </div>
-    // </>,
-    // <Story story={`An alarm is going off somewhere.`} />,
-    // <Story story={`You've been trying to find it for twenty minutes.`} />,
-    // <Story story={`It's so loud it's interfering with toy production.`} />,
-    // <Story story={`And you have no time for that,`} />,
-    // <Story story={`not with Christmas Eve tomorrow!`} />,
-    // <Story
-    //   story={`You've narrowed your search to a bookshelf at the end of the room.`}
-    // />,
-    // <Story story={`You know one of these books opens a secret room.`} />,
-    // <>
-    //   <div onClick={() => handle2025Riddle(4, setShowStory, setRiddle)}>
-    //     <Story story={`The only question is which one...`} />
-    //   </div>
-    // </>,
+    <Story story={`You know what always numbs your feelings?`} />,
+    <>
+      <div onClick={() => handle2025Riddle(3, setShowStory, setRiddle)}>
+        <Story story={`That's right! Hot chocolate.`} />
+      </div>
+    </>,
+    <Story story={`That hot chocolate wasn't calming at all...`} />,
+    <Story story={`You feel even worse now.`} />,
+    <Story story={`You decide to go find your Head Elf.`} />,
+    <Story story={`He should know what to do.`} />,
+    <>
+      <div
+        onClick={() =>
+          playSong(audioRefs?.alarm?.current, audioRefs?.krampus?.current)
+        }
+      >
+        <Title title={`> Elfward.`} />
+      </div>
+    </>,
+    <Story story={`An alarm is going off somewhere.`} />,
+    <Story story={`You've been trying to find it for twenty minutes.`} />,
+    <Story story={`It's so loud it's interfering with toy production.`} />,
+    <Story story={`And you have no time for that,`} />,
+    <Story story={`not with Christmas Eve tomorrow!`} />,
+    <Story
+      story={`You've narrowed your search to a bookshelf at the end of the room.`}
+    />,
+    <Story story={`You know one of these books opens a secret room.`} />,
+    <>
+      <div onClick={() => handle2025Riddle(4, setShowStory, setRiddle)}>
+        <Story story={`The only question is which one...`} />
+      </div>
+    </>,
     <Story story={`The bookshelf swings open, revealing a dingy room.`} />,
     <Story story={`There's only one alarm here.`} />,
     <Story story={`Terror fills you as you realize you know what it is.`} />,
