@@ -41,7 +41,7 @@ const HotChocolateRiddle: React.FC<Props> = ({ onComplete }) => {
   }, []);
 
   useEffect(() => {
-    const TARGET_SECONDS = 1;
+    const TARGET_SECONDS = 10;
     const RADS_PER_SEC_NOMINAL = 2 * Math.PI * 1; // 1 rotation/sec
     const nominalRads = RADS_PER_SEC_NOMINAL * TARGET_SECONDS; // ~125.66
     const HEAT_PER_RAD = 13 / nominalRads;
@@ -281,6 +281,8 @@ const HotChocolateRiddle: React.FC<Props> = ({ onComplete }) => {
                   background:
                     "radial-gradient(circle at 40% 25%, #6b4226 0%, #4b2b16 40%, #2b170d 100%)",
                   overflow: "hidden",
+                  transform: `rotate(${rotation}deg)`,
+                  transformOrigin: "50% 50%",
                 }}
                 ref={innerRef}
                 onDragOver={(e) => e.preventDefault()}

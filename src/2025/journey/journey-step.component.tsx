@@ -1,3 +1,4 @@
+import { useParams, useNavigate } from "react-router-dom";
 import { useAudio } from "../../audio/audio.hooks";
 import { AUDIO_PATHS } from "../../audio/audio.utils";
 import Story from "../../components/story.component";
@@ -7,33 +8,41 @@ import { handle2025Riddle } from "./utils/2025-riddle-utils";
 import { useState, useEffect } from "react";
 import styles from "../App2025.module.css";
 
-export interface Journey2025Props {
-  handleEnd: any;
-}
-
-export const Journey2025 = ({ handleEnd }: Journey2025Props) => {
+export const JourneyStep = () => {
+  const { step } = useParams<{ step: string }>();
+  const navigate = useNavigate();
   const [showStory, setShowStory] = useState(true);
   const [riddle, setRiddle] = useState(<></>);
   const [redBg, setRedBg] = useState(false);
-  const [index, setIndex] = useState(0);
+  const index = parseInt(step || "0", 10);
 
-  const { audioRefs, playSong, stopAllAudio } = useAudio(AUDIO_PATHS);
+  const { audioRefs, playSong } = useAudio(AUDIO_PATHS);
 
   useEffect(() => {
-    index === 0 && playSong(audioRefs.fire.current);
-  }, []);
-
-  const increment = () => {
-    index === storyArray?.length - 1 ? handleEnd() : setIndex(index + 1);
-  };
+    if (index === 0) {
+      playSong(audioRefs.fire.current);
+    }
+    // Check if we should be in red background mode
+    if (index >= 52) {
+      setRedBg(true);
+      if (index === 52) {
+        playSong(audioRefs?.krampus?.current, audioRefs?.fire?.current);
+      }
+    }
+  }, [index]);
 
   const handleSwitchToRed = () => {
     setRedBg(true);
     playSong(audioRefs?.krampus?.current, audioRefs?.fire?.current);
+    navigate(`/2025/journey/${index + 1}`);
+  };
+
+  const increment = () => {
+    navigate(`/2025/journey/${index + 1}`);
   };
 
   const storyArray = [
-    <Title title="> к̴̷̴̭͈̫̫̃̇̓́͟͝р̷̡̦͎͈͋̑ͥ͘͢͢͞ͅα̴̴̴̡̢͕̭ͥͮ̒́μ̵̴̟ͥ̀̎̊ͨ́͠п̴̪̱̤̺̦̃̂̒͑͂̀͜͢͞͝͠у̷̸̷̸̢̖͉̜̲͇̎͐͠͞σ̸̫͔͍̀̍̑͝͠͠͝." />,
+    <Title title="> к̴̷̴̭͈̫̫̃̇̓́͟͝р̷̡̦͎͈͋̑ͥ͘͢͢͞ͅα̴̴̴̡̢͕̭ͥͮ̒́μ̵̴̟ͥ̀̎̊ͨ́͠п̴̪̱̤̺̦̃̂̒͑͂̀͜͢͞͝͠у̷̸̷̸̢̖͉̜̲͇̎͐͠͞σ̸̫͔͍̀̍̑͝͠͠͝." />,
     <Story story={`you have lost yourself.`} />,
     <Story story={`you know only rage.`} />,
     <Story story={`you remember only fury.`} />,
@@ -373,40 +382,19 @@ export const Journey2025 = ({ handleEnd }: Journey2025Props) => {
     <Story
       story={`He howls in terror as, um. He dies? Still writing this...`}
     />,
-
-    // <Story story={`And you...`} />,
-    // <Story story={`You feel the weight of what you've done.`} />,
-    // <Story story={`The destruction you helped cause.`} />,
-    // <Story story={`You look around at the devastation.`} />,
-    // <Story story={`The shattered toys.`} />,
-    // <Story story={`The wounded elves.`} />,
-    // <Story story={`Will they ever forgive you?`} />,
-    // <Story story={`Can you ever forgive yourself?`} />,
-
-    // mysterious teddy bear is himself again
-    // for the first time, he feels sad feelings in his soul
-    // how could he hurt his friends? what's wrong with him?
-    // will they ever trust him again?
-    // the north pole is in tatters...
-    // christmas will continue, but not all children will get their toys
-    // santa lizzy is so sad
-    // la befellena...magics the toys' spirits into new bodies??
-    // a magic spell we must all participate in to win our shirts
-    // i email an image to each participant related to their shirts
-    // and then: we've saved christmas!
-    // <>
-    //   <div onClick={() => handle2025Riddle(2, setShowStory, setRiddle)}>
-    //     <Story story={`In the darkness, all you see are glowing eyes...`} />
-    //   </div>
-    // </>,
     <>
       <span>Ending placeholder!</span>
     </>,
   ];
 
-  // TODO: fix ornaments on tree
-  // TODO: push to GH pages
-  // TODO: redo readme
+  if (index >= storyArray.length) {
+    return (
+      <div className={`story ${styles["story-fullscreen-red"]}`}>
+        <span>Story complete!</span>
+      </div>
+    );
+  }
+
   return (
     <>
       {showStory ? (
