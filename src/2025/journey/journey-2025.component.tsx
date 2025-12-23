@@ -30,17 +30,23 @@ export const Journey2025 = ({
 
   useEffect(() => {
     if (index === 0) {
-      stopAllAudio();
       playSong(audioRefs.fire.current);
     } else if (index < 52) {
-      stopAllAudio();
       playSong(audioRefs.fire.current);
     } else if (index >= 52) {
-      setRedBg(true);
-      stopAllAudio();
       playSong(audioRefs?.krampus?.current);
     }
   }, []);
+
+  useEffect(() => {
+    if (index === 0) {
+      setRedBg(false);
+    } else if (index <= 52) {
+      setRedBg(false);
+    } else if (index > 52) {
+      setRedBg(true);
+    }
+  }, [index]);
 
   const increment = () => {
     navigate(`/2025/${index + 1}`);
@@ -438,6 +444,7 @@ export const Journey2025 = ({
     );
   }
 
+  // TODO: circus music for cookie
   // TODO: fix ornaments on tree
   // TODO: push to GH pages
   // TODO: redo readme

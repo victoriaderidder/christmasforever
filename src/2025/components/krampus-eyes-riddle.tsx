@@ -21,7 +21,6 @@ const rand = (min: number, max: number) => Math.random() * (max - min) + min;
 
 const KrampusEyesRiddle: FC<KrampusEyesRiddleProps> = ({ onComplete }) => {
   const containerRef = useRef<HTMLDivElement | null>(null);
-  const [message, setMessage] = useState("Which eyes do you see?");
   const [attempts, setAttempts] = useState(0);
   const [reveal, setReveal] = useState(false);
 
@@ -112,7 +111,6 @@ const KrampusEyesRiddle: FC<KrampusEyesRiddleProps> = ({ onComplete }) => {
 
   return (
     <div style={{ color: "white", textAlign: "center" }}>
-      <p style={{ marginBottom: 12 }}>{message}</p>
       <div
         ref={containerRef}
         onClick={handleClick}
