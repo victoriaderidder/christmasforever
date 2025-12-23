@@ -1,6 +1,4 @@
 import React, { useState, useRef, useEffect } from "react";
-import { useAudio } from "../../../audio/audio.hooks";
-import { AUDIO_PATHS } from "../../../audio/audio.utils";
 import styles from "./bookshelf-riddle.module.css";
 import "./bookshelf-riddle.global.css";
 
@@ -167,29 +165,7 @@ const BookshelfRiddle: React.FC<Props> = ({ onComplete }) => {
       if (floatingRaf.current) cancelAnimationFrame(floatingRaf.current);
     };
   }, []);
-  // audio: stop krampus and play alarm while this riddle is mounted
-  const { audioRefs, playSong, stopAllAudio } = useAudio(AUDIO_PATHS);
-  useEffect(() => {
-    stopAllAudio();
-    const alarmAudio = audioRefs?.alarm?.current;
-    const krampusAudio = audioRefs?.krampus?.current;
-    if (alarmAudio) {
-      playSong(alarmAudio, krampusAudio);
-    }
-    return () => {
-      if (krampusAudio) {
-        playSong(krampusAudio, alarmAudio);
-      } else if (alarmAudio) {
-        try {
-          alarmAudio.pause();
-          alarmAudio.currentTime = 0;
-        } catch (e) {
-          /* ignore */
-        }
-      }
-    };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+
   const initialVisuals = generateVisuals();
   const [colors] = useState<number[]>(initialVisuals.colors);
   const [heights] = useState<number[]>(initialVisuals.heights);

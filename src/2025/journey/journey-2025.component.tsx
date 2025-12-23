@@ -46,6 +46,7 @@ export const Journey2025 = ({
       audioRefs.alarm.current,
       audioRefs.wizardsInWinter.current,
       audioRefs.circus.current,
+      audioRefs.hotChocolate.current,
     ];
 
     const isSpecialPlaying = specialAudio.some((a) => a && !a.paused);
@@ -148,8 +149,7 @@ export const Journey2025 = ({
     <KrampusEyesRiddle onComplete={() => navigate(`/2025/${index + 1}`)} />,
     <>
       <div
-        onClick={(e) => {
-          e.stopPropagation();
+        onClick={() => {
           handleSwitchToRed();
         }}
       >
@@ -172,16 +172,31 @@ export const Journey2025 = ({
     <Story story={`But it's fine. Everything is fine.`} />,
     <Story story={`Maybe you should try to distract yourself.`} />,
     <Story story={`You know what always numbs your feelings?`} />,
-    <Story story={`That's right! Hot chocolate.`} />,
-    <HotChocolateRiddle onComplete={() => navigate(`/2025/${index + 1}`)} />,
+    <>
+      <div
+        onClick={() => {
+          playSong(
+            audioRefs?.hotChocolate?.current,
+            audioRefs?.krampus?.current
+          );
+        }}
+      >
+        <Story story={`That's right! Hot chocolate.`} />
+      </div>
+    </>,
+    <HotChocolateRiddle
+      onComplete={() => {
+        playSong(audioRefs?.krampus?.current, audioRefs?.hotChocolate?.current);
+        navigate(`/2025/${index + 1}`);
+      }}
+    />,
     <Story story={`That hot chocolate wasn't calming at all...`} />,
     <Story story={`You feel even worse now.`} />,
     <Story story={`You decide to go find your Head Elf.`} />,
     <Story story={`He should know what to do.`} />,
     <>
       <div
-        onClick={(e) => {
-          e.stopPropagation();
+        onClick={() => {
           playSong(audioRefs?.alarm?.current, audioRefs?.krampus?.current);
         }}
       >
@@ -196,9 +211,15 @@ export const Journey2025 = ({
     <Story
       story={`You've narrowed your search to a bookshelf at the end of the room.`}
     />,
+
     <Story story={`You know one of these books opens a secret room.`} />,
     <Story story={`The only question is which one...`} />,
-    <BookshelfRiddle onComplete={() => navigate(`/2025/${index + 1}`)} />,
+    <BookshelfRiddle
+      onComplete={() => {
+        playSong(audioRefs?.krampus?.current, audioRefs?.alarm?.current);
+        navigate(`/2025/${index + 1}`);
+      }}
+    />,
     <Story story={`The bookshelf swings open, revealing a dingy room.`} />,
     <Story story={`There's only one alarm here.`} />,
     <Story story={`Terror fills you as you realize you know what it is.`} />,

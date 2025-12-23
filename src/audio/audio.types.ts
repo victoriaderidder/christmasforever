@@ -15,4 +15,5 @@ export interface AudioProps {
   fire: HTMLAudioElement;
   alarm: HTMLAudioElement;
   wizardsInWinter: HTMLAudioElement;
+  hotChocolate: HTMLAudioElement;
 }

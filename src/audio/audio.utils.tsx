@@ -15,4 +15,5 @@ export const AUDIO_PATHS = {
   fire: require("../assets/music/cracklingfire.mp3"),
   alarm: require("../assets/music/alarm.mp3"),
   wizardsInWinter: require("../assets/music/wizardsinwinter.mp3"),
+  hotChocolate: require("../assets/music/hotchocolate.mp3"),
 };
