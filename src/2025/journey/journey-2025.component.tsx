@@ -4,9 +4,16 @@ import { AUDIO_PATHS } from "../../audio/audio.utils";
 import Story from "../../components/story.component";
 import Title from "../../components/title.component";
 import Spotlight from "../../components/spotlight.component";
-import { handle2025Riddle } from "./utils/2025-riddle-utils";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, isValidElement } from "react";
 import styles from "../App2025.module.css";
+import KrampusEyesRiddle from "../components/krampus-eyes-riddle";
+import MovingCookieRiddle from "../components/moving-cookie-riddle/moving-cookie-riddle";
+import HotChocolateRiddle from "../components/hot-chocolate-riddle";
+import BookshelfRiddle from "../components/bookshelf-riddle/bookshelf-riddle";
+import PotionRiddle from "../components/potion-riddle/potion-riddle";
+import MazeRiddle from "../components/maze-riddle";
+import PeppermintStickRiddle from "../components/peppermint-stick-riddle/peppermint-stick-riddle";
+import Riddle from "../../components/riddle/riddle.component";
 
 export interface Journey2025Props {
   handleEnd?: any;
@@ -19,43 +26,52 @@ export const Journey2025 = ({
 }: Journey2025Props) => {
   const { step: routeStep } = useParams<{ step: string }>();
   const navigate = useNavigate();
-  const [showStory, setShowStory] = useState(true);
-  const [riddle, setRiddle] = useState(<></>);
   const [redBg, setRedBg] = useState(false);
-
-  // Use route param if available, otherwise use prop or default to 0
   const step = routeStep || propStep;
   const index = step !== undefined ? parseInt(step, 10) : 0;
   const { audioRefs, playSong, stopAllAudio } = useAudio(AUDIO_PATHS);
-  const currentSongKeyRef = useRef<"fire" | "krampus" | null>(null);
 
   useEffect(() => {
-    const desiredSongKey: "fire" | "krampus" = index > 52 ? "krampus" : "fire";
-    const desiredAudio =
-      desiredSongKey === "fire"
+    const desiredBaseline = index > 53 ? "krampus" : "fire";
+    const baselineAudio =
+      desiredBaseline === "fire"
         ? audioRefs.fire.current
         : audioRefs.krampus.current;
+    const otherBaselineAudio =
+      desiredBaseline === "fire"
+        ? audioRefs.krampus.current
+        : audioRefs.fire.current;
 
-    const currentKey = currentSongKeyRef.current;
+    const specialAudio = [
+      audioRefs.alarm.current,
+      audioRefs.wizardsInWinter.current,
+      audioRefs.circus.current,
+    ];
 
-    if (currentKey !== desiredSongKey) {
+    const isSpecialPlaying = specialAudio.some((a) => a && !a.paused);
+    const isBaselinePlaying = baselineAudio && !baselineAudio.paused;
+    const isOtherBaselinePlaying =
+      otherBaselineAudio && !otherBaselineAudio.paused;
+
+    if (isOtherBaselinePlaying) {
       stopAllAudio();
-      playSong(desiredAudio);
-      currentSongKeyRef.current = desiredSongKey;
+      playSong(baselineAudio);
       return;
     }
 
-    if (desiredAudio.paused) {
-      playSong(desiredAudio);
-    }
+    if (isBaselinePlaying) return;
+    if (isSpecialPlaying) return;
+
+    stopAllAudio();
+    playSong(baselineAudio);
   }, [index]);
 
   useEffect(() => {
     if (index === 0) {
       setRedBg(false);
-    } else if (index <= 52) {
+    } else if (index <= 53) {
       setRedBg(false);
-    } else if (index > 52) {
+    } else if (index > 53) {
       setRedBg(true);
     }
   }, [index]);
@@ -128,13 +144,15 @@ export const Journey2025 = ({
     <Story story={`Struck a match.`} />,
     <Story story={`Lit a fire.`} />,
     <Story story={`And the noises ceased.`} />,
+    <Story story={`In the darkness, all you see are glowing eyes...`} />,
+    <KrampusEyesRiddle onComplete={() => navigate(`/2025/${index + 1}`)} />,
     <>
-      <div onClick={() => handle2025Riddle(1, setShowStory, setRiddle)}>
-        <Story story={`In the darkness, all you see are glowing eyes...`} />
-      </div>
-    </>,
-    <>
-      <div onClick={() => handleSwitchToRed()}>
+      <div
+        onClick={(e) => {
+          e.stopPropagation();
+          handleSwitchToRed();
+        }}
+      >
         <Story story={`Oh my god.`} />
       </div>
     </>,
@@ -154,20 +172,18 @@ export const Journey2025 = ({
     <Story story={`But it's fine. Everything is fine.`} />,
     <Story story={`Maybe you should try to distract yourself.`} />,
     <Story story={`You know what always numbs your feelings?`} />,
-    <>
-      <div onClick={() => handle2025Riddle(3, setShowStory, setRiddle)}>
-        <Story story={`That's right! Hot chocolate.`} />
-      </div>
-    </>,
+    <Story story={`That's right! Hot chocolate.`} />,
+    <HotChocolateRiddle onComplete={() => navigate(`/2025/${index + 1}`)} />,
     <Story story={`That hot chocolate wasn't calming at all...`} />,
     <Story story={`You feel even worse now.`} />,
     <Story story={`You decide to go find your Head Elf.`} />,
     <Story story={`He should know what to do.`} />,
     <>
       <div
-        onClick={() =>
-          playSong(audioRefs?.alarm?.current, audioRefs?.krampus?.current)
-        }
+        onClick={(e) => {
+          e.stopPropagation();
+          playSong(audioRefs?.alarm?.current, audioRefs?.krampus?.current);
+        }}
       >
         <Title title={`> Elfward.`} />
       </div>
@@ -181,11 +197,8 @@ export const Journey2025 = ({
       story={`You've narrowed your search to a bookshelf at the end of the room.`}
     />,
     <Story story={`You know one of these books opens a secret room.`} />,
-    <>
-      <div onClick={() => handle2025Riddle(4, setShowStory, setRiddle)}>
-        <Story story={`The only question is which one...`} />
-      </div>
-    </>,
+    <Story story={`The only question is which one...`} />,
+    <BookshelfRiddle onComplete={() => navigate(`/2025/${index + 1}`)} />,
     <Story story={`The bookshelf swings open, revealing a dingy room.`} />,
     <Story story={`There's only one alarm here.`} />,
     <Story story={`Terror fills you as you realize you know what it is.`} />,
@@ -211,11 +224,20 @@ export const Journey2025 = ({
     />,
     <Story story={`Obviously you won't let that happen.`} />,
     <Story story={`A large group of elves stand before you.`} />,
-    <>
-      <div onClick={() => handle2025Riddle(5, setShowStory, setRiddle)}>
-        <Story story={`What will you say to convince them to join you?`} />
-      </div>
-    </>,
+    <Story story={`What will you say to convince them to join you?`} />,
+    <Riddle
+      question={
+        <>
+          In the realm where shadows creep
+          <br />I gallop through the fields of sleep.
+          <br />A steed of darkness, wild and free
+          <br />
+          Bearing fears you cannot flee.
+        </>
+      }
+      answer={["nightmare"]}
+      setShowElement={() => navigate(`/2025/${index + 1}`)}
+    />,
     <Story story={`Krampus is nothing less than a nightmare.`} />,
     <Story story={`He will stop at nothing to take over the North Pole.`} />,
     <Story story={`And he'll destroy much more than just Christmas.`} />,
@@ -235,11 +257,8 @@ export const Journey2025 = ({
     <Story
       story={`You just need to add the ingredients in the right order...`}
     />,
-    <>
-      <div onClick={() => handle2025Riddle(6, setShowStory, setRiddle)}>
-        <Story story={`What order was that again?`} />
-      </div>
-    </>,
+    <Story story={`What order was that again?`} />,
+    <PotionRiddle onComplete={() => navigate(`/2025/${index + 1}`)} />,
     <Story story={`You hold up the potion triumphantly!`} />,
     <Story story={`Now you just have to get Krampus to drink it.`} />,
     <Story story={`That might be easier said than done...`} />,
@@ -257,11 +276,8 @@ export const Journey2025 = ({
     <Story story={`And he sees you.`} />,
     <Story story={`You hear his words echo in your stuffed head.`} />,
     <Story story={`Don't worry, little bear.`} italic />,
-    <>
-      <div onClick={() => handle2025Riddle(7, setShowStory, setRiddle)}>
-        <Story story={`Soon Christmas will be ours...`} italic />
-      </div>
-    </>,
+    <Story story={`Soon Christmas will be ours...`} italic />,
+    <MazeRiddle onComplete={() => navigate(`/2025/${index + 1}`)} />,
     <Story story={`You realize some amount of time has passed.`} />,
     <Story story={`You see the North Pole in the distance...`} />,
     <Story story={`And then you know nothing but darkness.`} />,
@@ -276,10 +292,20 @@ export const Journey2025 = ({
     <Story story={`And you?`} />,
     <Story story={`You seek...`} />,
     <>
-      <div onClick={() => handle2025Riddle(2, setShowStory, setRiddle)}>
-        <Story story={`A cookie.`} />
+      <div
+        onClick={() => {
+          playSong(audioRefs?.circus?.current, audioRefs?.krampus?.current);
+        }}
+      >
+        <Story story={`A cookie.`} />{" "}
       </div>
     </>,
+    <MovingCookieRiddle
+      onComplete={() => {
+        playSong(audioRefs?.krampus?.current, audioRefs?.circus?.current);
+        navigate(`/2025/${index + 1}`);
+      }}
+    />,
     <Story story={`Aha! Another magic cookie!`} />,
     <Story story={`If only you knew what to do with it...`} />,
     <Title title={`> GoodWill Toward Men.`} />,
@@ -295,13 +321,12 @@ export const Journey2025 = ({
     />,
     <Story story={`Those you can sharpen to a point.`} />,
     <Story story={`But surely you must standardize these weapons!`} />,
-    <>
-      <div onClick={() => handle2025Riddle(8, setShowStory, setRiddle)}>
-        <Story
-          story={`How many red stripes should each peppermint stick have?`}
-        />
-      </div>
-    </>,
+    <Story story={`How many red stripes should each peppermint stick have?`} />,
+    <Riddle
+      question={<PeppermintStickRiddle />}
+      answer={["98"]}
+      setShowElement={() => navigate(`/2025/${index + 1}`)}
+    />,
     <Story story={`Yes! 98 is the perfect number!`} />,
     <Story story={`You quickly begin passing them out to your army.`} />,
 
@@ -325,21 +350,14 @@ export const Journey2025 = ({
     <Story story={`There comes a banging on the door.`} />,
     <Story story={`You are Head Elf.`} />,
     <Story story={`But most of all, you are a music appreciator.`} />,
-    <>
-      <div
-        onClick={() =>
-          handle2025Riddle(
-            9,
-            setShowStory,
-            setRiddle,
-            audioRefs?.wizardsInWinter?.current,
-            audioRefs?.krampus?.current
-          )
-        }
-      >
-        <Story story={`And this fight could certainly use some fresh music.`} />
-      </div>
-    </>,
+    <Story story={`And this fight could certainly use some fresh music.`} />,
+    <Riddle
+      question={<>❄️🧙🏻🧙🏼🧙🏻❄️</>}
+      answer={["wizards in winter"]}
+      song={audioRefs?.wizardsInWinter?.current}
+      previousSong={audioRefs?.krampus?.current}
+      setShowElement={() => navigate(`/2025/${index + 1}`)}
+    />,
     <Story story={`Ahhhh. Now there's a song.`} />,
 
     <Title title={`> Mysterious Teddy Bear.`} />,
@@ -460,39 +478,55 @@ export const Journey2025 = ({
   // TODO: fix ornaments on tree
   // TODO: push to GH pages
   // TODO: redo readme
+
+  const currentStep = storyArray[index];
+  const isRiddleStep =
+    isValidElement(currentStep) &&
+    [
+      KrampusEyesRiddle,
+      MovingCookieRiddle,
+      HotChocolateRiddle,
+      BookshelfRiddle,
+      PotionRiddle,
+      MazeRiddle,
+      Riddle,
+    ].includes(currentStep.type as any);
+
+  if (isRiddleStep) {
+    return (
+      <div
+        className={`story ${redBg && styles["story-fullscreen-red"]}`}
+        style={{
+          padding: "24px",
+          textAlign: "center",
+          background: redBg ? undefined : "#000",
+          position: "fixed",
+          inset: 0,
+          width: "100vw",
+          height: "100vh",
+        }}
+      >
+        {currentStep}
+      </div>
+    );
+  }
+
+  if (redBg) {
+    return (
+      <div
+        className={`story ${styles["story-fullscreen-red"]}`}
+        onClick={increment}
+      >
+        {currentStep}
+      </div>
+    );
+  }
+
   return (
-    <>
-      {showStory ? (
-        redBg ? (
-          <div
-            className={`story ${styles["story-fullscreen-red"]}`}
-            onClick={increment}
-          >
-            {storyArray[index]}
-          </div>
-        ) : (
-          <Spotlight radius={80}>
-            <div className="story" onClick={increment}>
-              {storyArray[index]}
-            </div>
-          </Spotlight>
-        )
-      ) : (
-        <div
-          className={`story ${redBg && styles["story-fullscreen-red"]}`}
-          style={{
-            padding: "24px",
-            textAlign: "center",
-            background: "#000",
-            position: "fixed",
-            inset: 0,
-            width: "100vw",
-            height: "100vh",
-          }}
-        >
-          {riddle}
-        </div>
-      )}
-    </>
+    <Spotlight radius={80}>
+      <div className="story" onClick={increment}>
+        {currentStep}
+      </div>
+    </Spotlight>
   );
 };
