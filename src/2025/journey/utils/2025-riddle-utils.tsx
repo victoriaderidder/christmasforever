@@ -5,6 +5,7 @@ import HotChocolateRiddle from "../../components/hot-chocolate-riddle";
 import BookshelfRiddle from "../../components/bookshelf-riddle/bookshelf-riddle";
 import PotionRiddle from "../../components/potion-riddle/potion-riddle";
 import MazeRiddle from "../../components/maze-riddle";
+import PeppermintStickRiddle from "../../components/peppermint-stick-riddle/peppermint-stick-riddle";
 
 export const handle2025Riddle = (
   riddle: number,
@@ -56,6 +57,23 @@ export const handle2025Riddle = (
         />
       );
       break;
+    case 5:
+      setRiddle(
+        <Riddle
+          question={
+            <>
+              In the realm where shadows creep
+              <br />I gallop through the fields of sleep.
+              <br />A steed of darkness, wild and free
+              <br />
+              Bearing fears you cannot flee.
+            </>
+          }
+          answer={["nightmare"]}
+          setShowElement={setShowStory}
+        />
+      );
+      break;
     case 6:
       setRiddle(
         <PotionRiddle
@@ -76,20 +94,25 @@ export const handle2025Riddle = (
         />
       );
       break;
-    case 5:
+    case 8:
       setRiddle(
         <Riddle
-          question={
-            <>
-              In the realm where shadows creep
-              <br />I gallop through the fields of sleep.
-              <br />A steed of darkness, wild and free
-              <br />
-              Bearing fears you cannot flee.
-            </>
-          }
-          answer={["nightmare"]}
+          question={<PeppermintStickRiddle />}
+          answer={["98"]}
           setShowElement={setShowStory}
+          previousSong={previousSong}
+          song={song}
+        />
+      );
+      break;
+    case 9:
+      setRiddle(
+        <Riddle
+          question={<>❄️🧙🏻🧙🏼🧙🏻❄️</>}
+          answer={["wizards in winter"]}
+          setShowElement={setShowStory}
+          previousSong={previousSong}
+          song={song}
         />
       );
       break;

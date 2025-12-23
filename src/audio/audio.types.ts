@@ -14,4 +14,5 @@ export interface AudioProps {
   deckTheHalls: HTMLAudioElement;
   fire: HTMLAudioElement;
   alarm: HTMLAudioElement;
+  wizardsInWinter: HTMLAudioElement;
 }

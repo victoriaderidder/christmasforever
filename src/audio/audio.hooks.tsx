@@ -19,6 +19,7 @@ export const useAudio = (audioSources: Record<keyof AudioProps, string>) => {
     whiteChristmas: useRef(new Audio(audioSources.whiteChristmas)),
     fire: useRef(new Audio(audioSources.fire)),
     alarm: useRef(new Audio(audioSources.alarm)),
+    wizardsInWinter: useRef(new Audio(audioSources.wizardsInWinter)),
   };
 
   const { playingSongs, setPlayingSongs } = useAudioContext();
