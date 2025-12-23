@@ -383,7 +383,7 @@ export const buildJourney2025Steps = ({
     <>
       <div
         onClick={() => {
-          playSong(audio.wizardsInWinter, audio.krampus);
+          playSong(audio.krampus, audio.wizardsInWinter);
           goNext();
         }}
       >
