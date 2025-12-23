@@ -30,6 +30,7 @@ export const Journey2025 = ({
 
   useEffect(() => {
     if (index === 0) {
+      stopAllAudio();
       playSong(audioRefs.fire.current);
     } else if (index < 52) {
       stopAllAudio();
