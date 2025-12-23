@@ -110,14 +110,24 @@ const KrampusEyesRiddle: FC<KrampusEyesRiddleProps> = ({ onComplete }) => {
   const answerPair = pairs.find((p) => p.isAnswer);
 
   return (
-    <div style={{ color: "white", textAlign: "center" }}>
+    <div
+      style={{
+        color: "white",
+        textAlign: "center",
+        width: "100%",
+        height: "100%",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+      }}
+    >
       <div
         ref={containerRef}
         onClick={handleClick}
         style={{
           width: 800,
           height: 420,
-          margin: "0 auto",
           position: "relative",
           background: "radial-gradient(ellipse at center, #111 0%, #000 60%)",
           border: "1px solid rgba(255,255,255,0.04)",
@@ -144,7 +154,9 @@ const KrampusEyesRiddle: FC<KrampusEyesRiddleProps> = ({ onComplete }) => {
               : "radial-gradient(circle, rgba(255,238,150,1) 0%, rgba(200,150,80,0.9) 40%)",
             transform: pair.isAnswer ? "none" : `rotate(${pair.angle}deg)`,
             boxShadow: pair.isAnswer
-              ? "0 0 24px 6px rgba(180,20,20,0.45)"
+              ? pair.size < 20
+                ? "none"
+                : "0 0 24px 6px rgba(180,20,20,0.45)"
               : "0 0 8px 2px rgba(200,180,100,0.08)",
             zIndex: pair.z,
             pointerEvents: "none",
@@ -168,7 +180,9 @@ const KrampusEyesRiddle: FC<KrampusEyesRiddleProps> = ({ onComplete }) => {
               : "radial-gradient(circle, rgba(220,220,200,1) 0%, rgba(160,140,100,0.9) 40%)",
             transform: pair.isAnswer ? "none" : `rotate(${pair.angle}deg)`,
             boxShadow: pair.isAnswer
-              ? "0 0 28px 8px rgba(200,40,40,0.5)"
+              ? pair.size < 20
+                ? "none"
+                : "0 0 28px 8px rgba(200,40,40,0.5)"
               : "0 0 8px 2px rgba(200,180,100,0.06)",
             zIndex: pair.isAnswer ? 999 : pair.z,
             pointerEvents: "none",
@@ -221,7 +235,8 @@ const KrampusEyesRiddle: FC<KrampusEyesRiddleProps> = ({ onComplete }) => {
             irisBase = {
               background:
                 "radial-gradient(circle at 40% 35%, #ff9b9b 0%, #d12b2b 35%, #6e0b0b 80%)",
-              boxShadow: "0 0 28px 10px rgba(200,40,40,0.28)",
+              boxShadow:
+                pair.size < 20 ? "none" : "0 0 28px 10px rgba(200,40,40,0.28)",
             };
           } else {
             switch (pair.color) {

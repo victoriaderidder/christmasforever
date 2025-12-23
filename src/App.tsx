@@ -30,34 +30,32 @@ import { useEffect } from "react";
 import "./App.css";
 import "./2025/App2025.css";
 
+const RouteChangeHandler = ({
+  stopAllAudio,
+}: {
+  stopAllAudio: () => Promise<void> | void;
+}) => {
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (location.pathname === "/christmasforever") {
+      navigate("/");
+      return;
+    }
+
+    stopAllAudio();
+  }, [location.pathname, navigate, stopAllAudio]);
+
+  return null;
+};
+
 function App() {
   const { stopAllAudio } = useAudio(AUDIO_PATHS);
-  const RouteChangeHandler = () => {
-    const location = useLocation();
-    const navigate = useNavigate();
-    useEffect(() => {
-      const handleRouteChange = async () => {
-        console.log("Route changed to:", location.pathname);
-        await stopAllAudio();
-      };
-
-      if (location.pathname === "/christmasforever") {
-        navigate("/");
-      }
-
-      if (location.pathname === "/") {
-        handleRouteChange();
-        window.addEventListener("popstate", handleRouteChange);
-        return () => window.removeEventListener("popstate", handleRouteChange);
-      }
-    }, [location.pathname]);
-
-    return null;
-  };
 
   return (
     <Router basename={process.env.PUBLIC_URL || "/christmasforever"}>
-      <RouteChangeHandler />
+      <RouteChangeHandler stopAllAudio={stopAllAudio} />
       <main className="main">
         <Routes>
           <Route

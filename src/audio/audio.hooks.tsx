@@ -1,33 +1,90 @@
-import { useRef } from "react";
+import { useCallback, useMemo, useRef } from "react";
 import { AudioProps } from "../audio/audio.types";
 import { useAudioContext } from "./audio.context";
 
 export const useAudio = (audioSources: Record<keyof AudioProps, string>) => {
+  const krampusAudio = useMemo(
+    () => new Audio(audioSources.krampus),
+    [audioSources.krampus]
+  );
+  const angelsAudio = useMemo(
+    () => new Audio(audioSources.angels),
+    [audioSources.angels]
+  );
+  const finaleAudio = useMemo(
+    () => new Audio(audioSources.finale),
+    [audioSources.finale]
+  );
+  const silentNightAudio = useMemo(
+    () => new Audio(audioSources.silentNight),
+    [audioSources.silentNight]
+  );
+  const lastChristmasAudio = useMemo(
+    () => new Audio(audioSources.lastChristmas),
+    [audioSources.lastChristmas]
+  );
+  const deckTheHallsAudio = useMemo(
+    () => new Audio(audioSources.deckTheHalls),
+    [audioSources.deckTheHalls]
+  );
+  const jbrAudio = useMemo(() => new Audio(audioSources.jbr), [audioSources.jbr]);
+  const circusAudio = useMemo(
+    () => new Audio(audioSources.circus),
+    [audioSources.circus]
+  );
+  const chipmunkAudio = useMemo(
+    () => new Audio(audioSources.chipmunk),
+    [audioSources.chipmunk]
+  );
+  const jazzAudio = useMemo(
+    () => new Audio(audioSources.jazz),
+    [audioSources.jazz]
+  );
+  const rockinAudio = useMemo(
+    () => new Audio(audioSources.rockin),
+    [audioSources.rockin]
+  );
+  const santaBabyAudio = useMemo(
+    () => new Audio(audioSources.santaBaby),
+    [audioSources.santaBaby]
+  );
+  const whiteChristmasAudio = useMemo(
+    () => new Audio(audioSources.whiteChristmas),
+    [audioSources.whiteChristmas]
+  );
+  const fireAudio = useMemo(() => new Audio(audioSources.fire), [audioSources.fire]);
+  const alarmAudio = useMemo(
+    () => new Audio(audioSources.alarm),
+    [audioSources.alarm]
+  );
+  const wizardsInWinterAudio = useMemo(
+    () => new Audio(audioSources.wizardsInWinter),
+    [audioSources.wizardsInWinter]
+  );
+
   const audioRefs = {
-    krampus: useRef(new Audio(audioSources.krampus)),
-    angels: useRef(new Audio(audioSources.angels)),
-    finale: useRef(new Audio(audioSources.finale)),
-    silentNight: useRef(new Audio(audioSources.silentNight)),
-    lastChristmas: useRef(new Audio(audioSources.lastChristmas)),
-    deckTheHalls: useRef(new Audio(audioSources.deckTheHalls)),
-    jbr: useRef(new Audio(audioSources.jbr)),
-    circus: useRef(new Audio(audioSources.circus)),
-    chipmunk: useRef(new Audio(audioSources.chipmunk)),
-    jazz: useRef(new Audio(audioSources.jazz)),
-    rockin: useRef(new Audio(audioSources.rockin)),
-    santaBaby: useRef(new Audio(audioSources.santaBaby)),
-    whiteChristmas: useRef(new Audio(audioSources.whiteChristmas)),
-    fire: useRef(new Audio(audioSources.fire)),
-    alarm: useRef(new Audio(audioSources.alarm)),
-    wizardsInWinter: useRef(new Audio(audioSources.wizardsInWinter)),
+    krampus: useRef(krampusAudio),
+    angels: useRef(angelsAudio),
+    finale: useRef(finaleAudio),
+    silentNight: useRef(silentNightAudio),
+    lastChristmas: useRef(lastChristmasAudio),
+    deckTheHalls: useRef(deckTheHallsAudio),
+    jbr: useRef(jbrAudio),
+    circus: useRef(circusAudio),
+    chipmunk: useRef(chipmunkAudio),
+    jazz: useRef(jazzAudio),
+    rockin: useRef(rockinAudio),
+    santaBaby: useRef(santaBabyAudio),
+    whiteChristmas: useRef(whiteChristmasAudio),
+    fire: useRef(fireAudio),
+    alarm: useRef(alarmAudio),
+    wizardsInWinter: useRef(wizardsInWinterAudio),
   };
 
   const { playingSongs, setPlayingSongs } = useAudioContext();
 
-  const playSong = async (
-    song: HTMLAudioElement,
-    previousSong?: HTMLAudioElement
-  ) => {
+  const playSong = useCallback(
+    async (song: HTMLAudioElement, previousSong?: HTMLAudioElement) => {
     if (previousSong) {
       previousSong.pause();
       previousSong.currentTime = 0;
@@ -46,26 +103,29 @@ export const useAudio = (audioSources: Record<keyof AudioProps, string>) => {
       });
     }
     song.loop = true;
-    setPlayingSongs([...playingSongs, song]);
-  };
+    setPlayingSongs((current) =>
+      current.includes(song) ? current : [...current, song]
+    );
+    },
+    [setPlayingSongs]
+  );
 
-  const stopAllAudio = async () => {
+  const stopAllAudio = useCallback(async () => {
     try {
-      await Promise.all(
-        playingSongs.map(async (audio) => {
-          try {
-            audio.pause();
-            audio.currentTime = 0;
-            setPlayingSongs([]);
-          } catch (err) {
-            console.error("Failed to stop audio ", audio.src, err);
-          }
-        })
-      );
+      if (playingSongs.length === 0) return;
+      for (const audio of playingSongs) {
+        try {
+          audio.pause();
+          audio.currentTime = 0;
+        } catch (err) {
+          console.error("Failed to stop audio ", audio.src, err);
+        }
+      }
+      setPlayingSongs([]);
     } catch (error) {
       console.error("Error in stopAllAudio: ", error);
     }
-  };
+  }, [playingSongs, setPlayingSongs]);
 
   return { audioRefs, playSong, stopAllAudio };
 };
