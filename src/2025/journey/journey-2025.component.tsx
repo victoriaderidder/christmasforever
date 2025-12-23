@@ -5,7 +5,7 @@ import Story from "../../components/story.component";
 import Title from "../../components/title.component";
 import Spotlight from "../../components/spotlight.component";
 import { handle2025Riddle } from "./utils/2025-riddle-utils";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import styles from "../App2025.module.css";
 
 export interface Journey2025Props {
@@ -27,16 +27,28 @@ export const Journey2025 = ({
   const step = routeStep || propStep;
   const index = step !== undefined ? parseInt(step, 10) : 0;
   const { audioRefs, playSong, stopAllAudio } = useAudio(AUDIO_PATHS);
+  const currentSongKeyRef = useRef<"fire" | "krampus" | null>(null);
 
   useEffect(() => {
-    if (index === 0) {
-      playSong(audioRefs.fire.current);
-    } else if (index <= 52) {
-      playSong(audioRefs.fire.current);
-    } else if (index > 52) {
-      playSong(audioRefs?.krampus?.current);
+    const desiredSongKey: "fire" | "krampus" = index > 52 ? "krampus" : "fire";
+    const desiredAudio =
+      desiredSongKey === "fire"
+        ? audioRefs.fire.current
+        : audioRefs.krampus.current;
+
+    const currentKey = currentSongKeyRef.current;
+
+    if (currentKey !== desiredSongKey) {
+      stopAllAudio();
+      playSong(desiredAudio);
+      currentSongKeyRef.current = desiredSongKey;
+      return;
     }
-  }, []);
+
+    if (desiredAudio.paused) {
+      playSong(desiredAudio);
+    }
+  }, [index]);
 
   useEffect(() => {
     if (index === 0) {

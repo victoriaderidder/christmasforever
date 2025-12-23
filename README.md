@@ -5,3 +5,11 @@ This adventure was designed to be played on three separate days: Thanksgiving, C
 If you're stuck, no need to panic! You can type 'skip' into any text box to move forward. However, I recommend giving it your best shot first.
 
 Good luck!
+
+## Development
+
+### If `npm start` fails with `EMFILE: too many open files`
+
+On macOS, `react-scripts start` can hit the OS open-file limit while bundling many static assets (e.g. mp3s).
+
+Run `npm run start:mac`.
