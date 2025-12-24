@@ -6,9 +6,10 @@ import { faArrowRightLong } from "@fortawesome/free-solid-svg-icons";
 interface StoryProps {
   story: string;
   italic?: boolean;
+  hideButton?: boolean;
 }
 
-const Story: FC<StoryProps> = ({ story, italic }) => {
+const Story: FC<StoryProps> = ({ story, italic, hideButton }) => {
   const containerStyle: React.CSSProperties = {
     fontSize: "1.6rem",
     lineHeight: 1.4,
@@ -32,18 +33,20 @@ const Story: FC<StoryProps> = ({ story, italic }) => {
   return (
     <div style={containerStyle}>
       <span style={textStyle}>{story}</span>
-      <div style={{ display: "flex", justifyContent: "center" }}>
-        <Button
-          size="small"
-          variant="contained"
-          style={{
-            color: "white",
-            backgroundColor: "inherit",
-          }}
-        >
-          <FontAwesomeIcon icon={faArrowRightLong} size="lg" />
-        </Button>
-      </div>
+      {!hideButton && (
+        <div style={{ display: "flex", justifyContent: "center" }}>
+          <Button
+            size="small"
+            variant="contained"
+            style={{
+              color: "white",
+              backgroundColor: "inherit",
+            }}
+          >
+            <FontAwesomeIcon icon={faArrowRightLong} size="lg" />
+          </Button>
+        </div>
+      )}
     </div>
   );
 };

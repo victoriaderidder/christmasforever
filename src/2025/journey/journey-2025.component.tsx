@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useAudio } from "../../audio/audio.hooks";
 import { AUDIO_PATHS } from "../../audio/audio.utils";
+import Story from "../../components/story.component";
 import Spotlight from "../../components/spotlight.component";
 import styles from "../App2025.module.css";
 import {
@@ -93,7 +94,10 @@ export const Journey2025 = ({
   if (index >= storyArray.length) {
     return (
       <div className={`story ${styles["story-fullscreen-red"]}`}>
-        <span>Ending placeholder</span>
+        <Story
+          story={`And you can tell it's going to be a good one!`}
+          hideButton
+        />
       </div>
     );
   }

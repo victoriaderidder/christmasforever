@@ -465,8 +465,9 @@ export const buildJourney2025Steps = ({
       setShowElement={goNext}
     />,
     <Story story={`No. Not quite.`} />,
-    <Story story={`Think again.`} />,
-    <Story story={`Focus hard...`} />,
+    <Story story={`You must become something more than yourselves.`} />,
+    <Story story={`You must each choose a symbol of your souls.`} />,
+    <Story story={`Now tell me again.`} />,
     <Riddle
       question={
         <div className="journey2025-riddle">
@@ -484,17 +485,73 @@ export const buildJourney2025Steps = ({
     />,
     <Story story={`You have all united so beautifully.`} />,
     <Story story={`The cookie glows, hums, and explodes!`} />,
-    <Story
-      story={`There's a light so bright you all must shield your eyes.`}
-    />,
     <div
       onClick={() => {
         playSong(audio.deckTheHalls, audio.krampus);
         goNext();
       }}
     >
-      <Story story={`When you open them, the Workshop has been restored!`} />
+      <Story
+        story={`There's a light so bright you all must shield your eyes.`}
+      />
     </div>,
+    <Story story={`When you open them, the Workshop has been restored!`} />,
+    <Story story={`The souls of the destroyed toys have found new homes.`} />,
+    <Story story={`They're all beautifully wrapped.`} />,
+    <Story story={`Christmas is saved!`} />,
+
+    <Title title={`> Santa Lizzy.`} />,
+    <Story story={`Well, it turns out you were right to be uneasy.`} />,
+    <Story
+      story={`Krampus is the worst thing that could happen to Christmas.`}
+    />,
+    <Story
+      story={`But you and your friends are the best thing that could happen to Christmas!`}
+    />,
+    <Story story={`All's well that ends well once again.`} />,
+
+    <Title title={`> La Befellena.`} />,
+    <Story story={`Failure still stings your pride.`} />,
+    <Story story={`Yet your magic contained Krampus for centuries.`} />,
+    <Story
+      story={`And it was your magic once again that led to his defeat.`}
+    />,
+    <Story story={`Christmas would not be saved if not for you.`} />,
+    <Story story={`You must try to content yourself with that.`} />,
+
+    <Title title={`> Mysterious Teddy Bear.`} />,
+    <Story story={`Your friends immediately accepted and forgave you.`} />,
+    <Story story={`If only you could forgive yourself.`} />,
+    <Story story={`You are sure Krampus no longer has any hold over you.`} />,
+    <Story story={`But you were capable of such destruction...`} />,
+    <Story story={`Such betrayal of your friends.`} />,
+    <Story story={`You can't help but worry it says something about you.`} />,
+    <Story story={`For now, you try to push these thoughts away.`} />,
+    <Story story={`You join your friends in celebration.`} />,
+
+    <Title title={`> GoodWill Toward Men.`} />,
+    <Story story={`You were instrumental in saving Christmas!`} />,
+    <Story story={`As you are every year, of course.`} />,
+    <Story story={`But this year you inspired an army!`} />,
+    <Story story={`You led them to victory.`} />,
+    <Story story={`You've never felt so respected and powerful.`} />,
+    <Story
+      story={`You wonder what else you might accomplish with your newfound leadership skills.`}
+    />,
+
+    <Title title={`> Elfward.`} />,
+    <Story story={`GoodWill Toward Men has really shown you up this year.`} />,
+    <Story story={`What with his knowledge of alarms and cookies and all.`} />,
+    <Story story={`You may need to get to studying.`} />,
+    <Story story={`For now, it's enough to have helped save Christmas.`} />,
+    <Story story={`But next year? Who knows!`} />,
+
+    <Title title={`> Santa Lizzy.`} />,
+    <Story story={`You celebrate with your friends and elves.`} />,
+    <Story story={`Someone strings lights around the Workshop.`} />,
+    <Story story={`Someone else makes hot cocoa.`} />,
+    <Story story={`Everything is better than okay.`} />,
+    <Story story={`Everything is Christmas.`} />,
   ];
 };
 
