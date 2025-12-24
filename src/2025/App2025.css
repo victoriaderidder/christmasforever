@@ -121,7 +121,6 @@
   }
 }
 
-/* Fullscreen red story variant (used for the "Oh my god." node) */
 .story-fullscreen-red {
   position: fixed;
   inset: 0;
@@ -137,9 +136,7 @@
   z-index: 1100;
 }
 
-/* hot-chocolate-riddle cursor removed — no custom cursor by default */
-
-.journey2025-nightmare-riddle {
+.journey2025-riddle {
   font-size: 28px;
   line-height: 1.45;
 }

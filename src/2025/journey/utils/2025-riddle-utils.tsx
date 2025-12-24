@@ -19,6 +19,7 @@ export type Journey2025Audio = {
   circus: HTMLAudioElement;
   wizardsInWinter: HTMLAudioElement;
   hotChocolate: HTMLAudioElement;
+  deckTheHalls: HTMLAudioElement;
 };
 
 export const buildJourney2025Steps = ({
@@ -186,7 +187,7 @@ export const buildJourney2025Steps = ({
     <Story story={`What will you say to convince them to join you?`} />,
     <Riddle
       question={
-        <div className="journey2025-nightmare-riddle">
+        <div className="journey2025-riddle">
           In the realm where shadows creep
           <br />I gallop through the fields of sleep.
           <br />A steed of darkness, wild and free
@@ -403,36 +404,97 @@ export const buildJourney2025Steps = ({
     <Story story={`The souls of every toy he's ever destroyed.`} />,
     <Story story={`They swirl around the Workshop like snowflakes.`} />,
     <Story story={`Free at last.`} />,
-    <Story story={`Then they turn and surround Krampus.`} />,
+    <Story story={`For a moment, you think this is it.`} />,
+    <Story story={`Then the spirits turn to Krampus.`} />,
     <Story
-      story={`He howls in terror as, um. He dies? Still writing this...`}
+      story={`You cover your ears and eyes as he howls in terror, then agony.`}
+    />,
+    <Story
+      story={`When you dare open your eyes, there's no trace left of Krampus.`}
     />,
 
-    // <Story story={`And you...`} />,
-    // <Story story={`You feel the weight of what you've done.`} />,
-    // <Story story={`The destruction you helped cause.`} />,
-    // <Story story={`You look around at the devastation.`} />,
-    // <Story story={`The shattered toys.`} />,
-    // <Story story={`The wounded elves.`} />,
-    // <Story story={`Will they ever forgive you?`} />,
-    // <Story story={`Can you ever forgive yourself?`} />,
+    <Title title={`> Santa Lizzy.`} />,
+    <Story
+      story={`Krampus may be defeated, but there's no saving Christmas this time.`}
+    />,
+    <Story story={`Your Workshop is in shambles.`} />,
+    <Story story={`Every lovingly made toy has been destroyed.`} />,
+    <Story
+      story={`You have nothing to give the children who depend on you.`}
+    />,
+    <Story story={`Despair washes over you.`} />,
+    <Story story={`Your elves look at you hopefully, waiting.`} />,
+    <Story story={`But you have no encouraging words to offer.`} />,
+    <Story story={`Christmas Eve is tomorrow and there are no presents.`} />,
+    <Story story={`You look around miserably..`} />,
+    <Story
+      story={`Your eyes catch on the destroyed toys' spirits, still hovering.`}
+    />,
+    <Story story={`Suddenly, you have an idea.`} />,
+    <Story story={`If you can create new bodies for these toys...`} />,
+    <Story story={`Christmas will be saved!`} />,
+    <Story story={`But how? There's no time to make so many new toys.`} />,
+    <Story story={`Suddenly, you feel a slight vibration in your pocket.`} />,
+    <Story story={`You pull out the cookie you found earlier.`} />,
 
-    // mysterious teddy bear is himself again
-    // for the first time, he feels sad feelings in his soul
-    // how could he hurt his friends? what's wrong with him?
-    // will they ever trust him again?
-    // the north pole is in tatters...
-    // christmas will continue, but not all children will get their toys
-    // santa lizzy is so sad
-    // la befellena...magics the toys' spirits into new bodies??
-    // a magic spell we must all participate in to win our shirts
-    // i email an image to each participant related to their shirts
-    // and then: we've saved christmas!
-    // <>
-    //   <div onClick={() => handle2025Riddle(2, setShowStory, setRiddle)}>
-    //     <Story story={`In the darkness, all you see are glowing eyes...`} />
-    //   </div>
-    // </>,
+    <Title title={`> GoodWill Toward Men.`} />,
+    <Story
+      story={`It is your solemn duty to inform everyone you recognize this cookie.`}
+    />,
+    <Story story={`(Yes, you studied those too.)`} />,
+    <Story story={`This is an intensely rare magic cookie.`} />,
+    <Story story={`It was baked many centuries ago.`} />,
+    <Story story={`There is a spell stored inside it.`} />,
+    <Story
+      story={`It requires a group to take a bite and make a wish together.`}
+    />,
+    <Story story={`If all are aligned, the wish will come true.`} />,
+    <Story story={`But it is not as easy as it sounds.`} />,
+    <Story story={`You must make sure your mental link is strong.`} />,
+    <Story story={`That you're all on the same page.`} />,
+    <Story
+      story={`Think the same specific thoughts in the same specific way...`}
+    />,
+    <Riddle
+      question={
+        <div className="journey2025-riddle">
+          How many legs approach the cookie?
+        </div>
+      }
+      answer={["10"]}
+      setShowElement={goNext}
+    />,
+    <Story story={`No. Not quite.`} />,
+    <Story story={`Think again.`} />,
+    <Story story={`Focus hard...`} />,
+    <Riddle
+      question={
+        <div className="journey2025-riddle">
+          How many legs approach the cookie?
+        </div>
+      }
+      answer={["82"]}
+      setShowElement={goNext}
+    />,
+    <Story story={`Yes!! Yes.`} />,
+    <Story story={`The cookie begins to glow and shake.`} />,
+    <Story story={`You are so close to all being on the same page...`} />,
+    <Story
+      story={`Please make sure you are dressed appropriately before continuing.`}
+    />,
+    <Story story={`You have all united so beautifully.`} />,
+    <Story story={`The cookie glows, hums, and explodes!`} />,
+    <Story
+      story={`There's a light so bright you all must shield your eyes.`}
+    />,
+    <div
+      onClick={() => {
+        playSong(audio.deckTheHalls, audio.krampus);
+        goNext();
+      }}
+    >
+      <Story story={`When you open them, the Workshop has been restored!`} />
+    </div>,
   ];
 };
 
