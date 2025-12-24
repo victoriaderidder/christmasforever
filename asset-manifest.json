@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/christmasforever/static/css/main.b20f2ec1.css",
-    "main.js": "/christmasforever/static/js/main.63a6677a.js",
+    "main.css": "/christmasforever/static/css/main.38bfe6b0.css",
+    "main.js": "/christmasforever/static/js/main.5c0a9aca.js",
     "static/media/jazz.mp3": "/christmasforever/static/media/jazz.41bf468961746e168fa9.mp3",
     "static/media/wizardsinwinter.mp3": "/christmasforever/static/media/wizardsinwinter.b6d6e46cc5c2d96147e2.mp3",
     "static/media/lastchristmas.mp3": "/christmasforever/static/media/lastchristmas.87e4cb2ed0b124358d2d.mp3",
@@ -28,11 +28,11 @@
     "static/media/squares.png": "/christmasforever/static/media/squares.6e2a4ec6e0ebd45cef47.png",
     "static/media/number2.jpeg": "/christmasforever/static/media/number2.5eeb003ecdb691abc7fc.jpeg",
     "index.html": "/christmasforever/index.html",
-    "main.b20f2ec1.css.map": "/christmasforever/static/css/main.b20f2ec1.css.map",
-    "main.63a6677a.js.map": "/christmasforever/static/js/main.63a6677a.js.map"
+    "main.38bfe6b0.css.map": "/christmasforever/static/css/main.38bfe6b0.css.map",
+    "main.5c0a9aca.js.map": "/christmasforever/static/js/main.5c0a9aca.js.map"
   },
   "entrypoints": [
-    "static/css/main.b20f2ec1.css",
-    "static/js/main.63a6677a.js"
+    "static/css/main.38bfe6b0.css",
+    "static/js/main.5c0a9aca.js"
   ]
 }
