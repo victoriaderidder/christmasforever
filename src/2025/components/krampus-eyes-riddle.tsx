@@ -4,7 +4,7 @@ interface KrampusEyesRiddleProps {
   onComplete: (won: boolean) => void;
 }
 
-const PAIR_COUNT = 250;
+const PAIR_COUNT = 650;
 
 type Pair = {
   id: number;
