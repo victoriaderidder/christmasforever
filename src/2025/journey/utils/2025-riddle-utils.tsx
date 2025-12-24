@@ -386,7 +386,7 @@ export const buildJourney2025Steps = ({
           goNext();
         }}
       >
-        <Story story={`He swallows the potion in one gulp.`} />,
+        <Story story={`He swallows the potion in one gulp.`} />
       </div>
     </>,
 
