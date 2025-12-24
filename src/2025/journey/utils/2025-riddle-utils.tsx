@@ -482,6 +482,7 @@ export const buildJourney2025Steps = ({
     <Story
       story={`Please make sure you are dressed appropriately before continuing.`}
     />,
+    <Story story={`Wonderful!!`} />,
     <Story story={`You have all united so beautifully.`} />,
     <Story story={`The cookie glows, hums, and explodes!`} />,
     <div
