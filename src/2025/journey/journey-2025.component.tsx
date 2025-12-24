@@ -38,6 +38,7 @@ export const Journey2025 = ({
       circus: audioRefs.circus.current,
       wizardsInWinter: audioRefs.wizardsInWinter.current,
       hotChocolate: audioRefs.hotChocolate.current,
+      deckTheHalls: audioRefs.deckTheHalls.current,
     },
   });
 
@@ -48,6 +49,7 @@ export const Journey2025 = ({
     const wizardsInWinterAudio = audioRefs.wizardsInWinter.current;
     const circusAudio = audioRefs.circus.current;
     const hotChocolateAudio = audioRefs.hotChocolate.current;
+    const deckTheHallsAudio = audioRefs.deckTheHalls.current;
 
     const desiredBaseline =
       index > JOURNEY_2025_LAST_DARK_STEP_INDEX ? "krampus" : "fire";
@@ -60,6 +62,7 @@ export const Journey2025 = ({
       wizardsInWinterAudio,
       circusAudio,
       hotChocolateAudio,
+      deckTheHallsAudio,
     ];
 
     const isSpecialPlaying = specialAudio.some((a) => a && !a.paused);
