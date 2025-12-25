@@ -127,6 +127,7 @@ Examples (copy-ready snippets)
   playSong(audioRefs.krampus.current, audioRefs.fire.current);
   ```
 - Make a reveal overlay that sits above everything but below the Home button:
+
   ```tsx
 
   ```
@@ -143,10 +144,6 @@ Examples (copy-ready snippets)
   `src/styles/` or component-level CSS files instead of adding inline
   `style={{ ... }}` objects. Use the existing pattern of importing CSS into
   components (e.g., `import "../styles/TheJourney.css"`).
-- **Do not modify code in past-year folders:** Make no changes to files or
-  functionality in any folder with a name earlier than the current year
-  (e.g., `2024`, `2023`, `2022`). If such folders exist, treat them as frozen;
-  only read them for context.
 
 End of instructions — please run `npm start` locally and visually verify
 interactive changes (many of the puzzles rely on visual inspection). Ask me to

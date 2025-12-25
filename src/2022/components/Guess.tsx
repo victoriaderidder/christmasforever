@@ -1,5 +1,5 @@
-import { Button, TextField } from '@mui/material';
-import React, { FC, useEffect, useState } from 'react';
+import { Button, TextField } from "@mui/material";
+import React, { FC, useEffect, useRef, useState } from "react";
 
 interface GuessProps {
     setShowElement: (showList: boolean) => void;
@@ -35,6 +35,9 @@ const style = {
 const Guess: FC<GuessProps> = ({ setShowElement, answer }) => {
     const [theGuess, setTheGuess] = useState('')
     const [error, setError] = useState(false);
+    const theGuessRef = useRef("");
+    const answerRef = useRef<string[]>(answer);
+    const setShowElementRef = useRef(setShowElement);
 
     const compareValues = () =>  {
         const answerMap = answer.map((answer: string) => answer.toLowerCase());
@@ -46,10 +49,35 @@ const Guess: FC<GuessProps> = ({ setShowElement, answer }) => {
     }
 
     useEffect(() => {
-        window.addEventListener('keydown', e => {
-            e.code === "Enter" ? handleGuess() : setError(false)
-        })
-    })
+        theGuessRef.current = theGuess;
+    }, [theGuess]);
+
+    useEffect(() => {
+        answerRef.current = answer;
+    }, [answer]);
+
+    useEffect(() => {
+        setShowElementRef.current = setShowElement;
+    }, [setShowElement]);
+
+    useEffect(() => {
+        const onKeyDown = (event: KeyboardEvent) => {
+            if (event.code === "Enter") {
+                const normalizedAnswers = answerRef.current.map((a) => a.toLowerCase());
+                const guess = theGuessRef.current.toLowerCase();
+                const isCorrect = normalizedAnswers.includes(guess) || guess === "skip";
+                isCorrect ? setShowElementRef.current(false) : setError(true);
+                return;
+            }
+
+            setError(false);
+        };
+
+        window.addEventListener("keydown", onKeyDown);
+        return () => {
+            window.removeEventListener("keydown", onKeyDown);
+        };
+    }, []);
        
     return (
         <>

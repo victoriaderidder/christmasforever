@@ -3,6 +3,7 @@ import styles from "./travel.module.css";
 import { useAudio } from "../../../audio/audio.hooks";
 import { AUDIO_PATHS } from "../../../audio/audio.utils";
 import Home from "../../../components/home.component";
+import { TravelShell } from "../../../components/travel-shell/travel-shell.component";
 
 interface Travel2023Props {
   showTree: boolean;
@@ -53,19 +54,18 @@ export const Travel2023 = ({
   return (
     <>
       <Home />
-      <div className={`${styles.app} ${getJourneyClass()}`}>
-        <div className={styles.appHeader}>
-          <div className="journey">
-            {JourneyComponent && (
-              <JourneyComponent
-                handleEnd={handleEnd}
-                audioRefs={audioRefs}
-                playSong={playSong}
-              />
-            )}
-          </div>
-        </div>
-      </div>
+      <TravelShell
+        appClassName={`${styles.app} ${getJourneyClass() ?? ""}`}
+        appHeaderClassName={styles.appHeader}
+      >
+        {JourneyComponent && (
+          <JourneyComponent
+            handleEnd={handleEnd}
+            audioRefs={audioRefs}
+            playSong={playSong}
+          />
+        )}
+      </TravelShell>
     </>
   );
 };

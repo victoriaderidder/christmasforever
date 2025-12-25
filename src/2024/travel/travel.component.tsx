@@ -3,6 +3,7 @@ import styles from "./travel.module.css";
 import { useAudio } from "../../audio/audio.hooks";
 import { AUDIO_PATHS } from "../../audio/audio.utils";
 import { FC, useEffect } from "react";
+import { TravelShell } from "../../components/travel-shell/travel-shell.component";
 
 export const Travel2024: FC = () => {
   const { audioRefs, playSong } = useAudio(AUDIO_PATHS);
@@ -19,13 +20,9 @@ export const Travel2024: FC = () => {
 
   return (
     <>
-      <div className={styles.app}>
-        <div className={styles.appHeader}>
-          <div className="journey">
-            <Journey2024 handleEnd={handleEnd} audioRefs={audioRefs} />
-          </div>
-        </div>
-      </div>
+      <TravelShell appClassName={styles.app} appHeaderClassName={styles.appHeader}>
+        <Journey2024 handleEnd={handleEnd} audioRefs={audioRefs} />
+      </TravelShell>
     </>
   );
 };

@@ -1,5 +1,5 @@
 import { Button, TextField } from "@mui/material";
-import { FC, useEffect, useState } from "react";
+import { FC, useEffect, useRef, useState } from "react";
 import { useAudio } from "../audio/audio.hooks";
 import { AUDIO_PATHS } from "../audio/audio.utils";
 
@@ -69,6 +69,12 @@ const Guess: FC<GuessProps> = ({
   const [theGuess, setTheGuess] = useState("");
   const [error, setError] = useState(false);
   const { playSong } = useAudio(AUDIO_PATHS);
+  const theGuessRef = useRef(theGuess);
+  const answerRef = useRef(answer);
+  const songRef = useRef(song);
+  const previousSongRef = useRef(previousSong);
+  const setShowElementRef = useRef(setShowElement);
+  const playSongRef = useRef(playSong);
 
   const compareValues = () => {
     const answerMap = answer.map((answer: string) => answer.toLowerCase());
@@ -87,16 +93,54 @@ const Guess: FC<GuessProps> = ({
     compareValues() === true ? handleEnd() : setError(true);
   };
 
-  const onKeyDown = (event: any) => {
-    event.code === "Enter" ? handleGuess() : setError(false);
-  };
+  useEffect(() => {
+    theGuessRef.current = theGuess;
+  }, [theGuess]);
 
   useEffect(() => {
+    answerRef.current = answer;
+  }, [answer]);
+
+  useEffect(() => {
+    songRef.current = song;
+    previousSongRef.current = previousSong;
+  }, [song, previousSong]);
+
+  useEffect(() => {
+    setShowElementRef.current = setShowElement;
+  }, [setShowElement]);
+
+  useEffect(() => {
+    playSongRef.current = playSong;
+  }, [playSong]);
+
+  useEffect(() => {
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.code === "Enter") {
+        const normalizedAnswers = answerRef.current.map((a) => a.toLowerCase());
+        const guess = theGuessRef.current.toLowerCase();
+        const isCorrect = normalizedAnswers.includes(guess) || guess === "skip";
+
+        if (isCorrect) {
+          const nextSong = songRef.current;
+          const prevSong = previousSongRef.current;
+          nextSong && prevSong && playSongRef.current(nextSong, prevSong);
+          setShowElementRef.current(true);
+        } else {
+          setError(true);
+        }
+
+        return;
+      }
+
+      setError(false);
+    };
+
     window.addEventListener("keydown", onKeyDown);
     return () => {
       window.removeEventListener("keydown", onKeyDown);
     };
-  });
+  }, []);
 
   return (
     <>
