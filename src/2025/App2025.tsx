@@ -1,13 +1,9 @@
-import { FC, useState } from "react";
+import { FC } from "react";
 import { useNavigate } from "react-router-dom";
-import Home from "../components/home.component";
 import styles from "./App2025.module.css";
 import Title from "../components/title.component";
-import { Journey2025 } from "./journey/journey-2025.component";
-import { Travel2025 } from "./travel/travel.component";
 
 const App2025: FC = () => {
-  const [showJourney, setShowJourney] = useState(false);
   const navigate = useNavigate();
 
   const handleStartJourney = () => {
@@ -16,14 +12,9 @@ const App2025: FC = () => {
 
   return (
     <div className={styles.app2025}>
-      {/* <Home /> */}
-      {!showJourney ? (
-        <div onClick={handleStartJourney} style={{ cursor: "pointer" }}>
-          <Title title="interlude." plain />
-        </div>
-      ) : (
-        <Travel2025 />
-      )}
+      <div onClick={handleStartJourney} className={styles.startJourney}>
+        <Title title="interlude." plain />
+      </div>
     </div>
   );
 };

@@ -21,6 +21,10 @@
   background: transparent;
 }
 
+.startJourney {
+  cursor: pointer;
+}
+
 .reveal {
   position: relative;
 }

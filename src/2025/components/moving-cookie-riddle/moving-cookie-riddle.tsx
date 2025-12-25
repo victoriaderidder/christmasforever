@@ -34,12 +34,17 @@ const MovingCookieRiddle: React.FC<Props> = ({
   const mouseRef = useRef({ x: -9999, y: -9999 });
   const prevSpeedRef = useRef<number>(CONFIG.INITIAL_SPEED);
   const posRef = useRef({ x: 200, y: 200 });
+  const targetRef = useRef({ x: 500, y: 200 });
+  const speedRef = useRef(CONFIG.INITIAL_SPEED);
   const escapesRef = useRef<number>(0);
   const lastEscapeTime = useRef<number>(0);
+  const isVisibleRef = useRef(true);
+  const frozenRef = useRef(false);
+  const forceVisibleRef = useRef(false);
+  const spotRadiusRef = useRef(spotRadius);
+  const onCompleteRef = useRef(onComplete);
 
   const [pos, setPos] = useState({ x: 200, y: 200 });
-  const [target, setTarget] = useState({ x: 500, y: 200 });
-  const [speed, setSpeed] = useState(CONFIG.INITIAL_SPEED);
   const [size, setSize] = useState(CONFIG.INITIAL_SIZE);
   const [caughtCount, setCaughtCount] = useState(0);
   const [isVisible, setIsVisible] = useState(true);
@@ -90,11 +95,34 @@ const MovingCookieRiddle: React.FC<Props> = ({
     posRef.current = newPos;
   };
 
+  const updateTarget = (newTarget: { x: number; y: number }) => {
+    targetRef.current = newTarget;
+  };
+
+  const setIsVisibleAndRef = (value: boolean) => {
+    isVisibleRef.current = value;
+    setIsVisible(value);
+  };
+
+  const setFrozenAndRef = (value: boolean) => {
+    frozenRef.current = value;
+    setFrozen(value);
+  };
+
+  const setForceVisibleAndRef = (value: boolean) => {
+    forceVisibleRef.current = value;
+    setForceVisible(value);
+  };
+
+  const setSpeedAndRef = (value: number) => {
+    speedRef.current = value;
+  };
+
   // Escape logic
   const performEscape = (now: number) => {
     const newPos = pickOppositeTarget(mouseRef.current);
     updatePosition(newPos);
-    setTarget(pickRandomTarget());
+    updateTarget(pickRandomTarget());
     escapesRef.current = Math.max(0, escapesRef.current - 1);
     lastEscapeTime.current = now;
   };
@@ -108,17 +136,17 @@ const MovingCookieRiddle: React.FC<Props> = ({
 
   // Catch logic
   const handleCatch = () => {
-    if (frozen) return;
+    if (frozenRef.current) return;
 
-    prevSpeedRef.current = speed;
-    setFrozen(true);
-    setSpeed(0);
-    setForceVisible(true);
+    prevSpeedRef.current = speedRef.current;
+    setFrozenAndRef(true);
+    setSpeedAndRef(0);
+    setForceVisibleAndRef(true);
     setSpinning(true);
 
     setTimeout(() => {
       setSpinning(false);
-      setIsVisible(false);
+      setIsVisibleAndRef(false);
 
       setCaughtCount((c) => {
         const newCount = c + 1;
@@ -132,19 +160,19 @@ const MovingCookieRiddle: React.FC<Props> = ({
 
         if (newCount >= 3) {
           setTimeout(() => {
-            setForceVisible(false);
+            setForceVisibleAndRef(false);
             onComplete(true);
           }, CONFIG.RESPAWN_DELAY);
         } else {
           setTimeout(() => {
             const newPos = pickOppositeTarget(mouseRef.current);
             updatePosition(newPos);
-            setTarget(pickRandomTarget());
+            updateTarget(pickRandomTarget());
             escapesRef.current = CONFIG.ESCAPES_PER_ROUND[newCount] ?? 2;
-            setIsVisible(true);
-            setFrozen(false);
-            setForceVisible(false);
-            setSpeed(newSpeed);
+            setIsVisibleAndRef(true);
+            setFrozenAndRef(false);
+            setForceVisibleAndRef(false);
+            setSpeedAndRef(newSpeed);
             prevSpeedRef.current = newSpeed;
           }, CONFIG.RESPAWN_DELAY);
         }
@@ -154,12 +182,20 @@ const MovingCookieRiddle: React.FC<Props> = ({
     }, CONFIG.CATCH_DURATION);
   };
 
+  useEffect(() => {
+    onCompleteRef.current = onComplete;
+  }, [onComplete]);
+
+  useEffect(() => {
+    spotRadiusRef.current = spotRadius;
+  }, [spotRadius]);
+
   // Initialize
   useEffect(() => {
     const initialPos = pickOppositeTarget(mouseRef.current);
     updatePosition(initialPos);
     escapesRef.current = CONFIG.ESCAPES_PER_ROUND[0] ?? 2;
-    setTarget(pickRandomTarget());
+    updateTarget(pickRandomTarget());
   }, []);
 
   // Mouse tracking
@@ -180,28 +216,32 @@ const MovingCookieRiddle: React.FC<Props> = ({
       const dt = now - last;
       last = now;
 
+      const currentPos = posRef.current;
+      const currentTarget = targetRef.current;
+      const currentSpeed = speedRef.current;
+
       // Move cookie
-      if (!frozen) {
-        const dx = target.x - pos.x;
-        const dy = target.y - pos.y;
+      if (!frozenRef.current) {
+        const dx = currentTarget.x - currentPos.x;
+        const dy = currentTarget.y - currentPos.y;
         const dist = Math.hypot(dx, dy);
 
         if (dist < 2) {
-          setTarget(pickRandomTarget());
+          updateTarget(pickRandomTarget());
         } else {
-          const move = Math.min(dist, speed * dt);
-          const nx = pos.x + (dx / dist) * move;
-          const ny = pos.y + (dy / dist) * move;
+          const move = Math.min(dist, currentSpeed * dt);
+          const nx = currentPos.x + (dx / dist) * move;
+          const ny = currentPos.y + (dy / dist) * move;
           updatePosition({ x: nx, y: ny });
         }
       }
 
       // Check spotlight collision
       const m = mouseRef.current;
-      const dd = Math.hypot(m.x - pos.x, m.y - pos.y);
-      const inSpot = dd <= spotRadius;
+      const dd = Math.hypot(m.x - posRef.current.x, m.y - posRef.current.y);
+      const inSpot = dd <= spotRadiusRef.current;
 
-      if (inSpot && isVisible && !frozen) {
+      if (inSpot && isVisibleRef.current && !frozenRef.current) {
         if (canEscape(now)) {
           performEscape(now);
         } else {
@@ -214,7 +254,7 @@ const MovingCookieRiddle: React.FC<Props> = ({
 
     raf = requestAnimationFrame(step);
     return () => cancelAnimationFrame(raf);
-  }, [pos, target, speed, isVisible, frozen, forceVisible, spotRadius]);
+  }, []);
 
   // Compute styles
   const isVisibleNow =

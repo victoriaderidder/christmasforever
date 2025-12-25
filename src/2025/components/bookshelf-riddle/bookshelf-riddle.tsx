@@ -14,6 +14,10 @@ const GAP = 8;
 const SHELF_POST_WIDTH = 14;
 const ROW_GAP = 14;
 
+const ALARM_ROW = Math.max(0, GRID_ROWS - 3);
+const ALARM_COL = Math.min(GRID_COLS - 1, 3);
+const ALARM_INDEX = ALARM_ROW * GRID_COLS + ALARM_COL;
+
 const BOOK_COLORS = [
   "#c94f6d",
   "#6db7c9",
@@ -26,11 +30,8 @@ const BOOK_COLORS = [
 const BookshelfRiddle: React.FC<Props> = ({ onComplete }) => {
   const generateItems = () => {
     const items: string[] = [];
-    const alarmRow = Math.max(0, GRID_ROWS - 3);
-    const alarmCol = Math.min(GRID_COLS - 1, 3);
-    const alarmIndex = alarmRow * GRID_COLS + alarmCol;
     for (let i = 0; i < TOTAL; i++) {
-      if (i === alarmIndex) items.push("ALARM");
+      if (i === ALARM_INDEX) items.push("ALARM");
       else if (Math.random() < 0.15) items.push("SMOKE");
       else items.push("JUNK");
     }
@@ -40,10 +41,6 @@ const BookshelfRiddle: React.FC<Props> = ({ onComplete }) => {
   const generateVisuals = () => {
     const colors: number[] = [];
     const heights: number[] = [];
-    const offsets: number[] = [];
-    const alarmRow = Math.max(0, GRID_ROWS - 3);
-    const alarmCol = Math.min(GRID_COLS - 1, 3);
-    const alarmIndex = alarmRow * GRID_COLS + alarmCol;
     for (let i = 0; i < TOTAL; i++) {
       const col = i % GRID_COLS;
       const row = Math.floor(i / GRID_COLS);
@@ -66,10 +63,10 @@ const BookshelfRiddle: React.FC<Props> = ({ onComplete }) => {
       heights.push(Math.random() < 0.7 ? tallest : middle);
     }
     // Ensure the correct (ALARM) book is always the tallest
-    if (alarmIndex >= 0 && alarmIndex < heights.length) {
-      heights[alarmIndex] = Math.floor(TILE_SIZE * 0.95);
+    if (ALARM_INDEX >= 0 && ALARM_INDEX < heights.length) {
+      heights[ALARM_INDEX] = Math.floor(TILE_SIZE * 0.95);
     }
-    return { colors, heights, offsets };
+    return { colors, heights };
   };
 
   const [items] = useState<string[]>(generateItems);
@@ -93,13 +90,21 @@ const BookshelfRiddle: React.FC<Props> = ({ onComplete }) => {
     transform?: string;
     opacity?: number;
   } | null>(null);
+  const floatingElRef = useRef<HTMLDivElement | null>(null);
+  const floatingIndexRef = useRef<number | null>(null);
   const floatingRaf = useRef<number | null>(null);
+  const floatingCleanupTimer = useRef<number | null>(null);
   // Start a JS-driven fall animation for the floating book
-  const startFloatingAnimation = (rect: DOMRect, index: number, bg: string) => {
+  const startFloatingAnimation = (index: number) => {
     if (floatingRaf.current) {
       cancelAnimationFrame(floatingRaf.current);
       floatingRaf.current = null;
     }
+    if (floatingCleanupTimer.current) {
+      clearTimeout(floatingCleanupTimer.current);
+      floatingCleanupTimer.current = null;
+    }
+    floatingIndexRef.current = index;
     // longer duration with an initial pop-out phase
     const duration = 2000; // total ms (was 1400)
     const popFrac = 0.12; // portion for the pop (about 168ms)
@@ -108,6 +113,10 @@ const BookshelfRiddle: React.FC<Props> = ({ onComplete }) => {
     const start = performance.now();
 
     const step = (now: number) => {
+      if (floatingIndexRef.current !== index) {
+        floatingRaf.current = null;
+        return;
+      }
       const elapsed = now - start;
       if (elapsed < popDuration) {
         const tp = elapsed / popDuration; // 0..1
@@ -115,14 +124,11 @@ const BookshelfRiddle: React.FC<Props> = ({ onComplete }) => {
         const easePop = 1 - Math.pow(1 - tp, 3);
         const popTranslate = Math.round(-8 * easePop);
         const popScale = 1.08 + (1.18 - 1.08) * easePop;
-        setFloating((prev) => {
-          if (!prev || prev.index !== index) return prev;
-          return {
-            ...prev,
-            transform: `translateY(${popTranslate}px) rotate(0deg) scale(${popScale})`,
-            opacity: 1,
-          };
-        });
+        const el = floatingElRef.current;
+        if (el) {
+          el.style.transform = `translateY(${popTranslate}px) rotate(0deg) scale(${popScale})`;
+          el.style.opacity = "1";
+        }
         floatingRaf.current = requestAnimationFrame(step);
         return;
       }
@@ -135,22 +141,20 @@ const BookshelfRiddle: React.FC<Props> = ({ onComplete }) => {
       const scale = 1.18 + (0.9 - 1.18) * ease;
       const opacity = 1 - ease;
 
-      setFloating((prev) => {
-        if (!prev || prev.index !== index) return prev;
-        return {
-          ...prev,
-          transform: `translateY(${deltaY}px) rotate(${rotation}deg) scale(${scale})`,
-          opacity,
-        };
-      });
+      const el = floatingElRef.current;
+      if (el) {
+        el.style.transform = `translateY(${deltaY}px) rotate(${rotation}deg) scale(${scale})`;
+        el.style.opacity = String(opacity);
+      }
 
       if (t < 1) {
         floatingRaf.current = requestAnimationFrame(step);
       } else {
         floatingRaf.current = null;
         // small delay to allow final frame to settle before cleanup
-        setTimeout(() => {
+        floatingCleanupTimer.current = window.setTimeout(() => {
           onComplete(true);
+          floatingIndexRef.current = null;
           setFloating(null);
         }, 80);
       }
@@ -163,13 +167,13 @@ const BookshelfRiddle: React.FC<Props> = ({ onComplete }) => {
   useEffect(() => {
     return () => {
       if (floatingRaf.current) cancelAnimationFrame(floatingRaf.current);
+      if (floatingCleanupTimer.current) clearTimeout(floatingCleanupTimer.current);
     };
   }, []);
 
   const initialVisuals = generateVisuals();
   const [colors] = useState<number[]>(initialVisuals.colors);
   const [heights] = useState<number[]>(initialVisuals.heights);
-  const [offsets] = useState<number[]>(initialVisuals.offsets);
 
   const revealAt = (index: number) => {
     if (revealed[index] || wrong[index]) return;
@@ -199,11 +203,12 @@ const BookshelfRiddle: React.FC<Props> = ({ onComplete }) => {
         // hide original and mark as falling
         setFallingIndex(index);
         // start JS-driven fall animation to avoid CSS containment/transform issues
-        startFloatingAnimation(rect, index, bg);
+        startFloatingAnimation(index);
       } else {
         setFallingIndex(index);
         setTimeout(() => {
           onComplete(true);
+          floatingIndexRef.current = null;
           setFloating(null);
         }, 950);
       }
@@ -328,7 +333,7 @@ const BookshelfRiddle: React.FC<Props> = ({ onComplete }) => {
                             width: TILE_SIZE - 8,
                             height: heights[i],
                             background: BOOK_COLORS[colors[i]],
-                            bottom: 12 + (offsets[i] || 0),
+                            bottom: 12,
                             transform: isFalling
                               ? undefined
                               : isRevealed && it === "ALARM"
@@ -365,6 +370,7 @@ const BookshelfRiddle: React.FC<Props> = ({ onComplete }) => {
         </div>
         {floating && (
           <div
+            ref={floatingElRef}
             className={styles.floating}
             style={{
               left: floating.left,

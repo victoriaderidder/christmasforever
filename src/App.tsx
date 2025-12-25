@@ -55,6 +55,38 @@ const RouteChangeHandler = ({
 function App() {
   const { stopAllAudio } = useAudio(AUDIO_PATHS);
 
+  const riddleRoutes2025: Array<{
+    path: string;
+    redBackground?: boolean;
+    render: (onComplete: () => void) => JSX.Element;
+  }> = [
+    {
+      path: "/2025/hot-chocolate-riddle",
+      render: (onComplete) => <HotChocolateRiddle onComplete={onComplete} />,
+    },
+    {
+      path: "/2025/moving-cookie-riddle",
+      redBackground: false,
+      render: (onComplete) => <MovingCookieRiddle onComplete={onComplete} />,
+    },
+    {
+      path: "/2025/peppermint-stick-riddle",
+      render: (onComplete) => <PeppermintStickRiddle onComplete={onComplete} />,
+    },
+    {
+      path: "/2025/maze-riddle",
+      render: (onComplete) => <MazeRiddle onComplete={onComplete} />,
+    },
+    {
+      path: "/2025/potion-riddle",
+      render: (onComplete) => <PotionRiddle onComplete={onComplete} />,
+    },
+    {
+      path: "/2025/bookshelf-riddle",
+      render: (onComplete) => <BookshelfRiddle onComplete={onComplete} />,
+    },
+  ];
+
   return (
     <Router basename={process.env.PUBLIC_URL || "/christmasforever"}>
       <RouteChangeHandler stopAllAudio={stopAllAudio} />
@@ -166,56 +198,17 @@ function App() {
           <Route path="/2024" element={<App2024 />} />
           <Route path="/2025" element={<App2025 />} />
           <Route path="/2025/:step" element={<Journey2025 />} />
-          <Route
-            path="/2025/hot-chocolate-riddle"
-            element={
-              <RiddleRouteWrapper>
-                {(onComplete) => <HotChocolateRiddle onComplete={onComplete} />}
-              </RiddleRouteWrapper>
-            }
-          />
-          <Route
-            path="/2025/moving-cookie-riddle"
-            element={
-              <RiddleRouteWrapper redBackground={false}>
-                {(onComplete) => <MovingCookieRiddle onComplete={onComplete} />}
-              </RiddleRouteWrapper>
-            }
-          />
-          <Route
-            path="/2025/peppermint-stick-riddle"
-            element={
-              <RiddleRouteWrapper>
-                {(onComplete) => (
-                  <PeppermintStickRiddle onComplete={onComplete} />
-                )}
-              </RiddleRouteWrapper>
-            }
-          />
-          <Route
-            path="/2025/maze-riddle"
-            element={
-              <RiddleRouteWrapper>
-                {(onComplete) => <MazeRiddle onComplete={onComplete} />}
-              </RiddleRouteWrapper>
-            }
-          />
-          <Route
-            path="/2025/potion-riddle"
-            element={
-              <RiddleRouteWrapper>
-                {(onComplete) => <PotionRiddle onComplete={onComplete} />}
-              </RiddleRouteWrapper>
-            }
-          />
-          <Route
-            path="/2025/bookshelf-riddle"
-            element={
-              <RiddleRouteWrapper>
-                {(onComplete) => <BookshelfRiddle onComplete={onComplete} />}
-              </RiddleRouteWrapper>
-            }
-          />
+          {riddleRoutes2025.map(({ path, redBackground, render }) => (
+            <Route
+              key={path}
+              path={path}
+              element={
+                <RiddleRouteWrapper redBackground={redBackground}>
+                  {(onComplete) => render(onComplete)}
+                </RiddleRouteWrapper>
+              }
+            />
+          ))}
         </Routes>
       </main>
     </Router>
