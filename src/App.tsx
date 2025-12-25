@@ -22,6 +22,7 @@ import PotionRiddle from "2025/components/potion-riddle/potion-riddle";
 import BookshelfRiddle from "2025/components/bookshelf-riddle/bookshelf-riddle";
 import { RiddleRouteWrapper } from "2025/components/riddle-route-wrapper";
 import Box from "components/box.component";
+import Home from "components/home.component";
 import Star from "components/star.component";
 import TreeVisual from "./components/tree-visual.component";
 import { useAudio } from "./audio/audio.hooks";
@@ -90,6 +91,7 @@ function App() {
   return (
     <Router basename={process.env.PUBLIC_URL || "/christmasforever"}>
       <RouteChangeHandler stopAllAudio={stopAllAudio} />
+      <Home />
       <main className="main">
         <Routes>
           <Route

@@ -2,7 +2,6 @@ import { Dispatch, SetStateAction, useEffect } from "react";
 import styles from "./travel.module.css";
 import { useAudio } from "../../../audio/audio.hooks";
 import { AUDIO_PATHS } from "../../../audio/audio.utils";
-import Home from "../../../components/home.component";
 import { TravelShell } from "../../../components/travel-shell/travel-shell.component";
 
 interface Travel2023Props {
@@ -53,7 +52,6 @@ export const Travel2023 = ({
 
   return (
     <>
-      <Home />
       <TravelShell
         appClassName={`${styles.app} ${getJourneyClass() ?? ""}`}
         appHeaderClassName={styles.appHeader}

@@ -1,6 +1,5 @@
 import { FC, useState } from "react";
 import styled from "@emotion/styled";
-import Home from "../components/home.component";
 import ScavengeGrid from "./scavenge.component";
 
 /*
@@ -68,7 +67,6 @@ const App2020: FC = () => {
   return (
     <main className="main2020">
       <PageContainer>
-        <Home />
         {index <= storyArray?.length - 1 ? (
           <ContentWrapper>
             <StyledText>

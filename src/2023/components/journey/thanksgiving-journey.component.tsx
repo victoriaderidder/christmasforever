@@ -4,7 +4,7 @@ import Title from "../../../components/title.component";
 import { JourneyProps } from "./journey.types";
 
 export const ThanksgivingJourney = ({ handleEnd }: JourneyProps) => {
-  const [index, setIndex] = useState(Number);
+  const [index, setIndex] = useState(0);
 
   const increment = () => {
     index === storyArray?.length - 1 ? handleEnd() : setIndex(index + 1);

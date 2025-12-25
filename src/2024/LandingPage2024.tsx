@@ -11,7 +11,6 @@ import App2022 from "2022/App2022";
 import App2023 from "2023/App2023";
 import App2024 from "2024/App2024";
 import Box from "components/box.component";
-import Home from "components/home.component";
 import { useAudio } from "audio/audio.hooks";
 import { AUDIO_PATHS } from "audio/audio.utils";
 import { useEffect } from "react";
@@ -31,7 +30,6 @@ function App() {
 
       const stopAudio = async () => {
         try {
-          console.log("Route changed to:", location.pathname);
           await stopAllAudio();
         } catch (e) {
           console.warn("stopAllAudio failed", e);
@@ -46,7 +44,6 @@ function App() {
 
   return (
     <>
-      <Home />
       <RouteChangeHandler />
       <main className={styles.main}>
         <Routes>

@@ -1,6 +1,6 @@
 import { FC } from "react";
 import Guess from "../guess.component";
-import "./riddle.module.css";
+import styles from "./riddle.module.css";
 
 interface RiddleProps {
   setShowElement: (showList: boolean) => void;
@@ -19,8 +19,8 @@ const Riddle: FC<RiddleProps> = ({
 }) => {
   return (
     <>
-      <div className="riddle">
-        <span className="question">
+      <div className={styles.riddle}>
+        <span className={styles.question}>
           <p>{question}</p>
         </span>
 

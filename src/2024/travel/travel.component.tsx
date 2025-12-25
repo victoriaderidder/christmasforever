@@ -11,7 +11,6 @@ export const Travel2024: FC = () => {
   useEffect(() => {
     const play = async () => {
       await playSong(audioRefs?.angels.current);
-      console.log(audioRefs?.angels);
     };
     play();
   }, []);

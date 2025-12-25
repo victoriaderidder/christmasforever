@@ -13,7 +13,7 @@ export interface Journey2024Props {
 export const Journey2024 = ({ handleEnd, audioRefs }: Journey2024Props) => {
   const [showStory, setShowStory] = useState(true);
   const [riddle, setRiddle] = useState(<></>);
-  const [index, setIndex] = useState(Number);
+  const [index, setIndex] = useState(0);
   const { playSong } = useAudio(AUDIO_PATHS);
 
   const increment = () => {

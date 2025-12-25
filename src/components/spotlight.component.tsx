@@ -1,4 +1,4 @@
-import React, { FC, useRef, useState, useEffect } from "react";
+import React, { FC, useCallback, useEffect, useRef, useState } from "react";
 import styles from "../2025/App2025.module.css";
 
 interface SpotlightProps {
@@ -10,6 +10,15 @@ const Spotlight: FC<SpotlightProps> = ({ radius = 120, children }) => {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const [pos, setPos] = useState({ x: -9999, y: -9999 });
   const [active, setActive] = useState(true);
+
+  const setDefaultPosition = useCallback(() => {
+    const el = containerRef.current;
+    if (!el) return;
+    const rect = el.getBoundingClientRect();
+    if (rect.width <= 0 || rect.height <= 0) return;
+    setPos({ x: rect.width / 2, y: rect.height / 2 });
+    setActive(true);
+  }, []);
 
   const handleMove = (e: any) => {
     const el = containerRef.current;
@@ -27,6 +36,10 @@ const Spotlight: FC<SpotlightProps> = ({ radius = 120, children }) => {
   };
 
   useEffect(() => {
+    const raf = window.requestAnimationFrame(() => {
+      setDefaultPosition();
+    });
+
     const onDocMouseOut = (e: MouseEvent) => {
       if (!(e.relatedTarget as Node)) {
         handleLeave();
@@ -41,13 +54,16 @@ const Spotlight: FC<SpotlightProps> = ({ radius = 120, children }) => {
     document.addEventListener("mouseout", onDocMouseOut);
     window.addEventListener("blur", onWindowBlur);
     document.addEventListener("visibilitychange", onVisibilityChange);
+    window.addEventListener("resize", setDefaultPosition);
 
     return () => {
+      window.cancelAnimationFrame(raf);
       document.removeEventListener("mouseout", onDocMouseOut);
       window.removeEventListener("blur", onWindowBlur);
       document.removeEventListener("visibilitychange", onVisibilityChange);
+      window.removeEventListener("resize", setDefaultPosition);
     };
-  }, []);
+  }, [setDefaultPosition]);
 
   const mask = `radial-gradient(circle ${radius}px at ${pos.x}px ${pos.y}px, rgba(0,0,0,1) 0%, rgba(0,0,0,0.9) 40%, rgba(0,0,0,0) 70%)`;
 

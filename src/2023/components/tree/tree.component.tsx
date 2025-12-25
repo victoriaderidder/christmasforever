@@ -1,7 +1,6 @@
 import { Dispatch, FC, SetStateAction } from "react";
 import styles from "./tree.module.css";
 import BoxWrapper from "../box/box-wrapper.component";
-import Home from "../../../components/home.component";
 
 interface TreeProps {
   showTree: boolean;
@@ -28,7 +27,6 @@ const Tree: FC<TreeProps> = ({
     /* CSS tree tutorial: 
       https://aleksarad.medium.com/creating-a-simple-christmas-tree-with-pure-css-93e567fef0c9 */
     <div className={styles.main}>
-      <Home />
       <div className={styles.treeContainer}>
         <div className={styles.star}></div>
         <div className={styles.starHighlight}></div>

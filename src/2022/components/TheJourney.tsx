@@ -13,10 +13,9 @@ import Combination from "./Combination";
 import Menu from "./Menu";
 import { useAudio } from "../../audio/audio.hooks";
 import { AUDIO_PATHS } from "../../audio/audio.utils";
-import Home from "../../components/home.component";
 
 export default function Travel(this: any) {
-  const [index, setIndex] = useState(Number);
+  const [index, setIndex] = useState(0);
   const [bgColor, setBgColor] = useState("#282c34");
   const [showCookie, setShowCookie] = useState(false);
   const [showKnight, setShowKnight] = useState(false);
@@ -800,7 +799,6 @@ export default function Travel(this: any) {
     <>
       <div className="App" style={{ backgroundColor: bgColor }}>
         <div className="Menu-bar">
-          <Home />
           <Menu
             bgColor={bgColor}
             items={menuMap}

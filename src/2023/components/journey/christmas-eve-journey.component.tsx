@@ -7,7 +7,7 @@ import { useState } from "react";
 export const ChristmasEveJourney = ({ handleEnd, audioRefs }: JourneyProps) => {
   const [showStory, setShowStory] = useState(true);
   const [riddle, setRiddle] = useState(<></>);
-  const [index, setIndex] = useState(Number);
+  const [index, setIndex] = useState(0);
 
   const increment = () => {
     index === storyArray?.length - 1 ? handleEnd() : setIndex(index + 1);
