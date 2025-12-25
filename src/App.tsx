@@ -53,6 +53,16 @@ const RouteChangeHandler = ({
   return null;
 };
 
+const GlobalHome = () => {
+  const location = useLocation();
+
+  if (location.pathname === "/") {
+    return null;
+  }
+
+  return <Home />;
+};
+
 function App() {
   const { stopAllAudio } = useAudio(AUDIO_PATHS);
 
@@ -91,7 +101,7 @@ function App() {
   return (
     <Router basename={process.env.PUBLIC_URL || "/christmasforever"}>
       <RouteChangeHandler stopAllAudio={stopAllAudio} />
-      <Home />
+      <GlobalHome />
       <main className="main">
         <Routes>
           <Route
