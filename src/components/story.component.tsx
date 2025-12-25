@@ -32,12 +32,15 @@ const Story: FC<StoryProps> = ({ story, italic, hideButton }) => {
 
   return (
     <div style={containerStyle}>
-      <span style={textStyle}>{story}</span>
+      <span style={textStyle} data-journey-advance="true">
+        {story}
+      </span>
       {!hideButton && (
         <div style={{ display: "flex", justifyContent: "center" }}>
           <Button
             size="small"
             variant="contained"
+            data-journey-advance="true"
             style={{
               color: "white",
               backgroundColor: "inherit",

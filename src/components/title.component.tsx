@@ -9,6 +9,7 @@ const Title: FC<TitleProps> = ({ title, plain = false }) => {
   const clean = plain ? title.replace(/^>\s*/, "") : title;
   const h1Style: React.CSSProperties = {
     cursor: "pointer",
+    display: "inline-block",
     fontSize: "2.6rem",
     margin: "0 0 12px 0",
     textAlign: "center",
@@ -19,7 +20,9 @@ const Title: FC<TitleProps> = ({ title, plain = false }) => {
 
   return (
     <>
-      <h1 style={h1Style}>{plain ? clean : <u>{title}</u>}</h1>
+      <h1 style={h1Style} data-journey-advance="true">
+        {plain ? clean : <u>{title}</u>}
+      </h1>
     </>
   );
 };

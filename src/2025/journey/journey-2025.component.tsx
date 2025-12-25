@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, type MouseEventHandler } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useAudio } from "../../audio/audio.hooks";
 import { AUDIO_PATHS } from "../../audio/audio.utils";
@@ -91,6 +91,15 @@ export const Journey2025 = ({
     }
   };
 
+  const handleAdvanceClick: MouseEventHandler<HTMLDivElement> = (e) => {
+    if (!(e.target instanceof Element)) return;
+    const shouldAdvance = Boolean(
+      e.target.closest('[data-journey-advance="true"]')
+    );
+    if (!shouldAdvance) return;
+    increment();
+  };
+
   if (index >= storyArray.length) {
     return (
       <div className={`story ${styles["story-fullscreen-red"]}`}>
@@ -128,7 +137,7 @@ export const Journey2025 = ({
     return (
       <div
         className={`story ${styles["story-fullscreen-red"]}`}
-        onClick={increment}
+        onClick={handleAdvanceClick}
       >
         {currentStep}
       </div>
@@ -137,7 +146,7 @@ export const Journey2025 = ({
 
   return (
     <Spotlight radius={80}>
-      <div className="story" onClick={increment}>
+      <div className="story" onClick={handleAdvanceClick}>
         {currentStep}
       </div>
     </Spotlight>
